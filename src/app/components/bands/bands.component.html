@@ -1,0 +1,15 @@
+<div class="bands">
+  <div class="genres-selector">
+    <img src="assets/logo_main.png" alt="" class="logo">
+    <span class="text">они <br> делают белорусскую музыку</span>
+    <div class="genres">
+      <p class="genres__item" [class.genres__item_active]="item.id === selectedGenreId" (click)="activateGenre(item.id)" *ngFor="let item of genres">{{ item.text }}</p>
+    </div>
+  </div>
+
+  <div class="bands__list">
+    <div class="scroll-content">
+      <app-band-item [band]="item" *ngFor="let item of bands"></app-band-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+@import '../../../theme/fonts.scss';
+
+.bands {
+  width: 1430px;
+  @include flexMix($align: flex-start);
+  margin-top: 120px;
+
+  .genres-selector {
+    @include flexMix($align: flex-start, $justify: flex-start, $direction: column);
+    width: 30%;
+    height: 100%;
+    flex-shrink: 0;
+    padding-left: 130px;
+    box-sizing: border-box;
+    margin-top: 76px;
+
+    .logo {
+      margin-bottom: 46px;
+    }
+
+    .text {
+      text-transform: uppercase;
+      font-family: 'Code Source Medium';
+      font-size: 36px;
+      margin-bottom: 58px;
+    }
+
+    .genres {
+      @include fontStyle($color: $muted-font);
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      &__item {
+        &_active {
+          color: $active-font;
+        }
+      }
+    }
+  }
+
+  &__list {
+    width: 70%;
+    flex-shrink: 0;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background-image: url('../../../assets/snow_flake.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      left: -200px;
+      top: 0;
+      z-index: 0 ;
+    }
+
+    .scroll-content {
+      width: 100%;
+      flex-wrap: wrap;
+      max-height: 1840px;
+      overflow: hidden;
+      overflow-y: auto;
+      @include flexMix($justify: flex-start, $align: flex-start);
+    }
+  }
+}
+
+@media screen and (max-width: 1430px) {
+  .bands {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 80px;
+
+    .genres-selector {
+      width: 100%;
+      flex-direction: row;
+
+      .text {
+        display: none;
+      }
+
+      .logo {
+        margin-right: 50px;
+      }
+
+      .genres {
+        @include flexMix;
+        margin-bottom: 0;
+
+        &__item {
+          margin-right: 40px;
+        }
+      }
+    }
+
+    &__list {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bands {
+    margin-top: 30px;
+
+    .genres-selector {
+      padding-left: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bands {
+
+    .genres-selector {
+      flex-direction: column;
+      margin-top: 20px;
+
+      .logo {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__list {
+      padding-left: 30px;
+      box-sizing: border-box;
+    }
+  }
+}

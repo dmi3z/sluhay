@@ -1,0 +1,70 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+@import '../../../theme/fonts.scss';
+
+.card {
+  @include flexMix;
+  width: 1430px;
+  margin-bottom: 100px;
+
+  &_reverse {
+    flex-direction: row-reverse;
+  }
+
+  &__video {
+    position: relative;
+    width: 70%;
+    flex-shrink: 0;
+
+    .snow-flake {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &-content {
+      width: 100%;
+    }
+  }
+
+  &__data {
+    @include flexMix($align: flex-start, $direction: column);
+    width: 30%;
+    flex-shrink: 0;
+    padding-left: 130px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+
+    &-text {
+      color: $main-font;
+      font-size: 36px;
+      font-family: 'Code Source Medium';
+
+      &_red {
+        color: $active-font;
+      }
+    }
+
+    &-additional {
+      font-family: 'Code Source Light';
+      color: $muted-font;
+      font-size: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 1430px) {
+  .card {
+    width: 100%;
+
+    &__data {
+      padding-left: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    flex-direction: column;
+  }
+}

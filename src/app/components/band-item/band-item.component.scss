@@ -1,0 +1,71 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+@import '../../../theme/fonts.scss';
+
+:host {
+  width: 31%;
+  margin-right: 20px;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.band {
+  width: 100%;
+  margin-bottom: 60px;
+  @include flexMix($align: flex-start, $direction: column);
+  cursor: pointer;
+
+  &:hover {
+    .band__poster-layout {
+      opacity: 1;
+    }
+  }
+
+  &__poster {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 30px;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    &-layout {
+      @include flexMix($direction: column);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: rgba($color: $active-font, $alpha: .6);
+      z-index: 1;
+      text-transform: uppercase;
+      @include fontStyle(14px, white);
+      font-family: 'Code Source Light';
+      opacity: 0;
+      transition: .4s;
+
+      &-text {
+        margin-top: 17px;
+      }
+    }
+  }
+
+  &__name {
+    @include fontStyle(20px);
+    font-family: 'Code Source Bold';
+    margin-bottom: 20px;
+  }
+
+  &__genre {
+    @include fontStyle($color: $active-font);
+  }
+
+}
