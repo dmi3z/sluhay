@@ -2,12 +2,8 @@
   "name": "sluhay-web",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve -o",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start:dev": "ng serve -o",
+    "start": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +15,7 @@
     "@angular/platform-browser": "~10.1.5",
     "@angular/platform-browser-dynamic": "~10.1.5",
     "@angular/router": "~10.1.5",
+    "express": "^4.17.1",
     "hls.js": "^0.14.17",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
