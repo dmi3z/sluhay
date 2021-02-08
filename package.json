@@ -2,7 +2,6 @@
   "name": "sluhay-web",
   "version": "0.0.0",
   "scripts": {
-    "start:dev": "ng serve -o",
     "start": "node server.js"
   },
   "private": true,
