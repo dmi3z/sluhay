@@ -1,6 +1,17 @@
 <app-header></app-header>
 
-<video #video class="video"></video>
+<div class="banner">
+  <video #video class="video"></video>
+
+  <div class="banner__content">
+    <img src="assets/logo_main_big.png" alt="">
+
+    <span class="banner__content-name">
+      sluhay<span class="banner__content-name banner__content-name_active">.by</span>
+    </span>
+  </div>
+</div>
+
 
 <div class="wrapper">
   <app-content-card *ngFor="let item of contentCards; let even=even" [content]="item" [side]="even ? sides.LEFT : sides.RIGHT"></app-content-card>

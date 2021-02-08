@@ -9,6 +9,7 @@
   left: 0;
   top: 0;
   background: linear-gradient(to bottom, black, transparent);
+  z-index: 2;
 
   &__item {
     text-transform: uppercase;
