@@ -499,7 +499,7 @@ class AppComponent {
     playBanner() {
         const video = this.videoRef.nativeElement;
         video.muted = true;
-        this.playerService.playUrl('https://app.viloud.tv/hls/channel/3b04a550b716860f89c4bd0a7bea3d1f.m3u8', video);
+        this.playerService.playUrl('http://persik.by/stream/3502/32/10970.m3u8', video);
     }
     getGenres() {
         const genres = [
