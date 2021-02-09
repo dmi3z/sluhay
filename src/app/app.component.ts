@@ -9,6 +9,7 @@ import { switchMap, map, take } from 'rxjs/operators';
 import { DTOArtistInfo } from './interfaces/artists.dto.interfaces';
 import { forkJoin, Observable } from 'rxjs';
 import { PlayerService } from './services/player.service';
+import { SupportPerson } from './interfaces/support.interface';
 
 @Component({
   selector: 'app-root',
@@ -22,15 +23,18 @@ export class AppComponent implements OnInit {
   public genres: Genre[] = [];
   public allBands: DTOArtistInfo[] = [];
   public filteredBands: DTOArtistInfo[] = [];
+  public supportPersons: SupportPerson[] = [];
   public activeGenreId = 1;
 
   constructor(private dataService: DataService, private playerService: PlayerService) {}
 
   public ngOnInit(): void {
     this.genres = this.getGenres();
+    this.supportPersons = this.getSupportPersons();
+
     const allData$ = this.genres.slice(1)
       .map(({ id }) => this.getArtistsInfo(id));
-    forkJoin(allData$).pipe(map((data) => data.reduce((accum, item) => accum.concat(...item), [])),take(1))
+    forkJoin(allData$).pipe(map((data) => data.reduce((accum, item) => accum.concat(...item), [])), take(1))
       .subscribe((data) => {
         this.allBands = data;
         this.filteredBands = data;
@@ -100,5 +104,26 @@ export class AppComponent implements OnInit {
     ];
 
     return genres;
+  }
+
+  private getSupportPersons(): SupportPerson[] {
+    const persons: SupportPerson[] = [
+      {
+        name: 'Вадим',
+        since: 'янв.2021',
+        avatar: 'assets/vadim.jpg',
+        cost: '20',
+        role: 'Менеджер'
+      },
+      {
+        name: 'Анастасия',
+        since: 'янв.2021',
+        avatar: 'assets/anastasia.jpg',
+        cost: '10',
+        role: 'Бизнес-аналитик'
+      }
+    ];
+
+    return persons;
   }
 }

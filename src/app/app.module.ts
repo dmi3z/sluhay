@@ -8,6 +8,7 @@ import { BandsComponent } from './components/bands/bands.component';
 import { BandItemComponent } from './components/band-item/band-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BandLogoComponent } from './components/band-logo/band-logo.component';
+import { SupportPersonComponent } from './components/support-person/support-person.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BandLogoComponent } from './components/band-logo/band-logo.component';
     ContentCardComponent,
     BandsComponent,
     BandItemComponent,
-    BandLogoComponent
+    BandLogoComponent,
+    SupportPersonComponent
   ],
   imports: [
     BrowserModule,

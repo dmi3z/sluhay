@@ -1,0 +1,15 @@
+<div class="person">
+  <div class="person__avatar" [style.backgroundImage]="'url('+person.avatar+')'">
+  </div>
+
+  <div class="person__status">
+    <span class="name">{{ person.name }}</span>
+    <span class="role">{{ person.role }}</span>
+  </div>
+
+  <div class="person__pay">
+    <span class="text text_small">поддерживает проект</span>
+    <span class="text">{{ person.cost }} <span class="text_medium">руб/мес</span> </span>
+    <span class="text text_small">c {{ person.since }}</span>
+  </div>
+</div>
