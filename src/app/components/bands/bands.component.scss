@@ -16,6 +16,10 @@
     box-sizing: border-box;
     margin-top: 76px;
 
+    .group {
+      @include flexMix(flex-start, flex-start, column);
+    }
+
     .logo {
       margin-bottom: 46px;
     }
@@ -63,8 +67,8 @@
       overflow: hidden;
       overflow-y: auto;
       @include flexMix($justify: flex-start, $align: flex-start);
-
-
+      padding-left: 20px;
+      box-sizing: border-box;
     }
   }
 }
@@ -77,14 +81,19 @@
 
     .genres-selector {
       width: 100%;
-      flex-direction: row;
+      flex-direction: column;
+      padding-left: 30px;
+
+      .group {
+        @include flexMix(flex-start, center, row);
+      }
 
       .text {
         display: none;
       }
 
       .logo {
-        margin-right: 50px;
+        margin-right: 10px;
       }
 
       .genres {
@@ -109,6 +118,10 @@
 
     .genres-selector {
       padding-left: 30px;
+
+      .title {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -123,11 +136,44 @@
       .logo {
         margin-bottom: 10px;
       }
+
+      .title {
+        font-size: 26px;
+      }
+
+      .genres {
+        &__item {
+          margin-right: 25px;
+        }
+      }
     }
 
     &__list {
       padding-left: 30px;
       box-sizing: border-box;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .bands {
+    .genres-selector {
+      flex-direction: column;
+      margin-top: 20px;
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size: 23px;
+      }
+
+      .genres {
+        &__item {
+          margin-right: 15px;
+        }
+      }
     }
   }
 }

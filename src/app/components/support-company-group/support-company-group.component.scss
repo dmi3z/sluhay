@@ -1,0 +1,96 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+@import '../../../theme/fonts.scss';
+
+.support {
+  width: 1430px;
+  @include flexMix;
+  padding: 120px 0;
+  box-sizing: border-box;
+
+  &__persons {
+    width: 60%;
+    flex-shrink: 0;
+    position: relative;
+
+    .snow-flake {
+      position: absolute;
+      right: -200px;
+      top: calc(50% - 200px);
+      z-index: 0;
+    }
+
+    &_left {
+      .snow-flake {
+        left: -200px;
+        top: calc(50% - 200px);
+      }
+    }
+  }
+
+  &__myself {
+    padding-left: 130px;
+    box-sizing: border-box;
+    @include flexMix($align: flex-start, $direction: column);
+    position: relative;
+    z-index: 1;
+
+    .logo {
+      margin-bottom: 45px;
+    }
+
+    .button {
+      width: 210px;
+      height: 50px;
+      background-color: $active-font;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      text-transform: uppercase;
+      @include fontStyle(14px, white);
+      font-family: 'Code Source Bold';
+      @include flexMix;
+      margin-top: 37px;
+      text-decoration: none;
+
+      img {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1430px) {
+  .support {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1010px) {
+  .support {
+    @include flexMix($direction: column);
+    &__myself {
+      padding-left: 40px;
+      margin-bottom: 30px;
+    }
+
+    &__persons {
+      width: 100%;
+
+      .snow-flake {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .support {
+    &__myself {
+      .title {
+        font-size: 30px;
+      }
+    }
+  }
+}

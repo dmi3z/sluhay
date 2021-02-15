@@ -3,18 +3,28 @@ import { GENRES } from './genres.enum';
 
 export const CONTENT_CARDS: ContentCard[] = [
   {
-    genre: GENRES.RAP,
-    text: 'концерты и лайвы',
-    url: 'assets/stub.jpg'
-  },
-  {
-    genre: GENRES.ROCK,
-    text: 'драйв/смысл',
-    url: 'assets/stub.jpg'
+    genre: GENRES.LIVE,
+    text: 'концерты. лайвы',
+    url: 'http://persik.by/stream/3502/32/10975.m3u8'
   },
   {
     genre: GENRES.POP,
-    text: 'популярная музыка',
-    url: 'assets/stub.jpg'
+    text: 'популярная. музыка',
+    url: 'http://persik.by/stream/3502/32/10972.m3u8'
+  },
+  {
+    genre: GENRES.ROCK,
+    text: 'драйв. смысл',
+    url: 'http://persik.by/stream/3502/32/10971.m3u8'
+  },
+  {
+    genre: GENRES.EDM,
+    text: 'электронная. музыка',
+    url: 'http://persik.by/stream/3502/32/10973.m3u8'
+  },
+  {
+    genre: GENRES.RAP,
+    text: 'мастера. слова',
+    url: 'http://persik.by/stream/3502/32/10974.m3u8'
   }
 ];

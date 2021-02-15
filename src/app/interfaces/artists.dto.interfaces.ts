@@ -17,4 +17,5 @@ export interface DTOArtistInfo {
   name: string;
   video_id: number;
   year: string;
+  international_name: string;
 }

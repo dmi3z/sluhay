@@ -1,13 +1,15 @@
 <div class="card" [class.card_reverse]="side === sides.RIGHT">
   <div class="card__video">
-    <img class="card__video-content" [src]="content.url" alt="">
+    <video #player controls></video>
     <img class="snow-flake" src="assets/snow_flake.png" alt="">
   </div>
 
   <div class="card__data">
-    <app-band-logo class="card__video-content" [text]="content.genre"></app-band-logo>
-    <span class="card__data-text">sluhay<span class="card__data-text_red">.by</span></span>
-    <span class="card__data-text card__data-text_red">{{ content.genre }}</span>
-    <span class="card__data-additional">{{ content.text }}</span>
+    <app-band-logo class="card__data-content" [text]="content.genre"></app-band-logo>
+    <div class="container">
+      <span class="card__data-text">sluhay<span class="card__data-text_red">.by</span></span>
+      <span class="card__data-text card__data-text_red">{{ content.genre }}</span>
+      <span class="card__data-additional">{{ content.text }}</span>
+    </div>
   </div>
 </div>

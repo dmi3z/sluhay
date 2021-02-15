@@ -4,7 +4,7 @@ export const HEADER_ITEMS: HeaderItem[] = [
   {
     id: 0,
     name: 'Концерты и трансляции  LIVE',
-    tag: 'concerts'
+    tag: 'live'
   },
   {
     id: 1,
@@ -39,7 +39,7 @@ export const HEADER_ITEMS: HeaderItem[] = [
   {
     id: 7,
     name: 'подписка',
-    tag: 'subscription'
+    tag: 'subscriptions'
   },
   {
     id: 8,

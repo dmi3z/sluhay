@@ -10,17 +10,8 @@
   position: relative;
   z-index: 1;
 
-  &__avatar {
-    width: 240px;
-    height: 240px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    flex-shrink: 0;
-  }
-
   &__status {
-    width: 35%;
+    width: 65%;
     height: 240px;
     @include flexMix($align: flex-start, $direction: column);
     box-sizing: border-box;
@@ -29,14 +20,11 @@
     flex-shrink: 0;
     text-transform: uppercase;
 
-    .text {
-      display: none;
-    }
-
     .name {
       font-family: 'Code Source Bold';
       font-size: 20px;
       margin-bottom: 20px;
+      margin-top: 20px;
     }
 
     .role {
@@ -69,25 +57,12 @@
   }
 }
 
-@media screen and (max-width: 620px) {
-  .person {
-    &__status {
-      width: 100%;
-      flex-shrink: 1;
-
-      .text {
-        display: inline;
-      }
-    }
-
-    &__pay {
-      display: none;
-    }
-  }
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 530px) {
   .person {
     flex-direction: column;
+
+    &__status {
+      width: 100%;
+    }
   }
 }

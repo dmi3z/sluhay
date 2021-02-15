@@ -1,4 +1,4 @@
-import { SupportPerson } from './../../interfaces/support.interface';
+import { DTOArtistInfo } from './../../interfaces/artists.dto.interfaces';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SupportPersonComponent implements OnInit {
 
-  @Input() person: SupportPerson;
+  @Input() person: DTOArtistInfo;
 
   constructor() { }
 

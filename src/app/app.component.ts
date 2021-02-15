@@ -1,15 +1,15 @@
 import { SIDE } from './contsants/side.enum';
 import { CONTENT_CARDS } from './contsants/content-cards.constants';
 import { ContentCard } from './interfaces/content-card.interface';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Genre } from './interfaces/genre.interface';
 import { GENRES } from './contsants/genres.enum';
 import { DataService } from './services/data.service';
 import { switchMap, map, take } from 'rxjs/operators';
 import { DTOArtistInfo } from './interfaces/artists.dto.interfaces';
 import { forkJoin, Observable } from 'rxjs';
-import { PlayerService } from './services/player.service';
-import { SupportPerson } from './interfaces/support.interface';
+import { SupportCompany } from './interfaces/support.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,20 +17,21 @@ import { SupportPerson } from './interfaces/support.interface';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  @ViewChild('video', { static: true }) videoRef: ElementRef;
+
   public contentCards: ContentCard[] = CONTENT_CARDS;
   public sides = SIDE;
   public genres: Genre[] = [];
   public allBands: DTOArtistInfo[] = [];
   public filteredBands: DTOArtistInfo[] = [];
-  public supportPersons: SupportPerson[] = [];
+  public supportPersons: Observable<DTOArtistInfo[]>;
   public activeGenreId = 1;
+  public supportCompanies: SupportCompany[] = [];
 
-  constructor(private dataService: DataService, private playerService: PlayerService) {}
+  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) {}
 
   public ngOnInit(): void {
     this.genres = this.getGenres();
-    this.supportPersons = this.getSupportPersons();
+    this.supportCompanies = this.getSupportCompanies();
 
     const allData$ = this.genres.slice(1)
       .map(({ id }) => this.getArtistsInfo(id));
@@ -40,7 +41,9 @@ export class AppComponent implements OnInit {
         this.filteredBands = data;
       });
 
-    this.playBanner();
+    this.supportPersons = this.dataService.getArtistsIds(1384).pipe(switchMap((ids) => this.dataService.getArtistsInfo(ids)));
+
+    this.activatedRoute.fragment.subscribe(fragment => this.scrollToFragment(fragment));
   }
 
   public onGenreChange(genreId): void {
@@ -66,12 +69,6 @@ export class AppComponent implements OnInit {
       ),
       take(1)
     );
-  }
-
-  private playBanner(): void {
-    const video = this.videoRef.nativeElement as HTMLVideoElement;
-    video.muted = true;
-    this.playerService.playUrl('http://persik.by/stream/3502/32/10970.m3u8', video);
   }
 
   private getGenres(): Genre[] {
@@ -106,24 +103,34 @@ export class AppComponent implements OnInit {
     return genres;
   }
 
-  private getSupportPersons(): SupportPerson[] {
-    const persons: SupportPerson[] = [
+  private getSupportCompanies(): SupportCompany[] {
+    const companies: SupportCompany[] = [
       {
-        name: 'Вадим',
-        since: 'янв.2021',
-        avatar: 'assets/vadim.jpg',
-        cost: '20',
-        role: 'Менеджер'
+        name: 'Persik',
+        cost: 200,
+        logo: 'assets/persik_logo.png',
+        role: 'интерактивное тв',
+        since: 'с янв. 2021'
       },
       {
-        name: 'Анастасия',
-        since: 'янв.2021',
-        avatar: 'assets/anastasia.jpg',
-        cost: '10',
-        role: 'Бизнес-аналитик'
+        name: 'Infotelecom',
+        cost: 200,
+        logo: 'assets/persik_logo.png',
+        role: 'Телекоммуникации',
+        since: 'с янв. 2021'
       }
     ];
 
-    return persons;
+    return companies;
   }
+
+  private scrollToFragment(fragment: string): void {
+    if (fragment) {
+      const block = document.querySelector('#' + fragment);
+      if (block) {
+        block.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }
+
 }

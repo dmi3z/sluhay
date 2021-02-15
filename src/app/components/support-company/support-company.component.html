@@ -1,0 +1,13 @@
+<div class="person">
+  <div class="person__status">
+    <img [src]="company.logo" alt="">
+    <span class="name">{{ company.name }}</span>
+    <span class="role">{{ company.role }}</span>
+  </div>
+
+  <div class="person__pay">
+    <span class="text text_small">поддерживает проект</span>
+    <span class="text">{{ company.cost }} <span class="text_medium">руб/мес</span> </span>
+    <span class="text text_small">c {{ company.since }}</span>
+  </div>
+</div>

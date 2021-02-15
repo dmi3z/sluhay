@@ -1,0 +1,102 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+@import '../../../theme/fonts.scss';
+
+:host {
+  width: 1430px;
+
+  @media screen and (max-width: 1430px) {
+    width: 100%;
+  }
+}
+
+.subscription {
+  width: 1430px;
+  height: 260px;
+  background-image: url("../../../assets/support_banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include flexMix(space-between);
+  padding: 0 180px 0 130px;
+  box-sizing: border-box;
+
+  &__text {
+    text-transform: uppercase;
+    @include fontStyle(36px, white);
+  }
+
+  .form {
+    @include flexMix;
+    height: 50px;
+    width: 70%;
+
+    &__email {
+      height: 100%;
+      margin-right: 30px;
+      border-radius: 5px;
+      background-color: rgba($color: white, $alpha: 0.7);
+      padding-left: 15px;
+      border: none;
+      outline: none;
+      width: 100%;
+    }
+
+    &__button {
+      height: 100%;
+      width: 155px;
+      @include flexMix;
+      text-transform: uppercase;
+      background-color: #282e35;
+      border-radius: 5px;
+      @include fontStyle(14px, white);
+      font-family: "Code Source Bold";
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+
+      img {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1430px) {
+  .subscription {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .subscription {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .subscription {
+    width: 100%;
+    @include flexMix($align: flex-start, $direction: column);
+
+    .form {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .subscription {
+    .form {
+      &__email {
+        margin-right: 10px;
+      }
+
+      &__button {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}

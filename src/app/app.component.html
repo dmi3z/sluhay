@@ -1,42 +1,29 @@
 <app-header></app-header>
 
-<div class="banner">
-  <video #video class="video"></video>
-
-  <div class="banner__content">
-    <img src="assets/logo_main_big.png" alt="">
-
-    <span class="banner__content-name">
-      sluhay<span class="banner__content-name banner__content-name_active">.by</span>
-    </span>
-  </div>
-</div>
-
+<app-banner></app-banner>
 
 <div class="wrapper">
-  <app-content-card *ngFor="let item of contentCards; let even=even" [content]="item" [side]="even ? sides.LEFT : sides.RIGHT"></app-content-card>
+  <app-content-card [id]="item.genre" *ngFor="let item of contentCards; let even=even" [content]="item" [side]="even ? sides.LEFT : sides.RIGHT"></app-content-card>
 </div>
 
-<div class="wrapper wrapper_odd">
+<div class="wrapper wrapper_odd" id="musicions">
   <app-bands [selectedGenreId]="activeGenreId" [genres]="genres" [bands]="filteredBands" (changeGenre)="onGenreChange($event)"></app-bands>
 </div>
 
-<div class="wrapper">
-  <div class="support">
-    <div class="support__persons">
-      <img src="assets/snow_flake.png" class="snow-flake" alt="">
-      <app-support-person [person]="item" *ngFor="let item of supportPersons"></app-support-person>
-    </div>
-
-    <div class="support__myself">
-      <img class="logo" src="assets/logo_main.png" alt="">
-      <span class="title">они <br> поддерживают белорусскую <br> музыку</span>
-      <button class="button">
-        <img src="assets/play.png" alt="">
-        хочу поддержать
-      </button>
-    </div>
-  </div>
+<div class="wrapper" id="donates">
+  <app-support-person-group [supportPersons]="supportPersons | async"></app-support-person-group>
 </div>
 
+<div class="wrapper" id="subscriptions">
+  <app-subscription></app-subscription>
+</div>
 
+<div class="wrapper" id="companies">
+  <app-support-company-group [supportCompanies]="supportCompanies"></app-support-company-group>
+</div>
+
+<div class="wrapper wrapper_footer">
+  <span>sluhay.by</span>
+  <span>канал белорусской музыки</span>
+  <span class="copyright">©2021 Sluhay.by</span>
+</div>
