@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
       .map(({ id }) => this.getArtistsInfo(id));
     forkJoin(allData$).pipe(map((data) => data.reduce((accum, item) => accum.concat(...item), [])), take(1))
       .subscribe((data) => {
+        data.sort((a, b) => a.name.localeCompare(b.name));
         this.allBands = data;
         this.filteredBands = data;
       });
@@ -79,11 +80,6 @@ export class AppComponent implements OnInit {
         text: 'ВСЕ ЖАНРЫ',
       },
       {
-        id: 1380,
-        value: GENRES.EDM,
-        text: 'EDM',
-      },
-      {
         id: 1378,
         value: GENRES.ROCK,
         text: 'Rock',
@@ -92,6 +88,11 @@ export class AppComponent implements OnInit {
         id: 1379,
         value: GENRES.POP,
         text: 'Pop',
+      },
+      {
+        id: 1380,
+        value: GENRES.EDM,
+        text: 'EDM',
       },
       {
         id: 1381,

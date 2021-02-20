@@ -1,11 +1,17 @@
 <div class="subscription">
   <span class="subscription__text">подписка<br> на рассылку</span>
 
-  <form class="form">
-    <input type="text" placeholder="E-mail" class="form__email">
-    <a target="_blank" href="https://app.getresponse.com/site2/sluhay_b2b/?u=yhedG&webforms_id=B78ks" class="form__button">
+  <form class="form" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+    <input type="text" placeholder="E-mail" name="email" class="form__email">
+    <input type="hidden" name="campaign_token" value="oO1IO" />
+    <!-- Добавить подписчика в цикл на определенный день (по желанию) -->
+    <input type="hidden" name="start_day" value="0" />
+    <label class="form__button">
+
       <img src="assets/play.png" alt="">
       отправить
-    </a>
+      <input class="hidden" type="submit" value="Подписаться"/>
+    </label>
   </form>
 </div>
+

@@ -1,0 +1,13 @@
+<div class="wrapper" (click)="closePopup()">
+  <div class="popup" app-stop-propagation>
+    <div class="close" (click)="closePopup()">&#10006;</div>
+    <div (click)="prevSlide()" class="arrow">&larr;</div>
+    <div class="content">
+      <img class="poster" [src]="bands[index].cover" alt="">
+      <span class="name">{{ bands[index].name }}</span>
+      <span class="genre">{{ bands[index].genre.text }}</span>
+      <span class="description">{{ bands[index].description }}</span>
+    </div>
+    <div (click)="nextSlide()" class="arrow">&rarr;</div>
+  </div>
+</div>

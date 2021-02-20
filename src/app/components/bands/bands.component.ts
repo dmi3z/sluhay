@@ -12,6 +12,8 @@ export class BandsComponent implements OnInit {
   @Input() public bands: DTOArtistInfo[] = [];
   @Input() public selectedGenreId: number;
   @Output() changeGenre = new EventEmitter<number>();
+  public isPreviewOpened: boolean;
+  public previewedId: number;
 
   constructor() { }
 
@@ -20,6 +22,35 @@ export class BandsComponent implements OnInit {
 
   public activateGenre(genreId: number): void {
     this.changeGenre.next(genreId);
+  }
+
+  public openPreview(id: number): void {
+    this.isPreviewOpened = true;
+    this.previewedId = id;
+  }
+
+  public closePopup(): void {
+    this.isPreviewOpened = false;
+  }
+
+  public changeSlide(way: string): void {
+    if (way === 'next') {
+      this.nextSlide();
+    } else {
+      this.prevSlide();
+    }
+  }
+
+  private nextSlide(): void {
+    if (this.bands.length - 1 > this.previewedId) {
+      this.previewedId++;
+    }
+  }
+
+  private prevSlide(): void {
+    if (this.previewedId > 0) {
+      this.previewedId--;
+    }
   }
 
 }

@@ -1,0 +1,70 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+@import '../../../theme/fonts.scss';
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background: rgba($color: black, $alpha: .6);
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  @include flexMix;
+
+  .popup {
+    width: 70%;
+    background-color: white;
+    min-width: 320px;
+    @include flexMix;
+    position: relative;
+    padding: 25px 0;
+
+    .content {
+      width: 100%;
+      @include flexMix($direction: column);
+      text-align: center;
+
+      .name {
+        color: black;
+        text-transform: uppercase;
+        font-family: 'Code Source Bold';
+        margin-bottom: 10px;
+      }
+
+      .genre {
+        color: $active-font;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        font-size: 13px;
+        color: $muted-font;
+        max-height: 245px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .poster {
+        width: 100%;
+        margin-bottom: 15px;
+        max-width: 300px;
+      }
+    }
+
+    .arrow {
+      font-size: 40px;
+      padding: 0 25px;
+      cursor: pointer;
+    }
+
+    .close {
+      font-size: 25px;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: gray;
+    }
+  }
+}

@@ -12,7 +12,9 @@
 
   <div class="bands__list">
     <div class="scroll-content">
-      <app-band-item [band]="item" *ngFor="let item of bands"></app-band-item>
+      <app-band-item [band]="item" (click)="openPreview(i)" *ngFor="let item of bands; let i = index"></app-band-item>
     </div>
   </div>
 </div>
+
+<app-band-popup [bands]="bands" [index]="previewedId" *ngIf="isPreviewOpened" (hidePopup)="closePopup()" (changeSlide)="changeSlide($event)"></app-band-popup>

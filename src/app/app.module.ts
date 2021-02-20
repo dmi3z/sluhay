@@ -16,6 +16,10 @@ import { SupportPersonGroupComponent } from './components/support-person-group/s
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { SupportCompanyGroupComponent } from './components/support-company-group/support-company-group.component';
 import { RouterModule } from '@angular/router';
+import { BandPopupComponent } from './components/band-popup/band-popup.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { StopPropagationDirective } from './directives/stop-propagation.directice';
 
 @NgModule({
   declarations: [
@@ -31,12 +35,16 @@ import { RouterModule } from '@angular/router';
     BannerComponent,
     SupportPersonGroupComponent,
     SubscriptionComponent,
-    SupportCompanyGroupComponent
+    SupportCompanyGroupComponent,
+    BandPopupComponent,
+    StopPropagationDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([])
+    MatCarouselModule.forRoot(),
+    RouterModule.forRoot([]),
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
