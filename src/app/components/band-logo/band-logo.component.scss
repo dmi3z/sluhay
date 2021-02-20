@@ -17,10 +17,11 @@
 
   &__text {
     text-transform: uppercase;
-    font-family: 'Code Source Bold';
+    font-family: "Code Source Bold";
     @include fontStyle(35px, white);
-    margin-top: 12px;
+    margin-top: 14px;
     position: relative;
     z-index: 1;
+    filter: blur(0.5px);
   }
 }

@@ -18,7 +18,6 @@ import { SupportCompanyGroupComponent } from './components/support-company-group
 import { RouterModule } from '@angular/router';
 import { BandPopupComponent } from './components/band-popup/band-popup.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { StopPropagationDirective } from './directives/stop-propagation.directice';
 
 @NgModule({
@@ -42,7 +41,6 @@ import { StopPropagationDirective } from './directives/stop-propagation.directic
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatCarouselModule.forRoot(),
     RouterModule.forRoot([]),
     NoopAnimationsModule
   ],

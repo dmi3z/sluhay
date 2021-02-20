@@ -32,6 +32,23 @@
   width: 100%;
 }
 
+.controls {
+  @include flexMix($justify: flex-end);
+  padding: 0 30px;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+
+  &__fullscreen {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+}
+
 @media screen and (max-width: 580px) {
   .banner {
     &__content {

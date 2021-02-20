@@ -12,20 +12,10 @@
     width: 60%;
     flex-shrink: 0;
     position: relative;
-
-    .snow-flake {
-      position: absolute;
-      right: -200px;
-      top: calc(50% - 200px);
-      z-index: 0;
-    }
-
-    &_left {
-      .snow-flake {
-        left: -200px;
-        top: calc(50% - 200px);
-      }
-    }
+    height: 510px;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 10;
   }
 
   &__myself {
@@ -34,6 +24,13 @@
     @include flexMix($align: flex-start, $direction: column);
     position: relative;
     z-index: 1;
+
+    .snow-flake {
+      position: absolute;
+      left: -200px;
+      top: calc(50% - 200px);
+      z-index: 0;
+    }
 
     .logo {
       margin-bottom: 45px;
@@ -83,4 +80,20 @@
       }
     }
   }
+}
+
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dfdfdf;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $active-font;
+  height: 40px;
 }

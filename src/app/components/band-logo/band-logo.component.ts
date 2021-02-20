@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BandLogoComponent implements OnInit {
 
-  @Input() text: string;
+  @Input() data: string;
 
   constructor() { }
 
