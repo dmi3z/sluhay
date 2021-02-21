@@ -6,7 +6,7 @@
       <img class="poster" [src]="bands[index].cover" alt="">
       <span class="name">{{ bands[index].name }}</span>
       <span class="genre">{{ bands[index].genre.text }}</span>
-      <span class="description">{{ bands[index].description }}</span>
+      <span class="description">{{ descriptionText }}</span>
     </div>
     <div (click)="nextSlide()" class="arrow">&rarr;</div>
   </div>

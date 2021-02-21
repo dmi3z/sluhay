@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="modal">
+    <h2 class="title">
+      Огромное спасибо за ваше желание поддержать белорусскую музыку!
+    </h2>
+    <span class="subtitle">Напишите пожалуйста в форме ниже пару слов о Вашей компании и мы с Вами обязательно свяжемся</span>
+    <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+      <!-- Имя -->
+      Ваше имя: <input type="text" name="first_name"/><br/>
+      <!-- Поле Email (обязательно) -->
+      Эл. почта: <input type="text" name="email"/><br/>
+      Тел.: <input name="custom_phone" type="text" value="" /><br/>
+      Компания: <input name="custom_company" type="text" value="" /><br/>
+      Комментарий: <textarea name="custom_comment"></textarea><br/>
+      <!-- Токен списка -->
+      <!-- Получить API ID на: https://app.getresponse.com/campaign_list.html -->
+      <input type="hidden" name="campaign_token" value="oGzLv" />
+      <!-- Страница благодарности (по желанию) -->
+      <input type="hidden" name="thankyou_url" value="http://sluhay.by/spasibo"/>
+      <!-- Кнопка подписаться -->
+      <input type="submit" value="Отправить"/>
+     </form>
+  </div>
+</div>

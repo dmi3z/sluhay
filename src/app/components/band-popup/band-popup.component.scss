@@ -13,15 +13,18 @@
   @include flexMix;
 
   .popup {
-    width: 70%;
+    width: 95%;
+    height: 95%;
     background-color: white;
     min-width: 320px;
     @include flexMix;
     position: relative;
     padding: 25px 0;
+    box-sizing: border-box;
 
     .content {
       width: 100%;
+      height: 100%;
       @include flexMix($direction: column);
       text-align: center;
 
@@ -40,15 +43,12 @@
       .description {
         font-size: 13px;
         color: $muted-font;
-        max-height: 245px;
-        overflow: hidden;
-        position: relative;
       }
 
       .poster {
         width: 100%;
         margin-bottom: 15px;
-        max-width: 300px;
+        max-width: 440px;
       }
     }
 
@@ -56,6 +56,7 @@
       font-size: 40px;
       padding: 0 25px;
       cursor: pointer;
+      box-sizing: border-box;
     }
 
     .close {

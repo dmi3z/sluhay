@@ -1,0 +1,34 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+@import '../../../theme/fonts.scss';
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  @include flexMix;
+  background: rgba($color: black, $alpha: .6);
+  z-index: 1000;
+
+  .modal {
+    width: 50%;
+    min-width: 320px;
+    color: white;
+    background: $active-font;
+    box-sizing: border-box;
+    padding: 25px 0;
+    position: relative;
+    @include flexMix($direction: column);
+
+    .title {
+      text-transform: uppercase;
+      margin: 0;
+      font-family: 'Code Source Light';
+      font-size: 25px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+}

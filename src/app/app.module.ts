@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { BandPopupComponent } from './components/band-popup/band-popup.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { StopPropagationDirective } from './directives/stop-propagation.directice';
+import { FormsModalComponent } from './components/forms-modal/forms-modal.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { StopPropagationDirective } from './directives/stop-propagation.directic
     SubscriptionComponent,
     SupportCompanyGroupComponent,
     BandPopupComponent,
-    StopPropagationDirective
+    StopPropagationDirective,
+    FormsModalComponent
   ],
   imports: [
     BrowserModule,
