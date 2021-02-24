@@ -9,26 +9,91 @@
   left: 0;
   top: 0;
   @include flexMix;
-  background: rgba($color: black, $alpha: .6);
+  background: rgba($color: black, $alpha: .7);
   z-index: 1000;
 
   .modal {
     width: 50%;
     min-width: 320px;
+    max-width: 500px;
     color: white;
     background: $active-font;
     box-sizing: border-box;
     padding: 25px 0;
     position: relative;
     @include flexMix($direction: column);
+    padding: 35px;
+    text-align: center;
+
+    .close {
+      font-size: 35px;
+      color: white;
+      position: absolute;
+      right: -35px;
+      top: -35px;
+      cursor: pointer;
+    }
 
     .title {
       text-transform: uppercase;
       margin: 0;
       font-family: 'Code Source Light';
-      font-size: 25px;
+      font-size: 27px;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .form {
+      &-line {
+        width: 100%;
+        margin-bottom: 10px;
+        @include flexMix($justify: space-between);
+
+        input {
+          margin-right: 10px;
+          border-radius: 4px;
+          height: 30px;
+          outline: none;
+          border: none;
+          padding-left: 7px;
+          width: 100%;
+          background: rgba(white, .9);
+          font-family: 'Code Source Medium';
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        textarea {
+          width: 100%;
+          resize: none;
+          height: 150px;
+          outline: none;
+          border: none;
+          border-radius: 4px;
+          padding: 15px;
+          box-sizing: border-box;
+          background: rgba(white, .9);
+          font-family: 'Code Source Medium';
+        }
+      }
+
+      .send {
+        width: 150px;
+        height: 35px;
+        text-transform: uppercase;
+        outline: none;
+        border: none;
+        background-color: $medium-color;
+        color: white;
+        font-family: 'Code Source Bold';
+      }
     }
   }
 }

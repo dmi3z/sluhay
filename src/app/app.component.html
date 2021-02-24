@@ -19,7 +19,7 @@
 </div>
 
 <div class="wrapper" id="companies">
-  <app-support-company-group [supportCompanies]="supportCompanies"></app-support-company-group>
+  <app-support-company-group (openEvent)="openModal()" [supportCompanies]="supportCompanies"></app-support-company-group>
 </div>
 
 <div class="wrapper wrapper_footer">
@@ -28,5 +28,5 @@
   <span class="copyright">©2021 Sluhay.by</span>
 </div>
 
-<app-forms-modal></app-forms-modal>
+<app-forms-modal (closeEvent)="closeModal()" *ngIf="isShowCompanySupportModal"></app-forms-modal>
 

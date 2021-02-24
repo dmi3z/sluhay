@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   public supportPersons: Observable<DTOArtistInfo[]>;
   public activeGenreId = 1;
   public supportCompanies: SupportCompany[] = [];
+  public isShowCompanySupportModal: boolean;
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) {}
 
@@ -56,6 +57,14 @@ export class AppComponent implements OnInit {
     } else {
       this.filteredBands = this.allBands;
     }
+  }
+
+  public closeModal(): void {
+    this.isShowCompanySupportModal = false;
+  }
+
+  public openModal(): void {
+    this.isShowCompanySupportModal = true;
   }
 
   private getArtistsInfo(id: number): Observable<DTOArtistInfo[]> {
@@ -116,7 +125,7 @@ export class AppComponent implements OnInit {
       {
         name: 'Infotelecom',
         cost: 200,
-        logo: 'assets/persik_logo.png',
+        logo: 'assets/it.png',
         role: 'Телекоммуникации',
         since: 'с янв. 2021'
       }

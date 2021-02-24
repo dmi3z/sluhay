@@ -1,24 +1,28 @@
-<div class="wrapper">
-  <div class="modal">
+<div class="wrapper" (click)="closeModal()">
+  <div class="modal" (click)="stopProp($event)">
+    <div class="close" (click)="closeModal()">&#x2715;</div>
     <h2 class="title">
       Огромное спасибо за ваше желание поддержать белорусскую музыку!
     </h2>
     <span class="subtitle">Напишите пожалуйста в форме ниже пару слов о Вашей компании и мы с Вами обязательно свяжемся</span>
-    <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
-      <!-- Имя -->
-      Ваше имя: <input type="text" name="first_name"/><br/>
-      <!-- Поле Email (обязательно) -->
-      Эл. почта: <input type="text" name="email"/><br/>
-      Тел.: <input name="custom_phone" type="text" value="" /><br/>
-      Компания: <input name="custom_company" type="text" value="" /><br/>
-      Комментарий: <textarea name="custom_comment"></textarea><br/>
-      <!-- Токен списка -->
-      <!-- Получить API ID на: https://app.getresponse.com/campaign_list.html -->
+    <form class="form" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+      <div class="form-line">
+        <input type="text" placeholder="Ваше имя" name="first_name" />
+        <input name="custom_company" type="text" placeholder="Название компании" value="" />
+      </div>
+
+      <div class="form-line">
+        <input name="custom_phone" placeholder="Телефон" type="text" value="" />
+        <input type="text" placeholder="Эл. почта" name="email" />
+      </div>
+
+      <div class="form-line">
+        <textarea name="custom_comment" placeholder="Добавьте сообщение..."></textarea>
+      </div>
+
       <input type="hidden" name="campaign_token" value="oGzLv" />
-      <!-- Страница благодарности (по желанию) -->
-      <input type="hidden" name="thankyou_url" value="http://sluhay.by/spasibo"/>
-      <!-- Кнопка подписаться -->
-      <input type="submit" value="Отправить"/>
-     </form>
+      <input type="hidden" name="thankyou_url" value="http://sluhay.by/spasibo" />
+      <input class="send" type="submit" value="Отправить" />
+    </form>
   </div>
 </div>

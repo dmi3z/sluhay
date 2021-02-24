@@ -1,18 +1,20 @@
 import { SupportCompany } from './../../interfaces/support.interface';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-support-company-group',
   templateUrl: './support-company-group.component.html',
   styleUrls: ['./support-company-group.component.scss']
 })
-export class SupportCompanyGroupComponent implements OnInit {
+export class SupportCompanyGroupComponent {
 
   @Input() public supportCompanies: SupportCompany[] = [];
+  @Output() openEvent = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit(): void {
+  public openModal(): void {
+    this.openEvent.next();
   }
 
 }
