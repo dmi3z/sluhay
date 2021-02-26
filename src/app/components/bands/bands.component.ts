@@ -27,6 +27,8 @@ export class BandsComponent implements OnInit {
   public openPreview(id: number): void {
     this.isPreviewOpened = true;
     this.previewedId = id;
+    console.log(this.previewedId);
+
   }
 
   public closePopup(): void {
@@ -34,6 +36,8 @@ export class BandsComponent implements OnInit {
   }
 
   public changeSlide(way: string): void {
+    console.log(way);
+
     if (way === 'next') {
       this.nextSlide();
     } else {

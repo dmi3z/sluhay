@@ -300,11 +300,13 @@ class BandsComponent {
     openPreview(id) {
         this.isPreviewOpened = true;
         this.previewedId = id;
+        console.log(this.previewedId);
     }
     closePopup() {
         this.isPreviewOpened = false;
     }
     changeSlide(way) {
+        console.log(way);
         if (way === 'next') {
             this.nextSlide();
         }
@@ -879,7 +881,7 @@ class SubscriptionComponent {
     }
 }
 SubscriptionComponent.ɵfac = function SubscriptionComponent_Factory(t) { return new (t || SubscriptionComponent)(); };
-SubscriptionComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SubscriptionComponent, selectors: [["app-subscription"]], decls: 13, vars: 0, consts: [[1, "subscription"], [1, "subscription__text"], ["action", "https://app.getresponse.com/add_subscriber.html", "accept-charset", "utf-8", "method", "post", 1, "form"], ["type", "text", "placeholder", "E-mail", "name", "email", 1, "form__email"], ["type", "hidden", "name", "campaign_token", "value", "oO1IO"], ["type", "hidden", "name", "start_day", "value", "0"], [1, "form__button"], ["src", "assets/play.png", "alt", ""], ["type", "submit", "value", "\u041F\u043E\u0434\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F", 1, "hidden"]], template: function SubscriptionComponent_Template(rf, ctx) { if (rf & 1) {
+SubscriptionComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SubscriptionComponent, selectors: [["app-subscription"]], decls: 14, vars: 0, consts: [[1, "subscription"], [1, "subscription__text"], ["action", "https://app.getresponse.com/add_subscriber.html", "accept-charset", "utf-8", "method", "post", 1, "form"], ["type", "text", "placeholder", "E-mail", "name", "email", 1, "form__email"], ["type", "hidden", "name", "campaign_token", "value", "oO1IO"], ["type", "hidden", "name", "thankyou_url", "value", "http://sluhay.by/spasibo_za_podpisku"], ["type", "hidden", "name", "start_day", "value", "0"], [1, "form__button"], ["src", "assets/play.png", "alt", ""], ["type", "submit", "value", "\u041F\u043E\u0434\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F", 1, "hidden"]], template: function SubscriptionComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "\u043F\u043E\u0434\u043F\u0438\u0441\u043A\u0430");
@@ -890,10 +892,11 @@ SubscriptionComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "input", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "input", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "input", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "label", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "img", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "input", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "input", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "label", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "img", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "input", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -929,25 +932,38 @@ const _c0 = ["video"];
 class BannerComponent {
     constructor(playerService) {
         this.playerService = playerService;
-        this.isPlay = true;
     }
     ngOnInit() {
         this.video = this.videoRef.nativeElement;
-        this.video.onfullscreenchange = (event) => {
+        this.video.addEventListener('webkitfullscreenchange', () => {
+            this.isMuted = !this.isMuted;
+            this.video.muted = this.isMuted;
+        });
+        this.video.onfullscreenchange = () => {
             this.isMuted = !this.isMuted;
             this.video.muted = this.isMuted;
         };
         this.playBanner();
     }
     fullscreenMode() {
-        this.video.requestFullscreen();
+        if (this.video.requestFullscreen) {
+            this.video.requestFullscreen();
+        }
+        else if (this.video.webkitRequestFullScreen) {
+            this.video.webkitRequestFullScreen();
+        }
+        else if (this.video.mozRequestFullScreen) {
+            this.video.mozRequestFullScreen();
+        }
+        else if (this.video.msRequestFullScreen) {
+            this.video.mozRequestFullScreen();
+        }
         this.video.muted = false;
     }
     playBanner() {
         this.isMuted = true;
         this.video.muted = this.isMuted;
         this.playerService.playUrl('http://persik.by/stream/3502/32/10970.m3u8', this.video);
-        this.isPlay = true;
     }
 }
 BannerComponent.ɵfac = function BannerComponent_Factory(t) { return new (t || BannerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_player_service__WEBPACK_IMPORTED_MODULE_1__["PlayerService"])); };
@@ -956,7 +972,7 @@ BannerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.videoRef = _t.first);
-    } }, decls: 12, vars: 0, consts: [[1, "banner"], [1, "video"], ["video", ""], [1, "banner__content"], ["src", "assets/logo_main_big.png", "alt", ""], [1, "banner__content-name"], [1, "banner__content-name", "banner__content-name_active"], [1, "controls"], [1, "controls__fullscreen", 3, "click"], ["src", "assets/fullscreen.svg", "alt", ""]], template: function BannerComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 12, vars: 0, consts: [[1, "banner"], ["playsinline", "", 1, "video"], ["video", ""], [1, "banner__content"], ["src", "assets/logo_main_big.png", "alt", ""], [1, "banner__content-name"], [1, "banner__content-name", "banner__content-name_active"], [1, "controls"], [1, "controls__fullscreen", 3, "click"], ["src", "assets/fullscreen.svg", "alt", ""]], template: function BannerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "video", 1, 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
@@ -1464,7 +1480,7 @@ SupportCompanyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx.company.cost, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("c ", ctx.company.since, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.company.since);
     } }, styles: [".person[_ngcontent-%COMP%] {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  color: white;\n  margin-bottom: 30px;\n  position: relative;\n  z-index: 1;\n}\n.person__status[_ngcontent-%COMP%] {\n  width: 65%;\n  height: 240px;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n  flex-direction: column;\n  box-sizing: border-box;\n  padding-left: 30px;\n  background-color: #282e35;\n  flex-shrink: 0;\n  text-transform: uppercase;\n}\n.person__status[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  font-family: \"Code Source Bold\";\n  font-size: 20px;\n  margin-bottom: 20px;\n  margin-top: 20px;\n}\n.person__status[_ngcontent-%COMP%]   .role[_ngcontent-%COMP%] {\n  font-size: 18px;\n  color: #f91b1b;\n}\n.person__pay[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 240px;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n  flex-direction: column;\n  box-sizing: border-box;\n  padding-left: 30px;\n  background-color: #2e343a;\n  padding-right: 20px;\n}\n.person__pay[_ngcontent-%COMP%]   .text[_ngcontent-%COMP%] {\n  font-size: 30px;\n  font-family: \"Code Source Bold\";\n  text-transform: uppercase;\n}\n.person__pay[_ngcontent-%COMP%]   .text_small[_ngcontent-%COMP%] {\n  font-size: 14px;\n}\n.person__pay[_ngcontent-%COMP%]   .text_medium[_ngcontent-%COMP%] {\n  font-size: 20px;\n}\n@media screen and (max-width: 530px) {\n  .person[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .person__status[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zdXBwb3J0LWNvbXBhbnkvc3VwcG9ydC1jb21wYW55LmNvbXBvbmVudC5zY3NzIiwic3JjL3RoZW1lL21peGlucy5zY3NzIiwic3JjL3RoZW1lL2NvbG9ycy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UsV0FBQTtFQ0ZBLGFBQUE7RUFDQSxtQkFGdUM7RUFHdkMsdUJBSHVCO0VBSXZCLG1CQUoyRDtFREszRCxpQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtBQUNGO0FBQ0U7RUFDRSxVQUFBO0VBQ0EsYUFBQTtFQ1pGLGFBQUE7RUFDQSx1QkRZMkI7RUNYM0IsdUJBSHVCO0VBSXZCLHNCRFVtRDtFQUNqRCxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EseUJFZFM7RUZlVCxjQUFBO0VBQ0EseUJBQUE7QUFJSjtBQUZJO0VBQ0UsK0JBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtBQUlOO0FBREk7RUNwQkYsZUFEc0I7RUFFdEIsY0NSWTtBRmdDZDtBQUFFO0VBQ0UsV0FBQTtFQUNBLGFBQUE7RUNsQ0YsYUFBQTtFQUNBLHVCRGtDMkI7RUNqQzNCLHVCQUh1QjtFQUl2QixzQkRnQ21EO0VBQ2pELHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSx5QkVuQ1c7RUZvQ1gsbUJBQUE7QUFLSjtBQUhJO0VBQ0UsZUFBQTtFQUNBLCtCQUFBO0VBQ0EseUJBQUE7QUFLTjtBQUhNO0VBQ0UsZUFBQTtBQUtSO0FBRk07RUFDRSxlQUFBO0FBSVI7QUFFQTtFQUNFO0lBQ0Usc0JBQUE7RUFDRjtFQUNFO0lBQ0UsV0FBQTtFQUNKO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3N1cHBvcnQtY29tcGFueS9zdXBwb3J0LWNvbXBhbnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwiLi4vLi4vLi4vdGhlbWUvbWl4aW5zLnNjc3NcIjtcbkBpbXBvcnQgXCIuLi8uLi8uLi90aGVtZS9jb2xvcnMuc2Nzc1wiO1xuXG4ucGVyc29uIHtcbiAgd2lkdGg6IDEwMCU7XG4gIEBpbmNsdWRlIGZsZXhNaXg7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBjb2xvcjogd2hpdGU7XG4gIG1hcmdpbi1ib3R0b206IDMwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgei1pbmRleDogMTtcblxuICAmX19zdGF0dXMge1xuICAgIHdpZHRoOiA2NSU7XG4gICAgaGVpZ2h0OiAyNDBweDtcbiAgICBAaW5jbHVkZSBmbGV4TWl4KCRhbGlnbjogZmxleC1zdGFydCwgJGRpcmVjdGlvbjogY29sdW1uKTtcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICAgIHBhZGRpbmctbGVmdDogMzBweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkZGFyay1jb2xvcjtcbiAgICBmbGV4LXNocmluazogMDtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuXG4gICAgLm5hbWUge1xuICAgICAgZm9udC1mYW1pbHk6ICdDb2RlIFNvdXJjZSBCb2xkJztcbiAgICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gICAgICBtYXJnaW4tdG9wOiAyMHB4O1xuICAgIH1cblxuICAgIC5yb2xlIHtcbiAgICAgIEBpbmNsdWRlIGZvbnRTdHlsZSgkY29sb3I6ICRhY3RpdmUtZm9udCk7XG4gICAgfVxuICB9XG5cbiAgJl9fcGF5IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDI0MHB4O1xuICAgIEBpbmNsdWRlIGZsZXhNaXgoJGFsaWduOiBmbGV4LXN0YXJ0LCAkZGlyZWN0aW9uOiBjb2x1bW4pO1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgcGFkZGluZy1sZWZ0OiAzMHB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICRtZWRpdW0tY29sb3I7XG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcblxuICAgIC50ZXh0IHtcbiAgICAgIGZvbnQtc2l6ZTogMzBweDtcbiAgICAgIGZvbnQtZmFtaWx5OiAnQ29kZSBTb3VyY2UgQm9sZCc7XG4gICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuXG4gICAgICAmX3NtYWxsIHtcbiAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgfVxuXG4gICAgICAmX21lZGl1bSB7XG4gICAgICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cblxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNTMwcHgpIHtcbiAgLnBlcnNvbiB7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcblxuICAgICZfX3N0YXR1cyB7XG4gICAgICB3aWR0aDogMTAwJTtcbiAgICB9XG4gIH1cbn1cbiIsIlxuQG1peGluIGZsZXhNaXgoJGp1c3RpZnk6IGNlbnRlciwgJGFsaWduOiBjZW50ZXIsICRkaXJlY3Rpb246IHJvdykge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogJGFsaWduO1xuICBqdXN0aWZ5LWNvbnRlbnQ6ICRqdXN0aWZ5O1xuICBmbGV4LWRpcmVjdGlvbjogJGRpcmVjdGlvbjtcbn1cblxuQG1peGluIGZvbnRTdHlsZSgkc2l6ZTogMThweCwgJGNvbG9yOiAkbWFpbi1mb250KSB7XG4gIGZvbnQtc2l6ZTogJHNpemU7XG4gIGNvbG9yOiAkY29sb3I7XG59XG4iLCIkbWFpbi1mb250OiAjMDAwMDAwO1xuJG11dGVkLWZvbnQ6ICM0ODQ4NDk7XG4kYWN0aXZlLWZvbnQ6ICNmOTFiMWI7XG4kb2RkLWJhY2tncm91bmQ6ICNmMGYwZjA7XG4kZGFyay1jb2xvcjogIzI4MmUzNTtcbiRtZWRpdW0tY29sb3I6ICMyZTM0M2E7XG4kbGlnaHQtY29sb3I6ICNmMGYwZjA7XG4iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SupportCompanyComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -1511,7 +1527,7 @@ class SupportPersonGroupComponent {
     }
 }
 SupportPersonGroupComponent.ɵfac = function SupportPersonGroupComponent_Factory(t) { return new (t || SupportPersonGroupComponent)(); };
-SupportPersonGroupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SupportPersonGroupComponent, selectors: [["app-support-person-group"]], inputs: { supportPersons: "supportPersons" }, decls: 15, vars: 1, consts: [[1, "support"], [1, "support__persons"], [3, "person", 4, "ngFor", "ngForOf"], [1, "support__myself"], ["src", "assets/snow_flake.png", "alt", "", 1, "snow-flake"], ["src", "assets/logo_main.png", "alt", "", 1, "logo"], [1, "title"], ["href", "https://persik.by/private/tv-tarify", "target", "_blank", 1, "button"], ["src", "assets/play.png", "alt", ""], [3, "person"]], template: function SupportPersonGroupComponent_Template(rf, ctx) { if (rf & 1) {
+SupportPersonGroupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SupportPersonGroupComponent, selectors: [["app-support-person-group"]], inputs: { supportPersons: "supportPersons" }, decls: 15, vars: 1, consts: [[1, "support"], [1, "support__persons"], [3, "person", 4, "ngFor", "ngForOf"], [1, "support__myself"], ["src", "assets/snow_flake.png", "alt", "", 1, "snow-flake"], ["src", "assets/logo_main.png", "alt", "", 1, "logo"], [1, "title"], ["href", "http://ott.by/product/podderzhka-5-rubley-bel-muzykantov-2", "target", "_blank", 1, "button"], ["src", "assets/play.png", "alt", ""], [3, "person"]], template: function SupportPersonGroupComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, SupportPersonGroupComponent_app_support_person_2_Template, 1, 1, "app-support-person", 2);
@@ -1570,19 +1586,19 @@ class BandPopupComponent {
         this.changeSlide = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.hidePopup = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
-    ngOnInit() {
-        this.descriptionText = this.getDescriptionText(this.bands[this.index].description);
+    ngOnChanges(changes) {
+        if (changes.index) {
+            this.descriptionText = this.getDescriptionText(this.bands[this.index].description);
+        }
     }
     closePopup() {
         this.hidePopup.next();
     }
     nextSlide() {
         this.changeSlide.next('next');
-        this.descriptionText = this.getDescriptionText(this.bands[this.index].description);
     }
     prevSlide() {
         this.changeSlide.next('prev');
-        this.descriptionText = this.getDescriptionText(this.bands[this.index].description);
     }
     getDescriptionText(description) {
         const result = (description === null || description === void 0 ? void 0 : description.length) > 400 ? description.slice(0, 400) + '...' : description;
@@ -1590,7 +1606,7 @@ class BandPopupComponent {
     }
 }
 BandPopupComponent.ɵfac = function BandPopupComponent_Factory(t) { return new (t || BandPopupComponent)(); };
-BandPopupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: BandPopupComponent, selectors: [["app-band-popup"]], inputs: { bands: "bands", index: "index" }, outputs: { changeSlide: "changeSlide", hidePopup: "hidePopup" }, decls: 16, vars: 4, consts: [[1, "wrapper", 3, "click"], ["app-stop-propagation", "", 1, "popup"], [1, "close", 3, "click"], [1, "arrow", 3, "click"], [1, "content"], ["alt", "", 1, "poster", 3, "src"], [1, "name"], [1, "genre"], [1, "description"]], template: function BandPopupComponent_Template(rf, ctx) { if (rf & 1) {
+BandPopupComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: BandPopupComponent, selectors: [["app-band-popup"]], inputs: { bands: "bands", index: "index" }, outputs: { changeSlide: "changeSlide", hidePopup: "hidePopup" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]], decls: 16, vars: 4, consts: [[1, "wrapper", 3, "click"], ["app-stop-propagation", "", 1, "popup"], [1, "close", 3, "click"], [1, "arrow", 3, "click"], [1, "content"], ["alt", "", 1, "poster", 3, "src"], [1, "name"], [1, "genre"], [1, "description"]], template: function BandPopupComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BandPopupComponent_Template_div_click_0_listener() { return ctx.closePopup(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
