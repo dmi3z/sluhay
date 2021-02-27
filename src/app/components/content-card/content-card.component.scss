@@ -9,11 +9,15 @@
 
   &_reverse {
     flex-direction: row-reverse;
+
+    .snow-flake {
+      left: -25%;
+    }
   }
 
   &__video {
     position: relative;
-    width: 65%;
+    width: 55%;
     flex-shrink: 0;
 
     video {
@@ -25,7 +29,7 @@
     .snow-flake {
       position: absolute;
       top: 0;
-      right: 0;
+      right: -25%;
     }
 
     &-content {

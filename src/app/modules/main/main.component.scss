@@ -1,0 +1,10 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/colors.scss';
+
+.wrapper {
+  @include flexMix($direction: column);
+
+  &_odd {
+    background: $odd-background;
+  }
+}

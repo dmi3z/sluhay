@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<app-banner></app-banner>
+
+<div class="wrapper">
+  <app-content-card [id]="item.genre" *ngFor="let item of contentCards; let even=even" [content]="item" [side]="even ? sides.LEFT : sides.RIGHT"></app-content-card>
+</div>
+
+<div class="wrapper wrapper_odd" id="musicions">
+  <app-bands [selectedGenreId]="activeGenreId" [genres]="genres" [bands]="filteredBands" (changeGenre)="onGenreChange($event)"></app-bands>
+</div>
+
+<div class="wrapper" id="donates">
+  <app-support-person-group [supportPersons]="supportPersons | async"></app-support-person-group>
+</div>
+
+<div class="wrapper" id="subscriptions">
+  <app-subscription></app-subscription>
+</div>
+
+<div class="wrapper" id="companies">
+  <app-support-company-group (openEvent)="openModal()" [supportCompanies]="supportCompanies"></app-support-company-group>
+</div>
+
+
+
+<app-forms-modal (closeEvent)="closeModal()" *ngIf="isShowCompanySupportModal"></app-forms-modal>
+

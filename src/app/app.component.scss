@@ -2,15 +2,24 @@
 @import '../theme/colors.scss';
 @import '../theme/fonts.scss';
 
+.wave {
+  width: 100%;
+  background-image: url('../assets/wave.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 20%;
+  }
+}
+
 .wrapper {
   @include flexMix($direction: column);
 
-  &_odd {
-    background: $odd-background;
-  }
-
   &_footer {
-    border-top: 44px solid $light-color;
     height: 260px;
     text-transform: uppercase;
     @include fontStyle(24px, $muted-font);

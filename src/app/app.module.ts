@@ -1,3 +1,4 @@
+import { MainComponent } from './modules/main/main.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -20,6 +21,7 @@ import { BandPopupComponent } from './components/band-popup/band-popup.component
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { StopPropagationDirective } from './directives/stop-propagation.directice';
 import { FormsModalComponent } from './components/forms-modal/forms-modal.component';
+import { ThanksComponent } from './modules/thanks/thanks.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +40,23 @@ import { FormsModalComponent } from './components/forms-modal/forms-modal.compon
     SupportCompanyGroupComponent,
     BandPopupComponent,
     StopPropagationDirective,
-    FormsModalComponent
+    FormsModalComponent,
+    ThanksComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: MainComponent
+      },
+      {
+        path: 'spasibo_za_podpisku',
+        component: ThanksComponent
+      }
+    ]),
     NoopAnimationsModule
   ],
   providers: [],

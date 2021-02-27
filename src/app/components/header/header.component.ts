@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HeaderItem } from 'src/app/interfaces/header.interface';
 import { HEADER_ITEMS } from '../../contsants/header.constants';
 
@@ -8,6 +8,7 @@ import { HEADER_ITEMS } from '../../contsants/header.constants';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() isWhite: boolean;
 
   public headerItems: HeaderItem[] = HEADER_ITEMS;
 

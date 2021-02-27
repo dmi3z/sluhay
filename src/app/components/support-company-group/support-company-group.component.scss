@@ -5,20 +5,13 @@
 .support {
   width: 1430px;
   @include flexMix;
-  padding: 120px 0;
+  padding: 120px 0 0 0;
   box-sizing: border-box;
 
   &__persons {
     width: 60%;
     flex-shrink: 0;
     position: relative;
-
-    .snow-flake {
-      position: absolute;
-      right: -200px;
-      top: calc(50% - 200px);
-      z-index: 0;
-    }
 
     &_left {
       .snow-flake {
@@ -35,27 +28,15 @@
     position: relative;
     z-index: 1;
 
-    .logo {
-      margin-bottom: 45px;
+    .snow-flake {
+      position: absolute;
+      right: -200px;
+      top: calc(50% - 200px);
+      z-index: 0;
     }
 
-    .button {
-      width: 210px;
-      height: 50px;
-      background-color: $active-font;
-      border-radius: 5px;
-      outline: none;
-      border: none;
-      text-transform: uppercase;
-      @include fontStyle(14px, white);
-      font-family: 'Code Source Bold';
-      @include flexMix;
-      margin-top: 37px;
-      cursor: pointer;
-
-      img {
-        padding-right: 10px;
-      }
+    .logo {
+      margin-bottom: 45px;
     }
   }
 }

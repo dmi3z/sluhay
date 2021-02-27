@@ -1,0 +1,37 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/fonts.scss';
+@import '../../../theme//colors.scss';
+
+.wrapper {
+  width: 100%;
+  @include flexMix($direction: column);
+  padding-top: 20px;
+
+  &__content {
+    width: 100%;
+    @include flexMix;
+    position: relative;
+    height: 390px;
+    background-image: url('../../../assets/snow_flake.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 50px;
+
+    &-text {
+      text-align: center;
+      @include flexMix($direction: column);
+      font-size: 40px;
+      font-family: 'Code Source Bold';
+      width: 100%;
+      max-width: 750px;
+      padding: 0 10px;
+
+      .active {
+        color: $active-font;
+        margin-top: 20px;
+      }
+    }
+  }
+
+}

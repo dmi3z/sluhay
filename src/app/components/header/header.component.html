@@ -1,3 +1,3 @@
-<header class="header">
+<header class="header" [class.header_gradient]="!isWhite">
   <div routerLink="/" [fragment]="item.tag" class="header__item" *ngFor="let item of headerItems">{{ item.name }}</div>
 </header>
