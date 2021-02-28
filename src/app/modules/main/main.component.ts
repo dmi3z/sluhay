@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
   public activeGenreId = 1;
   public supportCompanies: SupportCompany[] = [];
   public isShowCompanySupportModal: boolean;
+  public isShowSpasiboModal: boolean;
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) {}
 
@@ -65,6 +66,14 @@ export class MainComponent implements OnInit {
 
   public openModal(): void {
     this.isShowCompanySupportModal = true;
+  }
+
+  public closeSpasiboModal(): void {
+    this.isShowSpasiboModal = false;
+  }
+
+  public openSpasiboModal(): void {
+    this.isShowSpasiboModal = true;
   }
 
   private getArtistsInfo(id: number): Observable<DTOArtistInfo[]> {

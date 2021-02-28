@@ -22,6 +22,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { StopPropagationDirective } from './directives/stop-propagation.directice';
 import { FormsModalComponent } from './components/forms-modal/forms-modal.component';
 import { ThanksComponent } from './modules/thanks/thanks.component';
+import { SpasiboPopupComponent } from './components/spasibo-popup/spasibo-popup.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ThanksComponent } from './modules/thanks/thanks.component';
     StopPropagationDirective,
     FormsModalComponent,
     ThanksComponent,
-    MainComponent
+    MainComponent,
+    SpasiboPopupComponent
   ],
   imports: [
     BrowserModule,

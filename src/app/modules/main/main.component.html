@@ -19,10 +19,11 @@
 </div>
 
 <div class="wrapper" id="companies">
-  <app-support-company-group (openEvent)="openModal()" [supportCompanies]="supportCompanies"></app-support-company-group>
+  <app-support-company-group (openEvent)="openSpasiboModal()" [supportCompanies]="supportCompanies"></app-support-company-group>
 </div>
 
 
 
-<app-forms-modal (closeEvent)="closeModal()" *ngIf="isShowCompanySupportModal"></app-forms-modal>
+<!-- <app-forms-modal (closeEvent)="closeModal()" *ngIf="isShowCompanySupportModal"></app-forms-modal> -->
+<app-spasibo-popup (closeEvent)="closeSpasiboModal()" *ngIf="isShowSpasiboModal"></app-spasibo-popup>
 

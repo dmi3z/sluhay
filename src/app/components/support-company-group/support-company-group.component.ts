@@ -14,6 +14,8 @@ export class SupportCompanyGroupComponent {
   constructor() { }
 
   public openModal(): void {
+    console.log(1);
+
     this.openEvent.next();
   }
 

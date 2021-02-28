@@ -31,8 +31,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @include flexMix;
   margin-top: 37px;
   cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
 
   img {
     padding-right: 10px;
+  }
+
+  &_dark {
+    background-color: $muted-font;
   }
 }
