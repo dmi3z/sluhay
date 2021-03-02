@@ -1,20 +1,5 @@
 <div class="banner">
-  <video #video playsinline class="video"></video>
+  <app-banner-player [url]="URL"></app-banner-player>
 
-  <div class="banner__content">
-    <img src="assets/logo_main_big.png" alt="">
 
-    <span class="banner__content-name">
-      sluhay<span class="banner__content-name banner__content-name_active">.by</span>
-    </span>
-
-    <div class="play-btn" (click)="fullscreenMode()">
-      <img class="play-btn__image" src="assets/play.svg" alt="">
-    </div>
-    <!-- <div class="controls">
-      <div class="controls__fullscreen" >
-        <img src="assets/fullscreen.svg" alt="">
-      </div>
-    </div> -->
-  </div>
 </div>

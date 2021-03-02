@@ -8,7 +8,7 @@
   position: relative;
   left: 0;
   top: 0;
-  z-index: 2;
+  z-index: 10;
 
   &_gradient {
     background: linear-gradient(to bottom, black, transparent);

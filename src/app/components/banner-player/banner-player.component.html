@@ -1,0 +1,31 @@
+<div class="wrapper" [class.wrapper_fullscreen]="isFullscreen">
+  <video #player playsinline class="player"></video>
+
+  <div class="banner-content" *ngIf="!isFullscreen">
+    <img src="assets/logo_main_big.png" alt="">
+
+    <span class="banner-content__name">
+      sluhay<span class="banner-content__name banner-content__name_active">.by</span>
+    </span>
+
+    <div class="play-btn" (click)="openFullscreen()">
+      <img class="play-btn__image" src="assets/play.svg" alt="">
+    </div>
+  </div>
+
+
+  <div class="controls" *ngIf="isFullscreen">
+    <ng-container *ngIf="isPlay then pause else play"></ng-container>
+    <img (click)="closeFullscreen()" src="assets/fullscreen.svg" alt="">
+  </div>
+</div>
+
+<ng-template #play>
+  <img (click)="togglePlay()" src="assets/play.svg" alt="">
+</ng-template>
+
+<ng-template #pause>
+  <img (click)="togglePlay()" src="assets/pause.svg" alt="">
+</ng-template>
+
+

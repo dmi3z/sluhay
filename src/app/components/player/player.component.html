@@ -1,0 +1,24 @@
+<div class="wrapper" [class.wrapper_fullscreen]="isFullscreen">
+  <video #player playsinline class="player"></video>
+  <div class="controls" *ngIf="controls">
+    <ng-container *ngIf="isPlay then pause else play"></ng-container>
+
+    <img (click)="toggleFullscreen()" src="assets/fullscreen.svg" alt="">
+
+    <!-- <div class="container">
+      <app-sound-range></app-sound-range>
+
+    </div> -->
+
+  </div>
+</div>
+
+<ng-template #play>
+  <img (click)="togglePlay()" src="assets/play.svg" alt="">
+</ng-template>
+
+<ng-template #pause>
+  <img (click)="togglePlay()" src="assets/pause.svg" alt="">
+</ng-template>
+
+

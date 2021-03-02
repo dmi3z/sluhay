@@ -9,6 +9,7 @@ export class PlayerService {
     hls.loadSource(url);
     hls.attachMedia(videoTag);
     if (autoplay) {
+      videoTag.muted = true;
       videoTag.play();
     }
   }

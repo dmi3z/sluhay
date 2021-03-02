@@ -23,6 +23,10 @@ import { StopPropagationDirective } from './directives/stop-propagation.directic
 import { FormsModalComponent } from './components/forms-modal/forms-modal.component';
 import { ThanksComponent } from './modules/thanks/thanks.component';
 import { SpasiboPopupComponent } from './components/spasibo-popup/spasibo-popup.component';
+import { PlayerComponent } from './components/player/player.component';
+import { BannerPlayerComponent } from './components/banner-player/banner-player.component';
+import { SoundRangeComponent } from './components/sound-range/sound-range.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -44,11 +48,15 @@ import { SpasiboPopupComponent } from './components/spasibo-popup/spasibo-popup.
     FormsModalComponent,
     ThanksComponent,
     MainComponent,
-    SpasiboPopupComponent
+    SpasiboPopupComponent,
+    PlayerComponent,
+    BannerPlayerComponent,
+    SoundRangeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxSliderModule,
     RouterModule.forRoot([
       {
         path: '',
