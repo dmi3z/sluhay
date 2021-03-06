@@ -37,4 +37,8 @@ export class PlayerComponent implements OnInit {
     }
   }
 
+  public onVolumeChange(value: number): void {
+    this.player.volume = (value / 100);
+  }
+
 }

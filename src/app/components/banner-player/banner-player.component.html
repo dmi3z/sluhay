@@ -8,15 +8,25 @@
       sluhay<span class="banner-content__name banner-content__name_active">.by</span>
     </span>
 
-    <div class="play-btn" (click)="openFullscreen()">
+    <span class="banner-content__big-title">
+      канал <br>белорусской музыки
+    </span>
+
+    <!-- <div class="play-btn" (click)="openFullscreen()">
       <img class="play-btn__image" src="assets/play.svg" alt="">
-    </div>
+    </div> -->
   </div>
 
 
-  <div class="controls" *ngIf="isFullscreen">
-    <ng-container *ngIf="isPlay then pause else play"></ng-container>
-    <img (click)="closeFullscreen()" src="assets/fullscreen.svg" alt="">
+  <div class="controls" >
+    <div class="controls__group">
+      <ng-container *ngIf="isPlay then pause else play"></ng-container>
+      <app-sound-range [isWhite]="true" (changeEvent)="onVolumeChange($event)"></app-sound-range>
+
+      <div class="onair">on air</div>
+    </div>
+
+    <img (click)="toggleFullscreen()" src="assets/fullscreen.png" alt="">
   </div>
 </div>
 

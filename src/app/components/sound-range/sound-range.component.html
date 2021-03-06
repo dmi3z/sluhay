@@ -1,1 +1,5 @@
-<ngx-slider [(value)]="value"  [options]="options"></ngx-slider>
+<div class="custom-slider">
+  <img class="icon" src="assets/sound.png" alt="">
+  <ngx-slider [(value)]="value" (valueChange)="onValueChange()" [options]="options"></ngx-slider>
+</div>
+

@@ -25,6 +25,11 @@ export class BannerPlayerComponent implements OnInit {
     this.playerService.playUrl(this.url, this.player, this.autoplay);
   }
 
+  public toggleFullscreen(): void {
+    this.isFullscreen = !this.isFullscreen;
+    this.player.muted = !this.player.muted;
+  }
+
   public openFullscreen(): void {
     this.isFullscreen = true;
     this.player.muted = false;
@@ -42,6 +47,10 @@ export class BannerPlayerComponent implements OnInit {
     } else {
       this.player.pause();
     }
+  }
+
+  public onVolumeChange(value: number): void {
+    this.player.volume = value / 100;
   }
 
 }

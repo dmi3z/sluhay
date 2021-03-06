@@ -1,24 +1,23 @@
 <div class="wrapper" [class.wrapper_fullscreen]="isFullscreen">
   <video #player playsinline class="player"></video>
   <div class="controls" *ngIf="controls">
-    <ng-container *ngIf="isPlay then pause else play"></ng-container>
+    <div class="controls__group">
+      <ng-container *ngIf="isPlay then pause else play"></ng-container>
+      <app-sound-range (changeEvent)="onVolumeChange($event)"></app-sound-range>
+    </div>
 
-    <img (click)="toggleFullscreen()" src="assets/fullscreen.svg" alt="">
 
-    <!-- <div class="container">
-      <app-sound-range></app-sound-range>
-
-    </div> -->
+    <img (click)="toggleFullscreen()" src="assets/fullscreen.png" alt="">
 
   </div>
 </div>
 
 <ng-template #play>
-  <img (click)="togglePlay()" src="assets/play.svg" alt="">
+  <img (click)="togglePlay()" src="assets/play.png" alt="">
 </ng-template>
 
 <ng-template #pause>
-  <img (click)="togglePlay()" src="assets/pause.svg" alt="">
+  <img (click)="togglePlay()" src="assets/pause.png" alt="">
 </ng-template>
 
 

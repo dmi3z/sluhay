@@ -43,3 +43,28 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: $muted-font;
   }
 }
+
+// .ngx-slider {
+//   .ngx-slider-pointer {
+//     width: 15px !important;
+//     height: 15px !important;
+//     background-color: $active-font !important;
+//     outline: none !important;
+//     top: -6px !important;
+
+//     &::after {
+//       display: none !important;
+//     }
+//   }
+
+
+//     .ngx-slider-selection {
+//       background-color: $active-font !important;
+//     }
+
+// }
+
+// .ngx-slider .ngx-slider-bar {
+//   opacity: .5;
+//   background: $active-font !important;
+// }
