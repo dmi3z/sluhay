@@ -71,6 +71,7 @@
     @include fontStyle(20px);
     font-family: 'Code Pro Bold LC';
     margin-bottom: 20px;
+    text-transform: uppercase;
   }
 
   &__genre {

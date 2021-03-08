@@ -1,4 +1,3 @@
-import { GENRES } from './../../contsants/genres.enum';
 import { map, take, switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from './../../services/data.service';
@@ -10,6 +9,8 @@ import { SIDE } from 'src/app/contsants/side.enum';
 import { CONTENT_CARDS } from './../../contsants/content-cards.constants';
 import { ContentCard } from './../../interfaces/content-card.interface';
 import { Component, OnInit } from '@angular/core';
+import { SUPPORT_COMPANIES } from './constants/support-companies.constants';
+import { GENRES_LIST } from './constants/genres.constants';
 
 @Component({
   selector: 'app-main',
@@ -20,21 +21,18 @@ export class MainComponent implements OnInit {
 
   public contentCards: ContentCard[] = CONTENT_CARDS;
   public sides = SIDE;
-  public genres: Genre[] = [];
+  public genres: Genre[] = GENRES_LIST;
   public allBands: DTOArtistInfo[] = [];
   public filteredBands: DTOArtistInfo[] = [];
   public supportPersons: Observable<DTOArtistInfo[]>;
   public activeGenreId = 1;
-  public supportCompanies: SupportCompany[] = [];
+  public supportCompanies: SupportCompany[] = SUPPORT_COMPANIES;
   public isShowCompanySupportModal: boolean;
   public isShowSpasiboModal: boolean;
 
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) {}
 
   public ngOnInit(): void {
-    this.genres = this.getGenres();
-    this.supportCompanies = this.getSupportCompanies();
-
     const allData$ = this.genres.slice(1)
       .map(({ id }) => this.getArtistsInfo(id));
     forkJoin(allData$).pipe(map((data) => data.reduce((accum, item) => accum.concat(...item), [])), take(1))
@@ -90,65 +88,14 @@ export class MainComponent implements OnInit {
     );
   }
 
-  private getGenres(): Genre[] {
-    const genres: Genre[] = [
-      {
-        id: 1,
-        value: GENRES.ALL,
-        text: 'ВСЕ ЖАНРЫ',
-      },
-      {
-        id: 1378,
-        value: GENRES.ROCK,
-        text: 'Rock',
-      },
-      {
-        id: 1379,
-        value: GENRES.POP,
-        text: 'Pop',
-      },
-      {
-        id: 1380,
-        value: GENRES.EDM,
-        text: 'EDM',
-      },
-      {
-        id: 1381,
-        value: GENRES.RAP,
-        text: 'Rap',
-      },
-    ];
-
-    return genres;
-  }
-
-  private getSupportCompanies(): SupportCompany[] {
-    const companies: SupportCompany[] = [
-      {
-        name: 'Persik',
-        cost: 200,
-        logo: 'assets/persik_logo.png',
-        role: 'интерактивное тв',
-        since: 'с янв. 2021'
-      },
-      {
-        name: 'Infotelecom',
-        cost: 200,
-        logo: 'assets/it.png',
-        role: 'Телекоммуникации',
-        since: 'с янв. 2021'
-      }
-    ];
-
-    return companies;
-  }
-
   private scrollToFragment(fragment: string): void {
     if (fragment) {
-      const block = document.querySelector('#' + fragment);
-      if (block) {
-        block.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      setTimeout(() => {
+        const block = document.querySelector('#' + fragment);
+        if (block) {
+          block.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
     }
   }
 

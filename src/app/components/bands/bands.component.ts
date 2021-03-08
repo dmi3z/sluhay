@@ -48,12 +48,16 @@ export class BandsComponent implements OnInit {
   private nextSlide(): void {
     if (this.bands.length - 1 > this.previewedId) {
       this.previewedId++;
+    } else {
+      this.previewedId = 0;
     }
   }
 
   private prevSlide(): void {
     if (this.previewedId > 0) {
       this.previewedId--;
+    } else {
+      this.previewedId = this.bands.length - 1;
     }
   }
 

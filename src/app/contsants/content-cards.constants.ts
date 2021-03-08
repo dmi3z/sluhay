@@ -3,8 +3,8 @@ import { GENRES } from './genres.enum';
 
 export const CONTENT_CARDS: ContentCard[] = [
   {
-    genre: GENRES.SLUHAY,
-    text: 'sluhay by',
+    genre: GENRES.CHANNEL,
+    text: 'белорусская музыка',
     url: 'http://persik.by/stream/3502/32/10970.m3u'
   },
   {
