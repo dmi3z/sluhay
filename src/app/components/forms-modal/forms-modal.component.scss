@@ -37,7 +37,7 @@
     .title {
       text-transform: uppercase;
       margin: 0;
-      font-family: 'Code Source Light';
+      font-family: 'Code Pro Light';
       font-size: 27px;
       text-align: center;
       margin-bottom: 20px;
@@ -63,7 +63,7 @@
           padding-left: 7px;
           width: 100%;
           background: rgba(white, .9);
-          font-family: 'Code Source Medium';
+          font-family: 'Code Pro';
 
           &:last-child {
             margin-right: 0;
@@ -80,7 +80,7 @@
           padding: 15px;
           box-sizing: border-box;
           background: rgba(white, .9);
-          font-family: 'Code Source Medium';
+          font-family: 'Code Pro';
         }
       }
 
@@ -92,7 +92,7 @@
         border: none;
         background-color: $medium-color;
         color: white;
-        font-family: 'Code Source Bold';
+        font-family: 'Code Pro Bold';
       }
     }
   }

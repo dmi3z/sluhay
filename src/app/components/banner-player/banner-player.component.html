@@ -15,10 +15,14 @@
     <!-- <div class="play-btn" (click)="openFullscreen()">
       <img class="play-btn__image" src="assets/play.svg" alt="">
     </div> -->
+    <span class="banner-content__letstart">
+      начни слушать белорусское <br>
+      <img src="assets/arrow_down.png" alt="">
+    </span>
   </div>
 
 
-  <div class="controls" >
+  <!-- <div class="controls" >
     <div class="controls__group">
       <ng-container *ngIf="isPlay then pause else play"></ng-container>
       <app-sound-range [isWhite]="true" (changeEvent)="onVolumeChange($event)"></app-sound-range>
@@ -27,7 +31,7 @@
     </div>
 
     <img (click)="toggleFullscreen()" src="assets/fullscreen.png" alt="">
-  </div>
+  </div> -->
 </div>
 
 <ng-template #play>

@@ -4,5 +4,6 @@ export enum GENRES {
   ROCK = 'rock',
   EDM = 'edm',
   ALL = 'all',
-  LIVE = 'live'
+  LIVE = 'live',
+  SLUHAY = 'sluhay'
 }

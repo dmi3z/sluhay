@@ -1,22 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './theme/fonts.scss';
-@import './theme/colors.scss';
-@import './theme/mixins.scss';
+@import "./theme/fonts.scss";
+@import "./theme/colors.scss";
+@import "./theme/mixins.scss";
+
+html {
+  height: 100%;
+}
 
 body {
-  font-family: 'Code Source Medium';
   margin: 0;
+  height: 100%;
+  font-family: "Code Pro LC";
 }
 
 .title {
-    text-transform: uppercase;
-    font-family: 'Code Source Medium';
-    font-size: 36px;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-family: "Code Pro";
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .button {
   width: 210px;
@@ -27,7 +29,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border: none;
   text-transform: uppercase;
   @include fontStyle(14px, white);
-  font-family: 'Code Source Bold';
+  font-family: "Code Pro Bold";
   @include flexMix;
   margin-top: 37px;
   cursor: pointer;
@@ -37,34 +39,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   img {
     padding-right: 10px;
+    width: 15px;
   }
 
   &_dark {
     background-color: $muted-font;
   }
 }
-
-// .ngx-slider {
-//   .ngx-slider-pointer {
-//     width: 15px !important;
-//     height: 15px !important;
-//     background-color: $active-font !important;
-//     outline: none !important;
-//     top: -6px !important;
-
-//     &::after {
-//       display: none !important;
-//     }
-//   }
-
-
-//     .ngx-slider-selection {
-//       background-color: $active-font !important;
-//     }
-
-// }
-
-// .ngx-slider .ngx-slider-bar {
-//   opacity: .5;
-//   background: $active-font !important;
-// }

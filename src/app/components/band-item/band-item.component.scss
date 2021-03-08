@@ -52,23 +52,29 @@
       z-index: 1;
       text-transform: uppercase;
       @include fontStyle(14px, white);
-      font-family: 'Code Source Light';
+      font-family: 'Code Pro Light';
       opacity: 0;
       transition: .4s;
 
       &-text {
         margin-top: 17px;
       }
+
+      img {
+        width: 10%;
+        min-width: 16px;
+      }
     }
   }
 
   &__name {
     @include fontStyle(20px);
-    font-family: 'Code Source Bold';
+    font-family: 'Code Pro Bold LC';
     margin-bottom: 20px;
   }
 
   &__genre {
+    font-family: 'Code Pro LC';
     @include fontStyle($color: $active-font);
   }
 

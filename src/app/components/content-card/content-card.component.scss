@@ -47,12 +47,13 @@
 
     .container {
       @include flexMix($align: flex-start, $direction: column);
+      margin-top: 45px;
     }
 
     &-text {
       color: $main-font;
       font-size: 36px;
-      font-family: "Code Source Medium";
+      font-family: "Code Pro";
 
       &_red {
         color: $active-font;
@@ -60,9 +61,10 @@
     }
 
     &-additional {
-      font-family: "Code Source Light";
+      font-family: "Code Pro Light";
       color: $muted-font;
       font-size: 32px;
+      margin-top: 45px;
     }
   }
 }

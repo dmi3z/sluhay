@@ -1,5 +1,5 @@
-@import '../../../theme/mixins.scss';
-@import '../../../theme/colors.scss';
+@import "../../../theme/mixins.scss";
+@import "../../../theme/colors.scss";
 
 .wrapper {
   width: 100%;
@@ -18,46 +18,61 @@
     @include flexMix;
   }
 
-    .banner-content {
-      box-sizing: border-box;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      padding-top: 130px;
-      @include flexMix($justify: flex-start, $direction: column);
-      z-index: 3;
+  .banner-content {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding-top: 130px;
+    @include flexMix($justify: flex-start, $direction: column);
+    z-index: 3;
 
-      &__name {
-        margin-top: 80px;
-        text-transform: uppercase;
-        font-family: 'Code Source Medium';
-        @include fontStyle(36px, white);
+    &__name {
+      margin-top: 100px;
+      text-transform: uppercase;
+      font-family: "Code Pro";
+      @include fontStyle(36px, white);
 
-        &_active {
-          color: $active-font;
-        }
-      }
-
-      &__big-title {
-        text-transform: uppercase;
-        font-size: 35px;
-        font-family: 'Code Source Light';
-        color: white;
-        opacity: .5;
-        text-align: center;
-        margin-top: 10px;
+      &_active {
+        color: $active-font;
       }
     }
+
+    &__big-title {
+      text-transform: uppercase;
+      font-size: 35px;
+      font-family: "Code Pro Light";
+      color: white;
+      opacity: 0.5;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    &__letstart {
+      font-size: 12px;
+      font-family: "Code Pro Light";
+      position: absolute;
+      bottom: 100px;
+      color: white;
+      text-transform: uppercase;
+      text-align: center;
+
+      img {
+        padding-top: 10px;
+        width: 22px;
+      }
+    }
+  }
 
   .play-btn {
     cursor: pointer;
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: rgba($color: $active-font, $alpha: .7);;
-    box-shadow: 0 0 0 20px rgba($color: $active-font, $alpha: .2);;
+    background-color: rgba($color: $active-font, $alpha: 0.7);
+    box-shadow: 0 0 0 20px rgba($color: $active-font, $alpha: 0.2);
     @include flexMix;
     position: absolute;
     bottom: 30%;
@@ -65,7 +80,7 @@
     z-index: 5;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       border: 1px solid white;
       width: 50px;
@@ -104,7 +119,7 @@
         color: white;
 
         &::after {
-          content: '';
+          content: "";
           width: 5px;
           height: 5px;
           background-color: $active-font;
@@ -123,22 +138,20 @@
     }
   }
 
-
   .player {
     width: 100%;
     height: 100%;
   }
 }
 
-
 @media screen and (max-width: 580px) {
   .banner-content {
-      img {
-        width: 20%;
-      }
-
-      &-name {
-        margin-top: 20px;
-      }
+    img {
+      width: 20%;
     }
+
+    &-name {
+      margin-top: 20px;
+    }
+  }
 }
