@@ -92,12 +92,23 @@
 
 @media screen and (max-width: 440px) {
   .subscription {
+    @include flexMix($direction: column);
+    &__text {
+      text-align: center;
+    }
+
     .form {
+      @include flexMix($direction: column);
+      height: auto;
+
       &__email {
-        margin-right: 10px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        height: 40px;
       }
 
       &__button {
+        height: 40px;
         img {
           display: none;
         }

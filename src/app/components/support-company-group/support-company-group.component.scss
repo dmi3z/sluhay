@@ -56,21 +56,31 @@
       margin-bottom: 30px;
     }
 
+    .snow-flake {
+      left: 30%;
+      width: 60%;
+    }
+
     &__persons {
       width: 100%;
-
-      .snow-flake {
-        display: none;
-      }
     }
   }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 545px) {
   .support {
     &__myself {
+      align-items: center;
+      padding-left: 5px;
+
       .title {
-        font-size: 30px;
+        text-align: center;
+      }
+
+      .snow-flake {
+        width: 60%;
+        left: 20%;
+        top: 20%;
       }
     }
   }

@@ -2,7 +2,7 @@
 
 <app-banner></app-banner>
 
-<div class="wrapper">
+ <div class="wrapper">
   <app-content-card [id]="item.genre" *ngFor="let item of contentCards; let even=even" [content]="item" [side]="even ? sides.LEFT : sides.RIGHT"></app-content-card>
 </div>
 

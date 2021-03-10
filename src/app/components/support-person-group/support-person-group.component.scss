@@ -56,9 +56,24 @@
 
     &__persons {
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .support {
+    &__myself {
+      align-items: center;
+      padding-left: 5px;
+
+      .title {
+        text-align: center;
+      }
 
       .snow-flake {
-        display: none;
+        width: 60%;
+        left: 20%;
+        top: 20%;
       }
     }
   }
