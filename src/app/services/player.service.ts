@@ -4,10 +4,8 @@ import * as Hls from 'hls.js';
 @Injectable({ providedIn: 'root' })
 export class PlayerService {
 
-  public playUrl(incomeUrl: string, videoTag: HTMLVideoElement, autoplay = true): void {
+  public playUrl(url: string, videoTag: HTMLVideoElement, autoplay = true): void {
     const hls = new Hls();
-    const url = this.parseUrl(incomeUrl);
-    console.log('URL: ', url);
     hls.loadSource(url);
     hls.attachMedia(videoTag);
     if (autoplay) {
@@ -16,13 +14,13 @@ export class PlayerService {
     }
   }
 
-  private parseUrl(url: string): string {
-    if (url.includes('https')) {
-      return url;
-    } else {
-      let newUrl = url.replace('http', 'https');
-      newUrl = newUrl.replace(':82', '');
-      return newUrl;
-    }
-  }
+  // private parseUrl(url: string): string {
+  //   if (url.includes('https')) {
+  //     return url;
+  //   } else {
+  //     let newUrl = url.replace('http', 'https');
+  //     newUrl = newUrl.replace(':82', '');
+  //     return newUrl;
+  //   }
+  // }
 }
