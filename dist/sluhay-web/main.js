@@ -843,13 +843,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class PlayerService {
-    playUrl(url, videoTag, autoplay = true) {
+    playUrl(incomeUrl, videoTag, autoplay = true) {
         const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
+        const url = this.parseUrl(incomeUrl);
         hls.loadSource(url);
         hls.attachMedia(videoTag);
         if (autoplay) {
             videoTag.muted = true;
             videoTag.play();
+        }
+    }
+    parseUrl(url) {
+        if (url.includes('https')) {
+            return url;
+        }
+        else {
+            const newUrl = url.replace(':82', '');
+            return newUrl;
         }
     }
 }
