@@ -846,6 +846,7 @@ class PlayerService {
     playUrl(incomeUrl, videoTag, autoplay = true) {
         const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
         const url = this.parseUrl(incomeUrl);
+        console.log('URL: ', url);
         hls.loadSource(url);
         hls.attachMedia(videoTag);
         if (autoplay) {

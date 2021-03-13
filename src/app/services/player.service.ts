@@ -7,6 +7,7 @@ export class PlayerService {
   public playUrl(incomeUrl: string, videoTag: HTMLVideoElement, autoplay = true): void {
     const hls = new Hls();
     const url = this.parseUrl(incomeUrl);
+    console.log('URL: ', url);
     hls.loadSource(url);
     hls.attachMedia(videoTag);
     if (autoplay) {
