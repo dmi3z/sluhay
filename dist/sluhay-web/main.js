@@ -845,19 +845,27 @@ __webpack_require__.r(__webpack_exports__);
 class PlayerService {
     playUrl(url, videoTag, autoplay = true) {
         if (navigator.userAgent.includes('iPhone')) {
-            videoTag.src = url;
-            videoTag.muted = true;
-            videoTag.play();
+            this.iPhonePlayer(url, videoTag, autoplay);
+        }
+        else {
+            this.standartPlayer(url, videoTag, autoplay);
+        }
+    }
+    iPhonePlayer(url, videoTag, autoplay) {
+        videoTag.src = url;
+        videoTag.muted = true;
+        videoTag.play();
+        if (!autoplay) {
             setTimeout(() => {
                 videoTag.pause();
                 videoTag.muted = false;
             }, 100);
         }
-        else {
-            const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
-            hls.loadSource(url);
-            hls.attachMedia(videoTag);
-        }
+    }
+    standartPlayer(url, videoTag, autoplay) {
+        const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
+        hls.loadSource(url);
+        hls.attachMedia(videoTag);
         if (autoplay) {
             videoTag.muted = true;
             videoTag.play();

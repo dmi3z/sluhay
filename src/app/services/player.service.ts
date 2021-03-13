@@ -6,31 +6,31 @@ export class PlayerService {
 
   public playUrl(url: string, videoTag: HTMLVideoElement, autoplay = true): void {
     if (navigator.userAgent.includes('iPhone')) {
-      videoTag.src = url;
-      videoTag.muted = true;
-      videoTag.play();
+      this.iPhonePlayer(url, videoTag, autoplay);
+    } else {
+      this.standartPlayer(url, videoTag, autoplay);
+    }
+  }
+
+  private iPhonePlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
+    videoTag.src = url;
+    videoTag.muted = true;
+    videoTag.play();
+    if (!autoplay) {
       setTimeout(() => {
         videoTag.pause();
         videoTag.muted = false;
       }, 100);
-    } else {
-      const hls = new Hls();
-      hls.loadSource(url);
-      hls.attachMedia(videoTag);
     }
+  }
+
+  private standartPlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
+    const hls = new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(videoTag);
     if (autoplay) {
       videoTag.muted = true;
       videoTag.play();
     }
   }
-
-  // private parseUrl(url: string): string {
-  //   if (url.includes('https')) {
-  //     return url;
-  //   } else {
-  //     let newUrl = url.replace('http', 'https');
-  //     newUrl = newUrl.replace(':82', '');
-  //     return newUrl;
-  //   }
-  // }
 }
