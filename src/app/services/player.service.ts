@@ -6,8 +6,13 @@ export class PlayerService {
 
   public playUrl(url: string, videoTag: HTMLVideoElement, autoplay = true): void {
     if (navigator.userAgent.includes('iPhone')) {
-      console.log('Im here');
       videoTag.src = url;
+      videoTag.muted = true;
+      videoTag.play();
+      setTimeout(() => {
+        videoTag.pause();
+        videoTag.muted = false;
+      }, 100);
     } else {
       const hls = new Hls();
       hls.loadSource(url);

@@ -845,8 +845,13 @@ __webpack_require__.r(__webpack_exports__);
 class PlayerService {
     playUrl(url, videoTag, autoplay = true) {
         if (navigator.userAgent.includes('iPhone')) {
-            console.log('Im here');
             videoTag.src = url;
+            videoTag.muted = true;
+            videoTag.play();
+            setTimeout(() => {
+                videoTag.pause();
+                videoTag.muted = false;
+            }, 100);
         }
         else {
             const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
