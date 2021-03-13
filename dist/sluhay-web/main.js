@@ -843,26 +843,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class PlayerService {
-    constructor(platform) {
-        this.platform = platform;
-    }
     playUrl(url, videoTag, autoplay = true) {
-        console.log(navigator.userAgent);
-        const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
-        hls.loadSource(url);
-        hls.attachMedia(videoTag);
+        if (navigator.userAgent.includes('iPhone')) {
+            console.log('Im here');
+            videoTag.src = url;
+        }
+        else {
+            const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
+            hls.loadSource(url);
+            hls.attachMedia(videoTag);
+        }
         if (autoplay) {
             videoTag.muted = true;
             videoTag.play();
         }
     }
 }
-PlayerService.ɵfac = function PlayerService_Factory(t) { return new (t || PlayerService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["PlatformRef"])); };
+PlayerService.ɵfac = function PlayerService_Factory(t) { return new (t || PlayerService)(); };
 PlayerService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: PlayerService, factory: PlayerService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PlayerService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{ providedIn: 'root' }]
-    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["PlatformRef"] }]; }, null); })();
+    }], null, null); })();
 
 
 /***/ }),
