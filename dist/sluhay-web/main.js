@@ -843,7 +843,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class PlayerService {
+    constructor(platform) {
+        this.platform = platform;
+    }
     playUrl(url, videoTag, autoplay = true) {
+        console.log(navigator.userAgent);
         const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
         hls.loadSource(url);
         hls.attachMedia(videoTag);
@@ -853,12 +857,12 @@ class PlayerService {
         }
     }
 }
-PlayerService.ɵfac = function PlayerService_Factory(t) { return new (t || PlayerService)(); };
+PlayerService.ɵfac = function PlayerService_Factory(t) { return new (t || PlayerService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["PlatformRef"])); };
 PlayerService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: PlayerService, factory: PlayerService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PlayerService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{ providedIn: 'root' }]
-    }], null, null); })();
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["PlatformRef"] }]; }, null); })();
 
 
 /***/ }),
