@@ -858,7 +858,8 @@ class PlayerService {
             return url;
         }
         else {
-            const newUrl = url.replace(':82', '');
+            let newUrl = url.replace('http', 'https');
+            newUrl = newUrl.replace(':82', '');
             return newUrl;
         }
     }
