@@ -2,19 +2,35 @@
   <div class="genres-selector">
     <div class="group">
       <img src="assets/logo_channel.png" alt="" class="logo">
-      <span class="title">они <br> делают белорусскую музыку</span>
+      <span class="title">они <br *ngIf="!isMobileView"> делают <br *ngIf="isMobileView"> белорусскую музыку</span>
     </div>
 
-    <div class="genres">
+    <div class="genres" *ngIf="!isMobileView">
       <p class="genres__item" [class.genres__item_active]="item.id === selectedGenreId" (click)="activateGenre(item.id)" *ngFor="let item of genres">{{ item.text }}</p>
     </div>
   </div>
 
+  <ng-container *ngIf="isMobileView then mobile else desktop"></ng-container>
+</div>
+
+<app-band-popup [bands]="bands" [index]="previewedId" *ngIf="isPreviewOpened" (hidePopup)="closePopup()" (changeSlide)="changeSlide($event)"></app-band-popup>
+
+
+<ng-template #desktop>
   <div class="bands__list">
     <div class="scroll-content">
       <app-band-item [band]="item" (click)="openPreview(i)" *ngFor="let item of bands; let i = index"></app-band-item>
     </div>
   </div>
-</div>
+</ng-template>
 
-<app-band-popup [bands]="bands" [index]="previewedId" *ngIf="isPreviewOpened" (hidePopup)="closePopup()" (changeSlide)="changeSlide($event)"></app-band-popup>
+<ng-template #mobile>
+  <div class="section" [style.width.px]="currentWidth" *ngFor="let genre of genres.slice(1)">
+    <div class="section__genre">{{ genre.text }}</div>
+    <div class="section__content">
+      <div class="section__content-scroll">
+        <app-band-item-horizontal [dimension]="currentWidth" [band]="band" *ngFor="let band of allBands | appBandsGenrePipe:genre.id"></app-band-item-horizontal>
+      </div>
+    </div>
+  </div>
+</ng-template>

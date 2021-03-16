@@ -1,7 +1,7 @@
-import { GENRES } from "../contsants/genres.enum";
+import { GENRES } from '../contsants/genres.enum';
 
 export interface Genre {
   id: number;
-  value: GENRES,
+  value: GENRES;
   text: string;
 }

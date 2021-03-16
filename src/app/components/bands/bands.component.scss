@@ -73,6 +73,33 @@
   }
 }
 
+.section {
+  margin-bottom: 60px;
+
+  &__genre {
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    @include fontStyle(32px, $dark-color);
+    font-family: 'Code Pro Bold';
+  }
+
+  &__content {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+
+    &-scroll {
+      overflow-y: hidden;
+      overflow-x: auto;
+      padding: 10px 0;
+      @include flexMix(flex-start);
+    }
+  }
+}
+
 @media screen and (max-width: 1430px) {
   .bands {
     width: 100%;
@@ -118,9 +145,17 @@
 
     .genres-selector {
       padding-left: 30px;
+      padding-right: 30px;
 
       .title {
-        margin-bottom: 0;
+        margin-bottom: 40px;
+        text-align: center;
+
+      }
+
+      .group {
+        width: 100%;
+        @include flexMix($direction: column);
       }
     }
   }
@@ -180,6 +215,7 @@
 
 ::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 /* Track */

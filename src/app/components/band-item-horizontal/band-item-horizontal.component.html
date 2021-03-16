@@ -1,0 +1,5 @@
+<div class="item" [style.width.px]="dimension - dimension / 4" (click)="selectBand()">
+  <div class="item__image" [style.backgroundImage]="'url(' + band.cover + ')'"></div>
+  <div class="item__name">{{ band.name }}</div>
+  <div class="item__genre">{{ band.genre.text }}</div>
+</div>

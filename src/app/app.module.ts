@@ -27,6 +27,8 @@ import { PlayerComponent } from './components/player/player.component';
 import { BannerPlayerComponent } from './components/banner-player/banner-player.component';
 import { SoundRangeComponent } from './components/sound-range/sound-range.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { BandItemHorizontalComponent } from './components/band-item-horizontal/band-item-horizontal.component';
+import { BandsGenrePipe } from './pipes/bands-genre.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     SpasiboPopupComponent,
     PlayerComponent,
     BannerPlayerComponent,
-    SoundRangeComponent
+    SoundRangeComponent,
+    BandItemHorizontalComponent,
+    BandsGenrePipe
   ],
   imports: [
     BrowserModule,
