@@ -10,7 +10,7 @@ export class BandItemHorizontalComponent implements OnInit {
   @Input() public dimension: number;
   @Input() public band: DTOArtistInfo;
   @Input() public index: number;
-  @Output() public selectEvent = new EventEmitter<number>();
+  @Output() public selectEvent = new EventEmitter<DTOArtistInfo>();
 
   constructor() { }
 
@@ -18,7 +18,7 @@ export class BandItemHorizontalComponent implements OnInit {
   }
 
   public selectBand(): void {
-    // this.selectEvent.next({ index: this.index,  })
+    this.selectEvent.next(this.band);
   }
 
 }

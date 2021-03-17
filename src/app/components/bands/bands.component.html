@@ -29,7 +29,7 @@
     <div class="section__genre">{{ genre.text }}</div>
     <div class="section__content">
       <div class="section__content-scroll">
-        <app-band-item-horizontal [dimension]="currentWidth" [band]="band" *ngFor="let band of allBands | appBandsGenrePipe:genre.id"></app-band-item-horizontal>
+        <app-band-item-horizontal (selectEvent)="openPreviewHorizontal($event, genre)" [dimension]="currentWidth" [band]="band" *ngFor="let band of allBands | appBandsGenrePipe:genre.id"></app-band-item-horizontal>
       </div>
     </div>
   </div>

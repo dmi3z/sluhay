@@ -16,6 +16,10 @@
     overflow: hidden;
     overflow-y: auto;
     z-index: 10;
+
+    .button {
+      display: none;
+    }
   }
 
   &__myself {
@@ -56,6 +60,27 @@
 
     &__persons {
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .support {
+    &__persons {
+      overflow: visible;
+      height: auto;
+
+      .button {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 50px;
+      }
+    }
+
+    &__myself {
+      .button {
+        display: none;
+      }
     }
   }
 }

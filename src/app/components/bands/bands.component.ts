@@ -39,6 +39,16 @@ export class BandsComponent implements OnInit {
     this.previewedId = id;
   }
 
+  public openPreviewHorizontal(band: DTOArtistInfo, genre: Genre): void {
+    if (genre.id !== 1) {
+      this.bands = this.allBands.filter(item => item.genres.includes(genre.id));
+    } else {
+      this.bands = this.allBands;
+    }
+    const index = this.bands.indexOf(band);
+    this.openPreview(index);
+  }
+
   public closePopup(): void {
     this.isPreviewOpened = false;
   }

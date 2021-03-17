@@ -41,6 +41,10 @@
     background-color: $medium-color;
     padding-right: 20px;
 
+    .description {
+      display: none;
+    }
+
     .text {
       font-size: 30px;
       font-family: 'Code Pro Bold';
@@ -57,12 +61,57 @@
   }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 767px) {
   .person {
-    flex-direction: column;
+    flex-direction: row;
 
     &__status {
-      width: 100%;
+      width: 128px;
+      height: 170px;
+
+      img {
+        width: 70%;
+      }
+
+      .name, .role {
+        display: none;
+      }
+    }
+    &__pay {
+      height: 170px;
+
+      .description {
+        @include flexMix(flex-start, flex-start, column);
+        margin-bottom: 15px;
+
+        .name {
+          font-size: 18px;
+          font-family: 'Code Pro Bold LC';
+        }
+
+        .role {
+          color: $active-font;
+          font-size: 10px;
+        }
+      }
+
+      .text {
+        font-size: 18px;
+
+        &_small {
+          font-size: 10px;
+        }
+      }
     }
   }
 }
+
+// @media screen and (max-width: 530px) {
+//   .person {
+//     flex-direction: column;
+
+//     &__status {
+//       width: 100%;
+//     }
+//   }
+// }

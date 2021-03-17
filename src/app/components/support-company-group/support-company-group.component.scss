@@ -67,6 +67,16 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .support {
+    &__myself {
+      .button {
+        display: none;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 545px) {
   .support {
     &__myself {
