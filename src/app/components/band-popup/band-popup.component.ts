@@ -35,7 +35,7 @@ export class BandPopupComponent implements OnChanges {
   }
 
   private getDescriptionText(description: string): string {
-    const result = description?.length > 400 ?  description.slice(0, 400) + '...' : description;
+    const result = description?.length > 350 ?  description.slice(0, 350) + '...' : description;
     return result;
   }
 }

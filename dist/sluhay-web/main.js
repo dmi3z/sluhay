@@ -2343,7 +2343,7 @@ class BandPopupComponent {
         this.changeSlide.next('prev');
     }
     getDescriptionText(description) {
-        const result = (description === null || description === void 0 ? void 0 : description.length) > 400 ? description.slice(0, 400) + '...' : description;
+        const result = (description === null || description === void 0 ? void 0 : description.length) > 350 ? description.slice(0, 350) + '...' : description;
         return result;
     }
 }
