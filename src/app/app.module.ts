@@ -29,6 +29,7 @@ import { SoundRangeComponent } from './components/sound-range/sound-range.compon
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { BandItemHorizontalComponent } from './components/band-item-horizontal/band-item-horizontal.component';
 import { BandsGenrePipe } from './pipes/bands-genre.pipe';
+import { CutPipe } from './pipes/cut.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { BandsGenrePipe } from './pipes/bands-genre.pipe';
     BannerPlayerComponent,
     SoundRangeComponent,
     BandItemHorizontalComponent,
-    BandsGenrePipe
+    BandsGenrePipe,
+    CutPipe
   ],
   imports: [
     BrowserModule,

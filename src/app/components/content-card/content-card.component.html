@@ -7,8 +7,7 @@
   <div class="card__data">
     <app-band-logo class="card__data-content" [data]="content.genre"></app-band-logo>
     <div class="container">
-      <span class="card__data-text">sluhay<span class="card__data-text_red">.by</span></span>
-      <span class="card__data-text card__data-text_red">{{ content.genre }}</span>
+      <span class="card__data-text">sluhay<span class="card__data-text card__data-text_red">.{{ content.genre | appCutPipe }}</span></span>
       <span class="card__data-additional">{{ content.text }}</span>
     </div>
   </div>
