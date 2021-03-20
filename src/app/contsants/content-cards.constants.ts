@@ -5,31 +5,31 @@ export const CONTENT_CARDS: ContentCard[] = [
   {
     genre: GENRES.CHANNEL,
     text: 'белорусская музыка',
-    url: 'http://persik.by/stream/3502/32/10970.m3u'
+    url: 'http://93.189.224.26/live/Ch045pub/index.m3u8'
   },
   {
     genre: GENRES.LIVE,
     text: 'концерты. лайвы',
-    url: 'http://persik.by/stream/3502/32/10975.m3u8'
+    url: 'http://93.189.224.26/live/Ch173pub/index.m3u8'
   },
   {
     genre: GENRES.POP,
     text: 'популярная. музыка',
-    url: 'http://persik.by/stream/3502/32/10972.m3u8'
+    url: 'http://93.189.224.26/live/Ch066pub/index.m3u8'
   },
   {
     genre: GENRES.ROCK,
     text: 'драйв. смысл',
-    url: 'http://persik.by/stream/3502/32/10971.m3u8'
+    url: 'http://93.189.224.26/live/Ch114pub/index.m3u8'
   },
   {
     genre: GENRES.EDM,
     text: 'электронная. музыка',
-    url: 'http://persik.by/stream/3502/32/10973.m3u8'
+    url: 'http://93.189.224.26/live/Ch091pub/index.m3u8'
   },
   {
     genre: GENRES.RAP,
     text: 'мастера. слова',
-    url: 'http://persik.by/stream/3502/32/10974.m3u8'
+    url: 'http://93.189.224.26/live/Ch107pub/index.m3u8'
   }
 ];
