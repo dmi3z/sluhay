@@ -70,8 +70,21 @@
 @media screen and (max-width: 767px) {
   .support {
     &__myself {
+      align-items: center;
+      padding-left: 5px;
+
       .button {
         display: none;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .snow-flake {
+        width: 60%;
+        left: 20%;
+        top: 20%;
       }
     }
   }
