@@ -17,17 +17,18 @@ export class BandsComponent implements OnInit {
   public previewedId: number;
   public isMobileView: boolean;
   public currentWidth: number;
+  private readonly horizontalBrakeWidth = 970;
 
   @HostListener('window:resize', ['$event']) public onResize(event): void {
     this.currentWidth = event.target.innerWidth;
-    this.isMobileView = this.currentWidth <= 879;
+    this.isMobileView = this.currentWidth <= this.horizontalBrakeWidth;
   }
 
   constructor() { }
 
   ngOnInit(): void {
     this.currentWidth = window.innerWidth;
-    this.isMobileView = this.currentWidth <= 879;
+    this.isMobileView = this.currentWidth <= this.horizontalBrakeWidth;
   }
 
   public activateGenre(genreId: number): void {
