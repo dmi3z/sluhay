@@ -2,6 +2,14 @@
 @import "../../../theme/colors.scss";
 @import "../../../theme/fonts.scss";
 
+:host {
+  width:  1430px;
+
+  @media screen and (max-width: 1430px) {
+    width: 100%;
+  }
+}
+
 .bands {
   width: 1430px;
   @include flexMix($align: flex-start);

@@ -1,11 +1,11 @@
 import { HeaderItem } from "../interfaces/header.interface";
 
 export const HEADER_ITEMS: HeaderItem[] = [
-  {
-    id: 9,
-    name: 'SLUHAY BY',
-    tag: 'sluhay'
-  },
+  // {
+  //   id: 9,
+  //   name: 'SLUHAY BY',
+  //   tag: 'sluhay'
+  // },
   {
     id: 0,
     name: 'Концерты и трансляции  LIVE',
