@@ -10,6 +10,10 @@
   position: relative;
   z-index: 1;
 
+  .info {
+    display: flex;
+  }
+
   &__status {
     width: 65%;
     height: 240px;
@@ -61,6 +65,10 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  
+}
+
 @media screen and (max-width: 767px) {
   .person {
     flex-direction: row;
@@ -106,12 +114,3 @@
   }
 }
 
-// @media screen and (max-width: 530px) {
-//   .person {
-//     flex-direction: column;
-
-//     &__status {
-//       width: 100%;
-//     }
-//   }
-// }

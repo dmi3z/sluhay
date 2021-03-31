@@ -52,23 +52,28 @@
 
 @media screen and (max-width: 1010px) {
   .support {
-    @include flexMix($direction: column-reverse);
     &__myself {
       padding-left: 40px;
       margin-bottom: 30px;
+
+      .title {
+        font-size: 26px;
+      }
     }
 
     &__persons {
-      width: 100%;
+      width: 60%;
     }
   }
 }
 
 @media screen and (max-width: 767px) {
   .support {
+    @include flexMix($direction: column-reverse);
     &__persons {
       overflow: visible;
       height: auto;
+      width: 100%;
 
       .button {
         display: flex;
@@ -80,6 +85,10 @@
     &__myself {
       .button {
         display: none;
+      }
+
+      .title {
+        font-size: 36px;
       }
     }
   }

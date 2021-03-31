@@ -1,14 +1,17 @@
 <div class="person">
-  <div class="person__avatar" [style.backgroundImage]="'url('+person.cover+')'">
+  <div class="person__avatar" [style.backgroundImage]="'url('+person.cover+')'"></div>
+
+  <div class="info">
+    <div class="person__status">
+      <span class="name">{{ person.name }}</span>
+      <span class="role">{{ person.international_name }}</span>
+      <span class="text text_small">{{ person.description }}</span>
+    </div>
+
+    <div class="person__pay">
+      <span class="text text_small">{{ person.description }}</span>
+    </div>
   </div>
 
-  <div class="person__status">
-    <span class="name">{{ person.name }}</span>
-    <span class="role">{{ person.international_name }}</span>
-    <span class="text text_small">{{ person.description }}</span>
-  </div>
 
-  <div class="person__pay">
-    <span class="text text_small">{{ person.description }}</span>
-  </div>
 </div>

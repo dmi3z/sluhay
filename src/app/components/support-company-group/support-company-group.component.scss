@@ -50,10 +50,13 @@
 
 @media screen and (max-width: 1010px) {
   .support {
-    @include flexMix($direction: column);
     &__myself {
       padding-left: 40px;
       margin-bottom: 30px;
+
+      .title {
+        font-size: 28px;
+      }
     }
 
     .snow-flake {
@@ -62,13 +65,14 @@
     }
 
     &__persons {
-      width: 100%;
+      width: 60%;
     }
   }
 }
 
 @media screen and (max-width: 767px) {
   .support {
+    @include flexMix($direction: column);
     &__myself {
       align-items: center;
       padding-left: 5px;
@@ -79,6 +83,7 @@
 
       .title {
         text-align: center;
+        font-size: 36px;
       }
 
       .snow-flake {
@@ -86,6 +91,10 @@
         left: 20%;
         top: 20%;
       }
+    }
+
+    &__persons {
+      width: 100%;
     }
   }
 }

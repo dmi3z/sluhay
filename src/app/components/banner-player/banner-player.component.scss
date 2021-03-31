@@ -167,7 +167,7 @@
 @media screen and (max-width: 1120px) {
   .wrapper {
     .banner-content {
-      padding-top: 1300px;
+      padding-top: 130px;
       img {
         width: 100px;
       }
@@ -187,14 +187,25 @@
   }
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 950px) {
   .wrapper {
     .banner-content {
-      padding-top: 30px;
 
       &__name {
         margin-top: 30px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .wrapper {
+    .banner-content {
+      padding-top: 30px;
+    }
+
+    &__title-mob {
+      display: inline;
     }
   }
 }
@@ -217,9 +228,7 @@
         margin-top: 38px;
       }
 
-      &__title-mob {
-        display: inline;
-      }
+
     }
   }
 }

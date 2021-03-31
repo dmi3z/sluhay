@@ -1,6 +1,6 @@
 import { DTOArtistInfo } from './../../interfaces/artists.dto.interfaces';
 import { Genre } from './../../interfaces/genre.interface';
-import { Component, Input, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, HostListener, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-bands',
@@ -13,6 +13,7 @@ export class BandsComponent implements OnInit {
   @Input() public allBands: DTOArtistInfo[] = [];
   @Input() public selectedGenreId: number;
   @Output() changeGenre = new EventEmitter<number>();
+  @ViewChild('scrollContent', { static: false }) public scrollContentRef: ElementRef;
   public isPreviewOpened: boolean;
   public previewedId: number;
   public isMobileView: boolean;
@@ -33,6 +34,7 @@ export class BandsComponent implements OnInit {
 
   public activateGenre(genreId: number): void {
     this.changeGenre.next(genreId);
+    this.scrollToTop();
   }
 
   public openPreview(id: number): void {
@@ -76,6 +78,11 @@ export class BandsComponent implements OnInit {
     } else {
       this.previewedId = this.bands.length - 1;
     }
+  }
+
+  private scrollToTop(): void {
+    const scrollContent = this.scrollContentRef.nativeElement as HTMLDivElement;
+    scrollContent.scrollTo(0, 0);
   }
 
 }

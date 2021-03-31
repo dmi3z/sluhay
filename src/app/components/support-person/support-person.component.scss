@@ -19,6 +19,11 @@
     flex-shrink: 0;
   }
 
+  .info {
+    width: 100%;
+    @include flexMix;
+  }
+
   &__status {
     width: 35%;
     height: 240px;
@@ -69,6 +74,23 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .person {
+    .info {
+      flex-direction: column;
+    }
+
+    &__status {
+      width: 100%;
+      height: 120px;
+    }
+
+    &__pay {
+      height: 120px;
+    }
+  }
+}
+
 @media screen and (max-width: 767px) {
   .person {
     &__avatar {
@@ -100,9 +122,3 @@
     }
   }
 }
-
-// @media screen and (max-width: 480px) {
-//   .person {
-//     flex-direction: column;
-//   }
-// }
