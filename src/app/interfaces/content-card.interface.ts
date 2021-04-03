@@ -4,4 +4,5 @@ export interface ContentCard {
   genre: GENRES;
   text: string;
   url: string;
+  id: number;
 }

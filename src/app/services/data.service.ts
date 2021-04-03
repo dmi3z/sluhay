@@ -36,4 +36,10 @@ export class DataService {
     return this.http.get<{ videos: DTOArtistInfo[] }>(this.BASE_URL.concat('content/video', queryString))
       .pipe(map((data) => data.videos));
   }
+
+  public getChannelFrame(id: number): string {
+    const unixTime = new Date().getTime() / 1000;
+    const t = Math.round(unixTime);
+    return `https://old.persik.by/utils/show-frame.php?c=${id}&t=${t}&tr=crop&w=600&h=350`;
+  }
 }
