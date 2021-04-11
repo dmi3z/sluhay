@@ -1,8 +1,9 @@
+import { PlayerService } from 'src/app/services/player.service';
 import { map, take, switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from './../../services/data.service';
 import { SupportCompany } from 'src/app/interfaces/support.interface';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, Subject } from 'rxjs';
 import { DTOArtistInfo } from './../../interfaces/artists.dto.interfaces';
 import { Genre } from './../../interfaces/genre.interface';
 import { SIDE } from 'src/app/contsants/side.enum';
@@ -29,10 +30,12 @@ export class MainComponent implements OnInit {
   public supportCompanies: SupportCompany[] = SUPPORT_COMPANIES;
   public isShowCompanySupportModal: boolean;
   public isShowSpasiboModal: boolean;
+  public loadCounter$: Subject<number>;
 
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) {}
+  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private playerService: PlayerService) {}
 
   public ngOnInit(): void {
+    this.loadCounter$ = this.playerService.loadCounter$;
     const allData$ = this.genres.slice(1)
       .map(({ id }) => this.getArtistsInfo(id));
     forkJoin(allData$).pipe(map((data) => data.reduce((accum, item) => accum.concat(...item), [])), take(1))

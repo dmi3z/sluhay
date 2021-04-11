@@ -27,3 +27,8 @@
 <!-- <app-forms-modal (closeEvent)="closeModal()" *ngIf="isShowCompanySupportModal"></app-forms-modal> -->
 <app-spasibo-popup (closeEvent)="closeSpasiboModal()" *ngIf="isShowSpasiboModal"></app-spasibo-popup>
 
+<div class="load-layout" *ngIf="(loadCounter$ | async) !== 0">
+  <div class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+</div>

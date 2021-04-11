@@ -1,8 +1,6 @@
 import { ContentCard } from './../../interfaces/content-card.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { SIDE } from 'src/app/contsants/side.enum';
-import { Observable } from 'rxjs';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-content-card',
@@ -17,11 +15,11 @@ export class ContentCardComponent implements OnInit {
   public sides = SIDE;
   public poster: string;
 
-  constructor(private dataService: DataService) { }
+  constructor() { }
 
   public ngOnInit(): void {
     this.genreLogo = this.getGenreLogo();
-    this.poster = this.getPoster();
+    // this.poster = this.getPoster();
   }
 
   private getGenreLogo(): string {
@@ -29,8 +27,8 @@ export class ContentCardComponent implements OnInit {
     return logoUrl;
   }
 
-  private getPoster(): string {
-    return this.dataService.getChannelFrame(this.content.id);
-  }
+  // private getPoster(): string {
+  //   return this.dataService.getChannelFrame(this.content.id);
+  // }
 
 }

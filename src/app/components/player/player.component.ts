@@ -10,7 +10,7 @@ export class PlayerComponent implements OnInit {
   @Input() url: string;
   @Input() autoplay: boolean;
   @Input() controls: boolean;
-  @Input() poster: string;
+  // @Input() poster: string;
   @ViewChild('player', { static: true }) public playerRef: ElementRef;
 
   @Input() isFullscreen: boolean;
