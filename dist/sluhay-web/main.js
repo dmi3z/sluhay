@@ -183,6 +183,45 @@ const CONTENT_CARDS = [
 
 /***/ }),
 
+/***/ "7ch9":
+/*!*********************************************!*\
+  !*** ./src/app/services/loading.service.ts ***!
+  \*********************************************/
+/*! exports provided: LoadingService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingService", function() { return LoadingService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "qCKp");
+
+
+
+class LoadingService {
+    constructor() {
+        this.loadCounter$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.counter = 0;
+    }
+    addLoader() {
+        this.counter++;
+        this.loadCounter$.next(this.counter);
+    }
+    removeLoader() {
+        this.counter--;
+        this.loadCounter$.next(this.counter);
+    }
+}
+LoadingService.ɵfac = function LoadingService_Factory(t) { return new (t || LoadingService)(); };
+LoadingService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: LoadingService, factory: LoadingService.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LoadingService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{ providedIn: 'root' }]
+    }], null, null); })();
+
+
+/***/ }),
+
 /***/ "AytR":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -224,17 +263,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _loading_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./loading.service */ "7ch9");
+
 
 
 
 
 
 class DataService {
-    constructor(http) {
+    constructor(http, loadingService) {
         this.http = http;
+        this.loadingService = loadingService;
         this.BASE_URL = 'https://api.persik.by/v2/';
     }
     getArtistsIds(genreId) {
+        this.loadingService.addLoader();
         const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
             .set('sort', 'last')
             .set('category_id', '4')
@@ -242,9 +285,10 @@ class DataService {
             .set('device', 'web-by');
         return this.http
             .get(this.BASE_URL.concat('content/videos'), { params })
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((data) => data.videos.map((item) => item.video_id)));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(() => this.loadingService.removeLoader()), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((data) => data.videos.map((item) => item.video_id)));
     }
     getArtistsInfo(videoIds) {
+        this.loadingService.addLoader();
         let queryString = '?';
         videoIds.forEach((item, index) => {
             if (index !== videoIds.length - 1) {
@@ -255,20 +299,15 @@ class DataService {
             }
         });
         return this.http.get(this.BASE_URL.concat('content/video', queryString))
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((data) => data.videos));
-    }
-    getChannelFrame(id) {
-        const unixTime = new Date().getTime() / 1000;
-        const t = Math.round(unixTime);
-        return `https://old.persik.by/utils/show-frame.php?c=${id}&t=${t}&tr=crop&w=600&h=350`;
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(() => this.loadingService.removeLoader()), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((data) => data.videos));
     }
 }
-DataService.ɵfac = function DataService_Factory(t) { return new (t || DataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
+DataService.ɵfac = function DataService_Factory(t) { return new (t || DataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"])); };
 DataService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: DataService, factory: DataService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DataService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{ providedIn: 'root' }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }, { type: _loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"] }]; }, null); })();
 
 
 /***/ }),
@@ -965,15 +1004,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var hls_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hls.js */ "ulZh");
 /* harmony import */ var hls_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(hls_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var _loading_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loading.service */ "7ch9");
 
 
 
 
 class PlayerService {
-    constructor() {
-        this.loadCounter$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.counter = 0;
+    constructor(loadingService) {
+        this.loadingService = loadingService;
     }
     playUrl(url, videoTag, autoplay = true) {
         if (navigator.userAgent.includes('iPhone')) {
@@ -984,12 +1022,12 @@ class PlayerService {
         }
     }
     iPhonePlayer(url, videoTag, autoplay) {
-        this.addLoader();
+        this.loadingService.addLoader();
         videoTag.src = url;
         videoTag.muted = true;
         videoTag.play();
         videoTag.onloadedmetadata = () => {
-            this.removeLoader();
+            this.loadingService.removeLoader();
             if (!autoplay) {
                 setTimeout(() => {
                     videoTag.pause();
@@ -999,35 +1037,25 @@ class PlayerService {
         };
     }
     standartPlayer(url, videoTag, autoplay) {
-        this.addLoader();
+        this.loadingService.addLoader();
         const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
         hls.loadSource(url);
         hls.attachMedia(videoTag);
         videoTag.onloadedmetadata = () => {
-            this.removeLoader();
+            this.loadingService.removeLoader();
             if (autoplay) {
                 videoTag.muted = true;
                 videoTag.play();
             }
         };
     }
-    addLoader() {
-        this.counter++;
-        this.loadCounter$.next(this.counter);
-    }
-    removeLoader() {
-        setTimeout(() => {
-            this.counter--;
-            this.loadCounter$.next(this.counter);
-        }, 100);
-    }
 }
-PlayerService.ɵfac = function PlayerService_Factory(t) { return new (t || PlayerService)(); };
+PlayerService.ɵfac = function PlayerService_Factory(t) { return new (t || PlayerService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_loading_service__WEBPACK_IMPORTED_MODULE_2__["LoadingService"])); };
 PlayerService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: PlayerService, factory: PlayerService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PlayerService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{ providedIn: 'root' }]
-    }], null, null); })();
+    }], function () { return [{ type: _loading_service__WEBPACK_IMPORTED_MODULE_2__["LoadingService"] }]; }, null); })();
 
 
 /***/ }),
@@ -1363,7 +1391,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_genres_constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants/genres.constants */ "I9v1");
 /* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../services/data.service */ "EnSQ");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var src_app_services_player_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/player.service */ "QIP1");
+/* harmony import */ var src_app_services_loading_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/loading.service */ "7ch9");
 /* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/header/header.component */ "2MiI");
 /* harmony import */ var _components_banner_banner_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/banner/banner.component */ "XRsc");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common */ "ofXK");
@@ -1415,10 +1443,10 @@ function MainComponent_div_14_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
 class MainComponent {
-    constructor(dataService, activatedRoute, playerService) {
+    constructor(dataService, activatedRoute, loadingService) {
         this.dataService = dataService;
         this.activatedRoute = activatedRoute;
-        this.playerService = playerService;
+        this.loadingService = loadingService;
         this.contentCards = _contsants_content_cards_constants__WEBPACK_IMPORTED_MODULE_3__["CONTENT_CARDS"];
         this.sides = src_app_contsants_side_enum__WEBPACK_IMPORTED_MODULE_2__["SIDE"];
         this.genres = _constants_genres_constants__WEBPACK_IMPORTED_MODULE_6__["GENRES_LIST"];
@@ -1428,7 +1456,7 @@ class MainComponent {
         this.supportCompanies = _constants_support_companies_constants__WEBPACK_IMPORTED_MODULE_5__["SUPPORT_COMPANIES"];
     }
     ngOnInit() {
-        this.loadCounter$ = this.playerService.loadCounter$;
+        this.loadCounter$ = this.loadingService.loadCounter$;
         const allData$ = this.genres.slice(1)
             .map(({ id }) => this.getArtistsInfo(id));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["forkJoin"])(allData$).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])((data) => data.reduce((accum, item) => accum.concat(...item), [])), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["take"])(1))
@@ -1479,7 +1507,7 @@ class MainComponent {
         }
     }
 }
-MainComponent.ɵfac = function MainComponent_Factory(t) { return new (t || MainComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_services_data_service__WEBPACK_IMPORTED_MODULE_7__["DataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](src_app_services_player_service__WEBPACK_IMPORTED_MODULE_9__["PlayerService"])); };
+MainComponent.ɵfac = function MainComponent_Factory(t) { return new (t || MainComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_services_data_service__WEBPACK_IMPORTED_MODULE_7__["DataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](src_app_services_loading_service__WEBPACK_IMPORTED_MODULE_9__["LoadingService"])); };
 MainComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: MainComponent, selectors: [["app-main"]], decls: 16, vars: 13, consts: [[1, "wrapper"], [3, "id", "content", "side", 4, "ngFor", "ngForOf"], ["id", "musicions", 1, "wrapper", "wrapper_odd"], [3, "selectedGenreId", "genres", "allBands", "bands", "changeGenre"], ["id", "donates", 1, "wrapper"], [3, "supportPersons"], ["id", "subscriptions", 1, "wrapper"], ["id", "companies", 1, "wrapper"], [3, "supportCompanies", "openEvent"], [3, "closeEvent", 4, "ngIf"], ["class", "load-layout", 4, "ngIf"], [3, "id", "content", "side"], [3, "closeEvent"], [1, "load-layout"], [1, "loader-wrapper"], [1, "loader"]], template: function MainComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "app-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](1, "app-banner");
@@ -1527,7 +1555,7 @@ MainComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComp
                 templateUrl: './main.component.html',
                 styleUrls: ['./main.component.scss']
             }]
-    }], function () { return [{ type: _services_data_service__WEBPACK_IMPORTED_MODULE_7__["DataService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] }, { type: src_app_services_player_service__WEBPACK_IMPORTED_MODULE_9__["PlayerService"] }]; }, null); })();
+    }], function () { return [{ type: _services_data_service__WEBPACK_IMPORTED_MODULE_7__["DataService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] }, { type: src_app_services_loading_service__WEBPACK_IMPORTED_MODULE_9__["LoadingService"] }]; }, null); })();
 
 
 /***/ }),
