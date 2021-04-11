@@ -12,6 +12,7 @@ import { ContentCard } from './../../interfaces/content-card.interface';
 import { Component, OnInit } from '@angular/core';
 import { SUPPORT_COMPANIES } from './constants/support-companies.constants';
 import { GENRES_LIST } from './constants/genres.constants';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-main',
@@ -32,10 +33,10 @@ export class MainComponent implements OnInit {
   public isShowSpasiboModal: boolean;
   public loadCounter$: Subject<number>;
 
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private playerService: PlayerService) {}
+  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private loadingService: LoadingService) {}
 
   public ngOnInit(): void {
-    this.loadCounter$ = this.playerService.loadCounter$;
+    this.loadCounter$ = this.loadingService.loadCounter$;
     const allData$ = this.genres.slice(1)
       .map(({ id }) => this.getArtistsInfo(id));
     forkJoin(allData$).pipe(map((data) => data.reduce((accum, item) => accum.concat(...item), [])), take(1))
