@@ -14,6 +14,7 @@ export class PlayerService {
     //   this.standartPlayer(url, videoTag, autoplay);
     // }
     const isHlsSupport: boolean = Hls.isSupported();
+    console.log('Hls support: ', isHlsSupport);
     if (isHlsSupport) {
       this.hlsPlayer(url, videoTag, autoplay);
     } else {
@@ -25,8 +26,8 @@ export class PlayerService {
     this.loadingService.addLoader();
     videoTag.src = url;
     videoTag.muted = true;
-    videoTag.play();
     videoTag.onloadedmetadata = () => {
+      videoTag.play();
       this.loadingService.removeLoader();
       if (!autoplay) {
         setTimeout(() => {
