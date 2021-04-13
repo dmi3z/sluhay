@@ -22,7 +22,7 @@ export class PlayerComponent implements OnInit {
 
   public ngOnInit(): void {
     this.player = this.playerRef.nativeElement as HTMLVideoElement;
-    this.playerService.playUrl(this.url, this.player, this.autoplay);
+    this.player.onplay = () => this.playerService.playUrl(this.url, this.player, this.autoplay);
   }
 
   public toggleFullscreen(): void {

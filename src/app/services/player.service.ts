@@ -23,12 +23,12 @@ export class PlayerService {
   }
 
   private standartPlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
-    this.loadingService.addLoader();
+    // this.loadingService.addLoader();
     videoTag.src = url;
     videoTag.muted = true;
     videoTag.onloadedmetadata = () => {
       videoTag.play();
-      this.loadingService.removeLoader();
+      // this.loadingService.removeLoader();
       if (!autoplay) {
         setTimeout(() => {
           videoTag.pause();
@@ -39,12 +39,12 @@ export class PlayerService {
   }
 
   private hlsPlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
-    this.loadingService.addLoader();
+    // this.loadingService.addLoader();
     const hls = new Hls();
     hls.loadSource(url);
     hls.attachMedia(videoTag);
     videoTag.onloadedmetadata = () => {
-      this.loadingService.removeLoader();
+      // this.loadingService.removeLoader();
       if (autoplay) {
         videoTag.muted = true;
         videoTag.play();

@@ -832,7 +832,7 @@ class PlayerComponent {
     }
     ngOnInit() {
         this.player = this.playerRef.nativeElement;
-        this.playerService.playUrl(this.url, this.player, this.autoplay);
+        this.player.onplay = () => this.playerService.playUrl(this.url, this.player, this.autoplay);
     }
     toggleFullscreen() {
         this.isFullscreen = !this.isFullscreen;
@@ -1029,12 +1029,12 @@ class PlayerService {
         }
     }
     standartPlayer(url, videoTag, autoplay) {
-        this.loadingService.addLoader();
+        // this.loadingService.addLoader();
         videoTag.src = url;
         videoTag.muted = true;
         videoTag.onloadedmetadata = () => {
             videoTag.play();
-            this.loadingService.removeLoader();
+            // this.loadingService.removeLoader();
             if (!autoplay) {
                 setTimeout(() => {
                     videoTag.pause();
@@ -1044,12 +1044,12 @@ class PlayerService {
         };
     }
     hlsPlayer(url, videoTag, autoplay) {
-        this.loadingService.addLoader();
+        // this.loadingService.addLoader();
         const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
         hls.loadSource(url);
         hls.attachMedia(videoTag);
         videoTag.onloadedmetadata = () => {
-            this.loadingService.removeLoader();
+            // this.loadingService.removeLoader();
             if (autoplay) {
                 videoTag.muted = true;
                 videoTag.play();
