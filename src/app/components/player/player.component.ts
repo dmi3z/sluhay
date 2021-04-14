@@ -10,10 +10,10 @@ export class PlayerComponent implements OnInit {
   @Input() url: string;
   @Input() autoplay: boolean;
   @Input() controls: boolean;
-  // @Input() poster: string;
+  @Input() poster: string;
   @ViewChild('player', { static: true }) public playerRef: ElementRef;
-
   @Input() isFullscreen: boolean;
+
   public isPlay: boolean;
 
   private player: HTMLVideoElement;
@@ -22,7 +22,7 @@ export class PlayerComponent implements OnInit {
 
   public ngOnInit(): void {
     this.player = this.playerRef.nativeElement as HTMLVideoElement;
-    this.player.onplay = () => this.playerService.playUrl(this.url, this.player, this.autoplay);
+    this.playerService.playUrl(this.url, this.player, this.autoplay);
   }
 
   public toggleFullscreen(): void {

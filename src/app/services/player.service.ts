@@ -23,28 +23,27 @@ export class PlayerService {
   }
 
   private standartPlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
-    // this.loadingService.addLoader();
+    this.loadingService.addLoader();
     videoTag.src = url;
-    videoTag.muted = true;
+    videoTag.muted = false;
     videoTag.onloadedmetadata = () => {
-      videoTag.play();
-      // this.loadingService.removeLoader();
-      if (!autoplay) {
-        setTimeout(() => {
-          videoTag.pause();
-          videoTag.muted = false;
-        }, 200);
+      this.loadingService.removeLoader();
+      if (autoplay) {
+        videoTag.muted = true;
+        videoTag.play();
       }
     }
   }
 
   private hlsPlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
-    // this.loadingService.addLoader();
+    this.loadingService.addLoader();
+    videoTag.poster = null;
     const hls = new Hls();
     hls.loadSource(url);
     hls.attachMedia(videoTag);
+    videoTag.muted = false;
     videoTag.onloadedmetadata = () => {
-      // this.loadingService.removeLoader();
+      this.loadingService.removeLoader();
       if (autoplay) {
         videoTag.muted = true;
         videoTag.play();
