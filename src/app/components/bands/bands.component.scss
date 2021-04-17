@@ -26,10 +26,19 @@
 
     .group {
       @include flexMix(flex-start, flex-start, column);
+      position: relative;
+
+      .snow-flake {
+        position: absolute;
+        width: 50%;
+        top: -10px;
+        display: none;
+      }
     }
 
     .logo {
       margin-bottom: 46px;
+      z-index: 1;
     }
 
     .title {
@@ -118,60 +127,6 @@
   }
 }
 
-// @media screen and (max-width: 1430px) {
-//   .bands {
-//     width: 100%;
-//     // flex-direction: column;
-
-//     .genres-selector {
-//       padding-left: 15px;
-//     }
-
-//     &__list {
-//       width: 100%;
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 1430px) {
-//   .bands {
-//     width: 100%;
-//     // flex-direction: column;
-//     margin-top: 80px;
-
-//     .genres-selector {
-//       width: 100%;
-//       flex-direction: column;
-//       padding-left: 30px;
-
-//       .group {
-//         @include flexMix(flex-start, center, row);
-//       }
-
-//       .text {
-//         display: none;
-//       }
-
-//       .logo {
-//         margin-right: 10px;
-//       }
-
-//       .genres {
-//         @include flexMix;
-//         margin-bottom: 0;
-
-//         &__item {
-//           margin-right: 40px;
-//         }
-//       }
-//     }
-
-//     &__list {
-//       width: 100%;
-//     }
-//   }
-// }
-
 @media screen and (max-width: 970px) {
   .bands {
     flex-direction: column;
@@ -188,6 +143,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        .snow-flake {
+          display: inline;
+          width: 60%;
+        }
 
         .title {
           text-align: center;
@@ -213,6 +173,10 @@
       .group {
         width: 100%;
         @include flexMix($direction: column);
+
+        .snow-flake {
+          width: 35%;
+        }
       }
     }
   }
@@ -225,7 +189,7 @@
       margin-top: 20px;
 
       .logo {
-        margin-bottom: 10px;
+        margin-bottom: 30px;
       }
 
       .title {
@@ -235,6 +199,13 @@
       .genres {
         &__item {
           margin-right: 25px;
+        }
+      }
+
+      .group {
+        .snow-flake {
+          width: 60%;
+          top: -50px;
         }
       }
     }
@@ -252,9 +223,9 @@
       flex-direction: column;
       margin-top: 20px;
 
-      .logo {
-        margin-bottom: 10px;
-      }
+      // .logo {
+      //   margin-bottom: 10px;
+      // }
 
       .title {
         font-size: 36px;

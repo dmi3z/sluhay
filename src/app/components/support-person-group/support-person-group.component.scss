@@ -38,6 +38,7 @@
 
     .logo {
       margin-bottom: 45px;
+      z-index: 1;
     }
 
   }
@@ -107,7 +108,7 @@
       .snow-flake {
         width: 60%;
         left: 20%;
-        top: 20%;
+        top: 0%;
       }
     }
   }

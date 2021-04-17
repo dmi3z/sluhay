@@ -8,11 +8,6 @@ export class PlayerService {
   constructor(private loadingService: LoadingService) { }
 
   public playUrl(url: string, videoTag: HTMLVideoElement, autoplay = true): void {
-    // if (navigator.userAgent.includes('iPhone')) {
-    //   this.iPhonePlayer(url, videoTag, autoplay);
-    // } else {
-    //   this.standartPlayer(url, videoTag, autoplay);
-    // }
     const isHlsSupport: boolean = Hls.isSupported();
     console.log('Hls support: ', isHlsSupport);
     if (isHlsSupport) {

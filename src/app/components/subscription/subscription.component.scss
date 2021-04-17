@@ -24,6 +24,7 @@
   &__text {
     text-transform: uppercase;
     @include fontStyle(36px, white);
+    font-family: 'Code Pro';
   }
 
   .form {
@@ -44,7 +45,7 @@
 
     &__button {
       height: 100%;
-      width: 155px;
+      width: 175px;
       @include flexMix;
       text-transform: uppercase;
       background-color: #282e35;
@@ -95,6 +96,7 @@
     @include flexMix($direction: column);
     &__text {
       text-align: center;
+      margin-bottom: 15px;
     }
 
     .form {
@@ -103,7 +105,7 @@
 
       &__email {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         height: 40px;
       }
 
