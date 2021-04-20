@@ -9,7 +9,6 @@ export class PlayerService {
 
   public playUrl(url: string, videoTag: HTMLVideoElement, autoplay = true): void {
     const isHlsSupport: boolean = Hls.isSupported();
-    console.log('Hls support: ', isHlsSupport);
     if (isHlsSupport) {
       this.hlsPlayer(url, videoTag, autoplay);
     } else {
@@ -25,9 +24,11 @@ export class PlayerService {
       this.loadingService.removeLoader();
       if (autoplay) {
         videoTag.muted = true;
-        videoTag.play();
+        setTimeout(() => {
+          videoTag.play();
+        }, 500);
       }
-    }
+    };
   }
 
   private hlsPlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
@@ -41,9 +42,11 @@ export class PlayerService {
       this.loadingService.removeLoader();
       if (autoplay) {
         videoTag.muted = true;
-        videoTag.play();
+        setTimeout(() => {
+          videoTag.play();
+        }, 500);
       }
-    }
+    };
   }
 
 }

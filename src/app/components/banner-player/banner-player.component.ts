@@ -25,29 +25,29 @@ export class BannerPlayerComponent implements OnInit {
     this.playerService.playUrl(this.url, this.player, this.autoplay);
   }
 
-  public toggleFullscreen(): void {
-    this.isFullscreen = !this.isFullscreen;
-    this.player.muted = !this.player.muted;
-  }
+  // public toggleFullscreen(): void {
+  //   this.isFullscreen = !this.isFullscreen;
+  //   this.player.muted = !this.player.muted;
+  // }
 
-  public openFullscreen(): void {
-    this.isFullscreen = true;
-    this.player.muted = false;
-  }
+  // public openFullscreen(): void {
+  //   this.isFullscreen = true;
+  //   this.player.muted = false;
+  // }
 
-  public closeFullscreen(): void {
-    this.isFullscreen = false;
-    this.player.muted = true;
-  }
+  // public closeFullscreen(): void {
+  //   this.isFullscreen = false;
+  //   this.player.muted = true;
+  // }
 
-  public togglePlay(): void {
-    this.isPlay = !this.isPlay;
-    if (this.isPlay) {
-      this.player.play();
-    } else {
-      this.player.pause();
-    }
-  }
+  // public togglePlay(): void {
+  //   this.isPlay = !this.isPlay;
+  //   if (this.isPlay) {
+  //     this.player.play();
+  //   } else {
+  //     this.player.pause();
+  //   }
+  // }
 
   public onVolumeChange(value: number): void {
     this.player.volume = value / 100;

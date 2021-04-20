@@ -1040,7 +1040,6 @@ class PlayerService {
     }
     playUrl(url, videoTag, autoplay = true) {
         const isHlsSupport = hls_js__WEBPACK_IMPORTED_MODULE_1__["isSupported"]();
-        console.log('Hls support: ', isHlsSupport);
         if (isHlsSupport) {
             this.hlsPlayer(url, videoTag, autoplay);
         }
@@ -1056,7 +1055,9 @@ class PlayerService {
             this.loadingService.removeLoader();
             if (autoplay) {
                 videoTag.muted = true;
-                videoTag.play();
+                setTimeout(() => {
+                    videoTag.play();
+                }, 500);
             }
         };
     }
@@ -1071,7 +1072,9 @@ class PlayerService {
             this.loadingService.removeLoader();
             if (autoplay) {
                 videoTag.muted = true;
-                videoTag.play();
+                setTimeout(() => {
+                    videoTag.play();
+                }, 500);
             }
         };
     }
@@ -2160,39 +2163,27 @@ __webpack_require__.r(__webpack_exports__);
 
 const _c0 = ["player"];
 function BannerPlayerComponent_div_3_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " \u043A\u0430\u043D\u0430\u043B \u0431\u0435\u043B\u043E\u0440\u0443\u0441\u0441\u043A\u043E\u0439 \u043C\u0443\u0437\u044B\u043A\u0438 ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "img", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "img", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " sluhay");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "span", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "span", 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, ".by");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "span", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "span", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " \u043A\u0430\u043D\u0430\u043B ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "\u0431\u0435\u043B\u043E\u0440\u0443\u0441\u0441\u043A\u043E\u0439 \u043C\u0443\u0437\u044B\u043A\u0438 ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "span", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "span", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, " \u043D\u0430\u0447\u043D\u0438 \u0441\u043B\u0443\u0448\u0430\u0442\u044C \u0431\u0435\u043B\u043E\u0440\u0443\u0441\u0441\u043A\u043E\u0435 ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "img", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "img", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} }
-function BannerPlayerComponent_ng_template_4_Template(rf, ctx) { if (rf & 1) {
-    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "img", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BannerPlayerComponent_ng_template_4_Template_img_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r6.togglePlay(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} }
-function BannerPlayerComponent_ng_template_6_Template(rf, ctx) { if (rf & 1) {
-    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "img", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BannerPlayerComponent_ng_template_6_Template_img_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r8.togglePlay(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 class BannerPlayerComponent {
@@ -2204,27 +2195,26 @@ class BannerPlayerComponent {
         this.player = this.playerRef.nativeElement;
         this.playerService.playUrl(this.url, this.player, this.autoplay);
     }
-    toggleFullscreen() {
-        this.isFullscreen = !this.isFullscreen;
-        this.player.muted = !this.player.muted;
-    }
-    openFullscreen() {
-        this.isFullscreen = true;
-        this.player.muted = false;
-    }
-    closeFullscreen() {
-        this.isFullscreen = false;
-        this.player.muted = true;
-    }
-    togglePlay() {
-        this.isPlay = !this.isPlay;
-        if (this.isPlay) {
-            this.player.play();
-        }
-        else {
-            this.player.pause();
-        }
-    }
+    // public toggleFullscreen(): void {
+    //   this.isFullscreen = !this.isFullscreen;
+    //   this.player.muted = !this.player.muted;
+    // }
+    // public openFullscreen(): void {
+    //   this.isFullscreen = true;
+    //   this.player.muted = false;
+    // }
+    // public closeFullscreen(): void {
+    //   this.isFullscreen = false;
+    //   this.player.muted = true;
+    // }
+    // public togglePlay(): void {
+    //   this.isPlay = !this.isPlay;
+    //   if (this.isPlay) {
+    //     this.player.play();
+    //   } else {
+    //     this.player.pause();
+    //   }
+    // }
     onVolumeChange(value) {
         this.player.volume = value / 100;
     }
@@ -2235,13 +2225,11 @@ BannerPlayerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.playerRef = _t.first);
-    } }, inputs: { url: "url", autoplay: "autoplay", controls: "controls", isFullscreen: "isFullscreen" }, decls: 8, vars: 3, consts: [[1, "wrapper"], ["playsinline", "", 1, "player"], ["player", ""], ["class", "banner-content", 4, "ngIf"], ["play", ""], ["pause", ""], [1, "banner-content"], [1, "banner-content__title-mob"], ["src", "assets/logo_main_big.png", "alt", ""], [1, "banner-content__name"], [1, "banner-content__name", "banner-content__name_active"], [1, "banner-content__big-title"], ["routerLink", "/", "fragment", "channel", 1, "banner-content__letstart"], ["src", "assets/arrow_down.png", "alt", ""], ["src", "assets/play.svg", "alt", "", 3, "click"], ["src", "assets/pause.svg", "alt", "", 3, "click"]], template: function BannerPlayerComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { url: "url", autoplay: "autoplay", controls: "controls", isFullscreen: "isFullscreen" }, decls: 4, vars: 3, consts: [[1, "wrapper"], ["playsinline", "", 1, "player"], ["player", ""], ["class", "banner-content", 4, "ngIf"], [1, "banner-content"], [1, "banner-content__title-mob"], ["src", "assets/logo_main_big.png", "alt", ""], [1, "banner-content__name"], [1, "banner-content__name", "banner-content__name_active"], [1, "banner-content__big-title"], ["routerLink", "/", "fragment", "channel", 1, "banner-content__letstart"], ["src", "assets/arrow_down.png", "alt", ""]], template: function BannerPlayerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "video", 1, 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, BannerPlayerComponent_div_3_Template, 16, 0, "div", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, BannerPlayerComponent_ng_template_4_Template, 1, 0, "ng-template", null, 4, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, BannerPlayerComponent_ng_template_6_Template, 1, 0, "ng-template", null, 5, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("wrapper_fullscreen", ctx.isFullscreen);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
