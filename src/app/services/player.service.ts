@@ -33,7 +33,7 @@ export class PlayerService {
 
   private hlsPlayer(url: string, videoTag: HTMLVideoElement, autoplay: boolean): void {
     this.loadingService.addLoader();
-    videoTag.poster = null;
+    // videoTag.poster = null;
     const hls = new Hls();
     hls.loadSource(url);
     hls.attachMedia(videoTag);

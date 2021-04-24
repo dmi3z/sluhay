@@ -1063,7 +1063,7 @@ class PlayerService {
     }
     hlsPlayer(url, videoTag, autoplay) {
         this.loadingService.addLoader();
-        videoTag.poster = null;
+        // videoTag.poster = null;
         const hls = new hls_js__WEBPACK_IMPORTED_MODULE_1__();
         hls.loadSource(url);
         hls.attachMedia(videoTag);
@@ -2225,7 +2225,7 @@ BannerPlayerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.playerRef = _t.first);
-    } }, inputs: { url: "url", autoplay: "autoplay", controls: "controls", isFullscreen: "isFullscreen" }, decls: 4, vars: 3, consts: [[1, "wrapper"], ["playsinline", "", 1, "player"], ["player", ""], ["class", "banner-content", 4, "ngIf"], [1, "banner-content"], [1, "banner-content__title-mob"], ["src", "assets/logo_main_big.png", "alt", ""], [1, "banner-content__name"], [1, "banner-content__name", "banner-content__name_active"], [1, "banner-content__big-title"], ["routerLink", "/", "fragment", "channel", 1, "banner-content__letstart"], ["src", "assets/arrow_down.png", "alt", ""]], template: function BannerPlayerComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { url: "url", autoplay: "autoplay", controls: "controls", isFullscreen: "isFullscreen" }, decls: 4, vars: 3, consts: [[1, "wrapper"], ["playsinline", "", "poster", "assets/background.jpg", 1, "player"], ["player", ""], ["class", "banner-content", 4, "ngIf"], [1, "banner-content"], [1, "banner-content__title-mob"], ["src", "assets/logo_main_big.png", "alt", ""], [1, "banner-content__name"], [1, "banner-content__name", "banner-content__name_active"], [1, "banner-content__big-title"], ["routerLink", "/", "fragment", "channel", 1, "banner-content__letstart"], ["src", "assets/arrow_down.png", "alt", ""]], template: function BannerPlayerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "video", 1, 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, BannerPlayerComponent_div_3_Template, 16, 0, "div", 3);
