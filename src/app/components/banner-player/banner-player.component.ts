@@ -1,5 +1,5 @@
 import { PlayerService } from 'src/app/services/player.service';
-import { Component, OnInit, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-banner-player',
@@ -12,6 +12,7 @@ export class BannerPlayerComponent implements OnInit {
   @Input() autoplay: boolean;
   @Input() controls: boolean;
   @ViewChild('player', { static: true }) public playerRef: ElementRef;
+  @Output() selectedFragment = new EventEmitter();
 
   @Input() isFullscreen: boolean;
   public isPlay = true;
@@ -22,7 +23,7 @@ export class BannerPlayerComponent implements OnInit {
 
   public ngOnInit(): void {
     this.player = this.playerRef.nativeElement as HTMLVideoElement;
-    this.playerService.playUrl(this.url, this.player, this.autoplay);
+    // this.playerService.playUrl(this.url, this.player, this.autoplay);
   }
 
   // public toggleFullscreen(): void {
@@ -51,6 +52,10 @@ export class BannerPlayerComponent implements OnInit {
 
   public onVolumeChange(value: number): void {
     this.player.volume = value / 100;
+  }
+
+  public selectFragment(): void {
+    this.selectedFragment.next();
   }
 
 }

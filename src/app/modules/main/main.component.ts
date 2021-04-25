@@ -48,7 +48,7 @@ export class MainComponent implements OnInit {
 
     this.supportPersons = this.dataService.getArtistsIds(1384).pipe(switchMap((ids) => this.dataService.getArtistsInfo(ids)));
 
-    this.activatedRoute.fragment.subscribe(fragment => this.scrollToFragment(fragment));
+    // this.activatedRoute.fragment.subscribe(fragment => this.scrollToFragment(fragment));
   }
 
   public onGenreChange(genreId): void {
@@ -92,7 +92,7 @@ export class MainComponent implements OnInit {
     );
   }
 
-  private scrollToFragment(fragment: string): void {
+  public scrollToFragment(fragment: string): void {
     if (fragment) {
       setTimeout(() => {
         const block = document.querySelector('#' + fragment);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
@@ -9,6 +9,7 @@ export class BannerComponent implements OnInit {
   public isMuted: boolean;
   public isFullscreen: boolean;
   public isControls: boolean;
+  @Output() selectedFragment = new EventEmitter<string>();
 
   public readonly URL = 'http://persik.by/stream/3502/32/10970.m3u8';
 
@@ -16,6 +17,10 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
+  public onLiveScroll(): void {
+    this.selectedFragment.next('channel');
+  }
 
 
 }

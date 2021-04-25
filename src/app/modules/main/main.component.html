@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header (selectedFragment)="scrollToFragment($event)"></app-header>
 
-<app-banner></app-banner>
+<app-banner (selectedFragment)="scrollToFragment($event)"></app-banner>
 
  <div class="wrapper">
   <app-content-card [id]="item.genre" *ngFor="let item of contentCards; let even=even" [content]="item" [side]="even ? sides.LEFT : sides.RIGHT"></app-content-card>
