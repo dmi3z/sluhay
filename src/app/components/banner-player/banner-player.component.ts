@@ -23,7 +23,7 @@ export class BannerPlayerComponent implements OnInit {
 
   public ngOnInit(): void {
     this.player = this.playerRef.nativeElement as HTMLVideoElement;
-    // this.playerService.playUrl(this.url, this.player, this.autoplay);
+    this.playerService.playUrl(this.url, this.player, this.autoplay);
   }
 
   // public toggleFullscreen(): void {
