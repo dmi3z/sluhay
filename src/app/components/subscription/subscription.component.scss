@@ -17,55 +17,49 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  @include flexMix(space-between);
+  @include flexMix($direction: column);
   padding: 0 180px 0 130px;
   box-sizing: border-box;
+  color: white;
+
+  &__title {
+    text-transform: uppercase;
+    font-family: 'Code Pro LC';
+    font-size: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
 
   &__text {
+    text-transform: lowercase;
+    margin-bottom: 15px;
+    text-align: center;
+
+  }
+
+  &__button {
     text-transform: uppercase;
-    @include fontStyle(36px, white);
-    font-family: 'Code Pro';
-  }
-
-  .form {
+    font-family: 'Code Pro Bold';
+    padding: 8px;
+    background-color: black;
+    border-radius: 4px;
     @include flexMix;
-    height: 50px;
-    width: 70%;
+    text-decoration: none;
+    height: 42px;
+    padding: 0 15px;
+    cursor: pointer;
+    user-select: none;
+    color: white;
 
-    &__email {
-      height: 100%;
-      margin-right: 30px;
-      border-radius: 5px;
-      background-color: rgba($color: white, $alpha: 0.7);
-      padding-left: 15px;
-      border: none;
-      outline: none;
-      width: 100%;
+    img {
+      width: 20px;
+      margin-right: 7px;
     }
 
-    &__button {
-      height: 100%;
-      width: 175px;
-      @include flexMix;
-      text-transform: uppercase;
-      background-color: #282e35;
-      border-radius: 5px;
-      @include fontStyle(14px, white);
-      font-family: "Code Pro Bold";
-      cursor: pointer;
-      user-select: none;
-      text-decoration: none;
-
-      img {
-        margin-right: 5px;
-        width: 15px;
-      }
+    span {
+      padding-top: 4px;
     }
   }
-}
-
-.hidden {
-  display: none;
 }
 
 @media screen and (max-width: 1430px) {
@@ -80,41 +74,111 @@
   }
 }
 
-@media screen and (max-width: 910px) {
+@media screen and (max-width: 670px) {
   .subscription {
-    width: 100%;
-    @include flexMix($align: flex-start, $direction: column);
-
-    .form {
-      width: 100%;
+    &__title {
+      font-size: 25px;
     }
   }
 }
 
-@media screen and (max-width: 440px) {
-  .subscription {
-    @include flexMix($direction: column);
-    &__text {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+// .subscription {
+//   width: 1430px;
+//   height: 260px;
+//   background-image: url("../../../assets/support_banner.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   @include flexMix(space-between);
+//   padding: 0 180px 0 130px;
+//   box-sizing: border-box;
 
-    .form {
-      @include flexMix($direction: column);
-      height: auto;
+//   // &__text {
+//   //   text-transform: uppercase;
+//   //   @include fontStyle(36px, white);
+//   //   font-family: 'Code Pro';
+//   // }
 
-      &__email {
-        margin-right: 0;
-        margin-bottom: 15px;
-        height: 40px;
-      }
+//   .form {
+//     @include flexMix;
+//     height: 50px;
+//     width: 70%;
 
-      &__button {
-        height: 40px;
-        img {
-          display: none;
-        }
-      }
-    }
-  }
-}
+//     &__email {
+//       height: 100%;
+//       margin-right: 30px;
+//       border-radius: 5px;
+//       background-color: rgba($color: white, $alpha: 0.7);
+//       padding-left: 15px;
+//       border: none;
+//       outline: none;
+//       width: 100%;
+//     }
+
+//     &__button {
+//       height: 100%;
+//       width: 175px;
+//       @include flexMix;
+//       text-transform: uppercase;
+//       background-color: #282e35;
+//       border-radius: 5px;
+//       @include fontStyle(14px, white);
+//       font-family: "Code Pro Bold";
+//       cursor: pointer;
+//       user-select: none;
+//       text-decoration: none;
+
+//       img {
+//         margin-right: 5px;
+//         width: 15px;
+//       }
+//     }
+//   }
+// }
+
+// .hidden {
+//   display: none;
+// }
+
+
+
+
+
+// @media screen and (max-width: 910px) {
+//   .subscription {
+//     width: 100%;
+//     @include flexMix($align: flex-start, $direction: column);
+
+//     .form {
+//       width: 100%;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 440px) {
+//   .subscription {
+//     @include flexMix($direction: column);
+//     &__text {
+//       text-align: center;
+//       margin-bottom: 15px;
+//     }
+
+//     .form {
+//       @include flexMix($direction: column);
+//       height: auto;
+
+//       &__email {
+//         margin-right: 0;
+//         margin-bottom: 15px;
+//         height: 40px;
+//       }
+
+//       &__button {
+//         height: 40px;
+//         img {
+//           display: none;
+//         }
+//       }
+//     }
+//   }
+// }

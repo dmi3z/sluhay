@@ -20,6 +20,7 @@ export class DataService {
       .set('sort', 'last')
       .set('category_id', '4')
       .set('genre_id', genreId.toString())
+      .set('size', '100')
       .set('device', 'web-by');
     return this.http
       .get<DTOArtists>(this.BASE_URL.concat('content/videos'), { params })

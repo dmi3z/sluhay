@@ -1,0 +1,70 @@
+
+@font-face {
+  font-family: 'Code Pro';
+  src: url('./Code_Pro.749cabe691d890d8fc4b.ttf');
+}
+
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.wrapper__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 390px;
+  background-image: url('./assets/snow_flake.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 50px;
+
+}
+
+.wrapper__content-text {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Code Pro';
+  width: 100%;
+  max-width: 750px;
+  padding: 0 10px;
+  flex-direction: column;
+}
+
+.active {
+  color: #f91b1b;
+  margin-top: 20px;
+}
+
+.button {
+  width: 210px;
+  height: 50px;
+  background-color: #f91b1b;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: white;
+  font-family: "Code Pro";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 37px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+  font-weight: bold;
+}

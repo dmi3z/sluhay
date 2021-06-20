@@ -11,7 +11,7 @@ export class BannerComponent implements OnInit {
   public isControls: boolean;
   @Output() selectedFragment = new EventEmitter<string>();
 
-  public readonly URL = 'http://persik.by/stream/3502/32/10970.m3u8';
+  public readonly URL = 'https://sluhay.by/live/Ch045pub/index.m3u8';
 
   constructor() { }
 

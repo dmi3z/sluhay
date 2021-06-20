@@ -8,6 +8,7 @@ export class PlayerService {
   constructor(private loadingService: LoadingService) { }
 
   public playUrl(url: string, videoTag: HTMLVideoElement, autoplay = true): void {
+    // const url = this.parseStreamUrl(rawUrl);
     const isHlsSupport: boolean = Hls.isSupported();
     if (isHlsSupport) {
       this.hlsPlayer(url, videoTag, autoplay);
@@ -48,5 +49,15 @@ export class PlayerService {
       }
     };
   }
+
+  // private parseStreamUrl(url: string): string {
+  //   if (url.includes('https')) {
+  //     return url;
+  //   } else {
+  //     let new_url = url.replace('http', 'https');
+  //     new_url = new_url.replace(':82', '');
+  //     return new_url;
+  //   }
+  // }
 
 }
