@@ -1,3 +1,9 @@
 <div class="banner">
-  <app-banner-player (selectedFragment)="onLiveScroll()" [url]="URL" [autoplay]="true"></app-banner-player>
+  <app-banner-player
+    *ngIf="!isStub; else stub"
+    (selectedFragment)="onLiveScroll()"
+    [url]="URL"
+    [autoplay]="true"
+  ></app-banner-player>
+  <app-banner-stub #stub></app-banner-stub>
 </div>

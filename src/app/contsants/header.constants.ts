@@ -53,11 +53,11 @@ export const HEADER_PAGES: HeaderPage[] = [
   {
     id: 0,
     name: 'ротация',
-    url: 'rotation',
+    url: '/rotation',
   },
   {
     id: 1,
     name: 'вознаграждение',
-    url: 'reward',
+    url: '/reward',
   },
 ];

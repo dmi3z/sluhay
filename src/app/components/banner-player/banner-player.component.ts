@@ -1,13 +1,20 @@
 import { PlayerService } from 'src/app/services/player.service';
-import { Component, OnInit, ElementRef, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  Input,
+  ViewChild,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 @Component({
   selector: 'app-banner-player',
   templateUrl: './banner-player.component.html',
-  styleUrls: ['./banner-player.component.scss']
+  styleUrls: ['./banner-player.component.scss'],
 })
 export class BannerPlayerComponent implements OnInit {
-
   @Input() url: string;
   @Input() autoplay: boolean;
   @Input() controls: boolean;
@@ -19,7 +26,7 @@ export class BannerPlayerComponent implements OnInit {
 
   private player: HTMLVideoElement;
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService) {}
 
   public ngOnInit(): void {
     this.player = this.playerRef.nativeElement as HTMLVideoElement;
@@ -57,5 +64,4 @@ export class BannerPlayerComponent implements OnInit {
   public selectFragment(): void {
     this.selectedFragment.next();
   }
-
 }

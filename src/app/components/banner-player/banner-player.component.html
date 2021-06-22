@@ -1,25 +1,29 @@
 <div class="wrapper" [class.wrapper_fullscreen]="isFullscreen">
-  <video #player playsinline class="player" poster="assets/background.jpg"></video>
+  <video
+    #player
+    playsinline
+    class="player"
+    poster="assets/background.jpg"
+  ></video>
 
   <div class="banner-content" *ngIf="!isFullscreen">
+    <span class="banner-content__title-mob"> канал белорусской музыки </span>
 
-    <span class="banner-content__title-mob">
-      канал белорусской музыки
-    </span>
-
-    <img src="assets/logo_main_big.png" alt="">
+    <img src="assets/logo_main_big.png" alt="" />
 
     <span class="banner-content__name">
-      sluhay<span class="banner-content__name banner-content__name_active">.by</span>
+      sluhay<span class="banner-content__name banner-content__name_active"
+        >.by</span
+      >
     </span>
 
     <span class="banner-content__big-title">
-      канал <br>белорусской музыки
+      канал <br />белорусской музыки
     </span>
 
     <span class="banner-content__letstart" (click)="selectFragment()">
-      начни слушать белорусское <br>
-      <img src="assets/arrow_down.png" alt="">
+      начни слушать белорусское <br />
+      <img src="assets/arrow_down.png" alt="" />
     </span>
   </div>
 </div>
@@ -31,5 +35,3 @@
 <ng-template #pause>
   <img (click)="togglePlay()" src="assets/pause.svg" alt="">
 </ng-template> -->
-
-

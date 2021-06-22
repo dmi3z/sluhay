@@ -33,6 +33,7 @@ import { CutPipe } from './pipes/cut.pipe';
 import { ProgressPipe } from './pipes/progress.pipe';
 import { RotationComponent } from './modules/rotation/rotation.component';
 import { RewardComponent } from './modules/reward/reward.component';
+import { BannerStubComponent } from './components/banner-stub/banner-stub.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { RewardComponent } from './modules/reward/reward.component';
     ProgressPipe,
     RotationComponent,
     RewardComponent,
+    BannerStubComponent,
   ],
   imports: [
     BrowserModule,
