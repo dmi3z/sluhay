@@ -11,7 +11,7 @@
   <div class="header__pages">
     <div
       class="header__pages__item"
-      (click)="navigateToPage(page.url)"
+      [routerLink]="page.url"
       *ngFor="let page of headerPages"
     >
       {{ page.name }}

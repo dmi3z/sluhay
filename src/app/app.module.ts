@@ -31,6 +31,8 @@ import { BandItemHorizontalComponent } from './components/band-item-horizontal/b
 import { BandsGenrePipe } from './pipes/bands-genre.pipe';
 import { CutPipe } from './pipes/cut.pipe';
 import { ProgressPipe } from './pipes/progress.pipe';
+import { RotationComponent } from './modules/rotation/rotation.component';
+import { RewardComponent } from './modules/reward/reward.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { ProgressPipe } from './pipes/progress.pipe';
     BandItemHorizontalComponent,
     BandsGenrePipe,
     CutPipe,
-    ProgressPipe
+    ProgressPipe,
+    RotationComponent,
+    RewardComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,16 +72,24 @@ import { ProgressPipe } from './pipes/progress.pipe';
     RouterModule.forRoot([
       {
         path: '',
-        component: MainComponent
+        component: MainComponent,
       },
       {
         path: 'spasibo_za_podpisku',
-        component: ThanksComponent
-      }
+        component: ThanksComponent,
+      },
+      {
+        path: 'reward',
+        component: RewardComponent,
+      },
+      {
+        path: 'rotation',
+        component: RotationComponent,
+      },
     ]),
-    NoopAnimationsModule
+    NoopAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
