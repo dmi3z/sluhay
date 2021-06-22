@@ -1,3 +1,20 @@
 <header class="header" [class.header_gradient]="!isWhite">
-  <div (click)="selectFragment(item.tag)" class="header__item" *ngFor="let item of headerItems">{{ item.name }}</div>
+  <div class="header__fragments">
+    <div
+      class="header__fragments__item"
+      (click)="selectFragment(item.tag)"
+      *ngFor="let item of headerItems"
+    >
+      {{ item.name }}
+    </div>
+  </div>
+  <div class="header__pages">
+    <div
+      class="header__pages__item"
+      (click)="navigateToPage(page.url)"
+      *ngFor="let page of headerPages"
+    >
+      {{ page.name }}
+    </div>
+  </div>
 </header>

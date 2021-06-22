@@ -1,46 +1,50 @@
-@import '../../../theme/mixins.scss';
+@import "../../../theme/mixins.scss";
 
 .header {
   width: 100%;
   height: 125px;
-  @include flexMix;
-  font-family: 'Code Pro LC';
-  position: relative;
+  @include flexMix(space-around);
   left: 0;
   top: 0;
   z-index: 10;
 
+  &__fragments,
+  &__pages {
+    font-family: "Code Pro LC";
+    position: relative;
+    @include flexMix;
+    &__item {
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-right: 38px;
+      color: white;
+      outline: none;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   &_gradient {
     background: linear-gradient(to bottom, black, transparent);
     position: absolute;
-
-    .header__item {
-      color: white !important;
-    }
-  }
-
-  &__item {
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-right: 38px;
-    color: black;
-    outline: none;
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 }
-@media screen and (max-width: 1100px) {
+
+@media screen and (max-width: 1500px) {
   .header {
-    &__item {
-      font-size: 12px;
-      margin-right: 22px;
+    &__fragments,
+    &__pages {
+      &__item {
+        font-size: 14px;
+        margin-right: 20px;
+      }
     }
   }
 }
 
-@media screen and (max-width: 878px) {
+@media screen and (max-width: 1200px) {
   .header {
     display: none;
     &__item {
