@@ -2,16 +2,29 @@
 
 <app-banner (selectedFragment)="scrollToFragment($event)"></app-banner>
 
- <div class="wrapper">
-  <app-content-card [id]="item.genre" *ngFor="let item of contentCards; let even=even" [content]="item" [side]="even ? sides.LEFT : sides.RIGHT"></app-content-card>
+<div class="wrapper">
+  <app-content-card
+    [id]="item.genre"
+    *ngFor="let item of contentCards; let even = even"
+    [content]="item"
+    [side]="even ? sides.LEFT : sides.RIGHT"
+  ></app-content-card>
 </div>
 
 <div class="wrapper wrapper_odd" id="musicions">
-  <app-bands [selectedGenreId]="activeGenreId" [genres]="genres" [allBands]="allBands" [bands]="filteredBands" (changeGenre)="onGenreChange($event)"></app-bands>
+  <app-bands
+    [selectedGenreId]="activeGenreId"
+    [genres]="genres"
+    [allBands]="allBands"
+    [bands]="filteredBands"
+    (changeGenre)="onGenreChange($event)"
+  ></app-bands>
 </div>
 
 <div class="wrapper" id="donates">
-  <app-support-person-group [supportPersons]="supportPersons | async"></app-support-person-group>
+  <app-support-person-group
+    [supportPersons]="supportPersons | async"
+  ></app-support-person-group>
 </div>
 
 <div class="wrapper" id="subscriptions">
@@ -19,17 +32,21 @@
 </div>
 
 <div class="wrapper" id="companies">
-  <app-support-company-group (openEvent)="openSpasiboModal()" [supportCompanies]="supportCompanies"></app-support-company-group>
+  <app-support-company-group
+    (openEvent)="openSpasiboModal()"
+    [supportCompanies]="supportCompanies"
+  ></app-support-company-group>
 </div>
 
-
-
 <!-- <app-forms-modal (closeEvent)="closeModal()" *ngIf="isShowCompanySupportModal"></app-forms-modal> -->
-<app-spasibo-popup (closeEvent)="closeSpasiboModal()" *ngIf="isShowSpasiboModal"></app-spasibo-popup>
+<app-spasibo-popup
+  (closeEvent)="closeSpasiboModal()"
+  *ngIf="isShowSpasiboModal"
+></app-spasibo-popup>
 
-<div class="load-layout" *ngIf="(loadCounter$ | async) !== 0">
+<!-- <div class="load-layout" *ngIf="(loadCounter$ | async) !== 0">
   <div class="loader-wrapper">
     <div class="loader"></div>
     <div class="progress">{{ loadCounter$ | async | appProgress }}</div>
   </div>
-</div>
+</div> -->
