@@ -34,7 +34,8 @@ import { ProgressPipe } from './pipes/progress.pipe';
 import { RotationComponent } from './modules/rotation/rotation.component';
 import { RewardComponent } from './modules/reward/reward.component';
 import { BannerStubComponent } from './components/banner-stub/banner-stub.component';
-import { RotationCardComponent } from './modules/rotation/rotation-card/rotation-card.component';
+import { FirstRotationCardComponent } from './modules/rotation/rotation-card/rotation-card.component';
+import { SecondRotationCardComponent } from './modules/rotation/add-rotation-card/add-rotation-card.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { RotationCardComponent } from './modules/rotation/rotation-card/rotation
     RotationComponent,
     RewardComponent,
     BannerStubComponent,
-    RotationCardComponent,
+    FirstRotationCardComponent,
+    SecondRotationCardComponent,
   ],
   imports: [
     BrowserModule,
