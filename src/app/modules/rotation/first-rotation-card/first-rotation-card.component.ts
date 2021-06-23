@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-first-rotation-card',
-  templateUrl: './rotation-card.component.html',
-  styleUrls: ['./rotation-card.component.scss'],
+  templateUrl: './first-rotation-card.component.html',
+  styleUrls: ['./first-rotation-card.component.scss'],
 })
 export class FirstRotationCardComponent {
   constructor() {}
