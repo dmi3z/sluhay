@@ -7,37 +7,81 @@
   width: 99vw;
   margin-bottom: 130px;
   .block {
+    width:49%;
     box-sizing: border-box;
-    width: 600px;
+    width: px;
     height: 1100px;
     padding-bottom: 100px;
-    @include flexMix(space-between, flex-start, column);
+    &--left{
+      @include flexMix(space-between, flex-end, column);
+    }
+    &--right{
+      @include flexMix(space-between, center, column);
+    }
     &__text {
-      margin-top: 60px;
+      margin-top: 10px;
       width: 400px;
     }
     &__img {
-      width: 100%;
+
     }
   }
-  background: url("../../../../assets/musicants-background.png");
-  background-repeat: no-repeat;
-  background-position-y: bottom;
+  // background: url("../../../../assets/laptop.png");
+  // background-repeat: no-repeat;
+  // background-position-y: bottom;
 }
-
-.rotation-text {
+.mail-text {
   line-height: 30px;
-  font-size: 23px;
-  width: 400px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 420px;
+  margin: 30px 0px;
+  font-family: Arial, Helvetica, sans-serif;
   &--red {
     color: red;
   }
 }
 
-.about-text {
+.mail-requirements {
+  text-align: start;
   line-height: 30px;
   font-size: 15px;
   font-weight: bold;
   width: 420px;
   font-family: Arial, Helvetica, sans-serif;
+  .red {
+    color: red;
+  }
+  &__header{
+    font-weight: bolder;
+  }
+  &__list {
+    list-style-image: url('../../../../assets/marker.png');
+    padding: inherit;
+    padding-left: 18px;
+    li{
+      padding-left: 20px;
+    }
+  }
 }
+
+.mandatory-requirements{
+  width: 500px;
+  &__list{
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    &__text{
+      padding-left: 20px;
+    }
+    ol{
+      padding-left: 25px;
+    }
+    li::marker{
+      font-size: 25px;
+      color: red;
+    }
+  }
+}
+
