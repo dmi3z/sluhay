@@ -1,7 +1,6 @@
 import { MainComponent } from './modules/main/main.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContentCardComponent } from './components/content-card/content-card.component';
@@ -37,7 +36,7 @@ import { BannerStubComponent } from './components/banner-stub/banner-stub.compon
 import { InvitationCardComponent } from './modules/rotation/components/invitation-card/invitation-card.component';
 import { RequirementsCardComponent } from './modules/rotation/components/requirements-card/requirements-card.component';
 import { QuoteComponent } from './components/quote/quote.component';
-import { FirstRewardCardComponent } from './modules/reward/components/first-reward-card/first-reward-card.component';
+import { RewardAboutCardComponent } from './modules/reward/components/reward-about-card/reward-about-card.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +72,7 @@ import { FirstRewardCardComponent } from './modules/reward/components/first-rewa
     InvitationCardComponent,
     RequirementsCardComponent,
     QuoteComponent,
-    FirstRewardCardComponent,
+    RewardAboutCardComponent,
   ],
   imports: [
     BrowserModule,

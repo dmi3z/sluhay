@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-second-rotation-card',
+  selector: 'app-requirements-card',
   templateUrl: './requirements-card.component.html',
   styleUrls: ['./requirements-card.component.scss'],
 })
