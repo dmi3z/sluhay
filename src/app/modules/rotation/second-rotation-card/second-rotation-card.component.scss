@@ -1,35 +1,28 @@
 @import "../../../../theme/mixins.scss";
 @import "../../../../theme/colors.scss";
 @import "../../../../theme/fonts.scss";
-
 .card {
-  @include flexMix(center, space-around);
+  @include flexMix(center, center, column);
   width: 99vw;
-  margin-bottom: 130px;
+  margin-bottom: 80px;
   .block {
-    width:49%;
-    box-sizing: border-box;
-    width: px;
-    height: 1100px;
-    padding-bottom: 100px;
-    &--left{
-      @include flexMix(space-between, flex-end, column);
+    width: 100%;
+    height: 500px;
+    &--top {
+      @include flexMix(center, flex-start);
     }
-    &--right{
-      @include flexMix(space-between, center, column);
+    &--bottom {
+      @include flexMix(center, flex-end);
     }
-    &__text {
-      margin-top: 10px;
-      width: 400px;
+    &__left {
+      padding-right: 50px;
     }
-    &__img {
-
+    &__right {
+      padding-left: 50px;
     }
   }
-  // background: url("../../../../assets/laptop.png");
-  // background-repeat: no-repeat;
-  // background-position-y: bottom;
 }
+
 .mail-text {
   line-height: 30px;
   font-size: 15px;
@@ -52,36 +45,107 @@
   .red {
     color: red;
   }
-  &__header{
+  &__header {
     font-weight: bolder;
   }
   &__list {
-    list-style-image: url('../../../../assets/marker.png');
+    list-style-image: url("../../../../assets/marker.png");
     padding: inherit;
     padding-left: 18px;
-    li{
+    li {
       padding-left: 20px;
     }
   }
 }
 
-.mandatory-requirements{
+.mandatory-requirements {
+  margin-bottom: 40px;
   width: 500px;
-  &__list{
+  &__list {
     line-height: 30px;
     font-size: 18px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    &__text{
+    &__text {
       padding-left: 20px;
+      .red {
+        color: red;
+      }
     }
-    ol{
+    ol {
       padding-left: 25px;
     }
-    li::marker{
+    li::marker {
       font-size: 25px;
       color: red;
     }
   }
 }
 
+@media screen and (max-width: 767px) {
+  .card {
+    .block {
+      height: auto;
+      &--top {
+        @include flexMix(center, center, column);
+      }
+      &--bottom {
+        @include flexMix(center, center, column-reverse);
+      }
+      &__left {
+        padding-right: 0px;
+      }
+      &__right {
+        padding-left: 0px;
+      }
+    }
+  }
+
+  .mail-requirements {
+    width: 300px;
+  }
+
+  .mandatory-requirements {
+    margin-bottom: 0px;
+    width: 300px;
+    &__list {
+      font-size: 15px;
+      li::marker {
+        font-size: 20px;
+      }
+    }
+  }
+}
+// @media screen and (max-width: 1600px) {
+//   .card {
+//     margin-bottom: 80px;
+//     .block {
+//       &--top {
+//         height: 800px;
+//         @include flexMix(center, center, column);
+//       }
+//       &--bottom {
+//         height: 800px;
+//         @include flexMix(center, center, column-reverse);
+//       }
+//       &__left {
+//         @include flexMix(flex-end, flex-start);
+//         padding-right: 0px;
+//       }
+//       &__right {
+//         padding-left: 0px;
+//       }
+//     }
+//   }
+//   .rotation-text {
+//     margin-top: 20px;
+//     margin-bottom: 30px;
+//     text-align: center;
+//     width: 500px;
+//   }
+
+//   .about-text {
+//     @include flexMix(center, center, column);
+//     text-align: center;
+//   }
+// }
