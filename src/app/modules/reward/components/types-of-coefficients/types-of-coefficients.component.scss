@@ -1,0 +1,15 @@
+@import "../../../../../theme/mixins.scss";
+@import "../../../../../theme/colors.scss";
+@import "../../../../../theme/fonts.scss";
+
+.coefficients {
+  @include flexMix(center, center, column);
+  margin-top: 90px;
+  width: 99vw;
+  &__item {
+    &--right-align {
+    }
+    &--left-align {
+    }
+  }
+}
