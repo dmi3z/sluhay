@@ -1,15 +1,19 @@
-@import '../../../theme/mixins.scss';
-@import '../../../theme/colors.scss';
+@import "../../../theme/mixins.scss";
+@import "../../../theme/colors.scss";
 
 .banner {
   position: relative;
   margin-bottom: 130px;
 }
 
+@media screen and (max-width: 1000px) {
+  .banner {
+    margin-bottom: 80px;
+  }
+}
+
 @media screen and (max-width: 878px) {
   .banner {
     margin-bottom: 60px;
   }
-
 }
-

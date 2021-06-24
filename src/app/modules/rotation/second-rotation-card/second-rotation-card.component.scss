@@ -82,7 +82,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1000px) {
   .card {
     .block {
       height: auto;
@@ -101,51 +101,58 @@
     }
   }
 
+  .mandatory-requirements {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    .block {
+      height: auto;
+      &--top {
+        @include flexMix(center, center, column);
+      }
+      &--bottom {
+        @include flexMix(center, center, column-reverse);
+      }
+      &__left {
+        text-align: center;
+        width: 300px;
+        padding-right: 0px;
+        img {
+          width: 300px;
+        }
+      }
+      &__right {
+        text-align: center;
+        padding-left: 0px;
+        img {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  .mail-text {
+    width: 300px;
+  }
+
   .mail-requirements {
     width: 300px;
   }
 
   .mandatory-requirements {
     margin-bottom: 0px;
-    width: 300px;
+    width: 90%;
     &__list {
       font-size: 15px;
+      li {
+        text-align: start;
+      }
       li::marker {
         font-size: 20px;
       }
     }
   }
 }
-// @media screen and (max-width: 1600px) {
-//   .card {
-//     margin-bottom: 80px;
-//     .block {
-//       &--top {
-//         height: 800px;
-//         @include flexMix(center, center, column);
-//       }
-//       &--bottom {
-//         height: 800px;
-//         @include flexMix(center, center, column-reverse);
-//       }
-//       &__left {
-//         @include flexMix(flex-end, flex-start);
-//         padding-right: 0px;
-//       }
-//       &__right {
-//         padding-left: 0px;
-//       }
-//     }
-//   }
-//   .rotation-text {
-//     margin-top: 20px;
-//     margin-bottom: 30px;
-//     text-align: center;
-//     width: 500px;
-//   }
-
-//   .about-text {
-//     @include flexMix(center, center, column);
-//     text-align: center;
-//   }
-// }

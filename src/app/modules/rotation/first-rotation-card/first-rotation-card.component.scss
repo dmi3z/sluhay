@@ -54,7 +54,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1000px) {
   .card {
     margin-bottom: 80px;
     .block {
@@ -76,10 +76,55 @@
     }
   }
   .rotation-text {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .about-text {
+    @include flexMix(center, center, column);
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    margin-bottom: 80px;
+    .block {
+      &--top {
+        height: auto;
+        @include flexMix(center, center, column);
+      }
+      &--bottom {
+        height: auto;
+        margin-top: 20px;
+        @include flexMix(center, center, column-reverse);
+      }
+      &__left {
+        margin-top: 30px;
+        padding-right: 0px;
+        width: 100%;
+        img {
+          width: 650px;
+        }
+      }
+      &__right {
+        height: auto;
+        padding-left: 0px;
+        img {
+          width: 300px;
+        }
+      }
+    }
+    background: url("../../../../assets/band-background-mobile.png") no-repeat;
+    background-position-y: bottom;
+    background-size: 100% 70%;
+    background-position-x: left;
+  }
+  .rotation-text {
     margin-top: 20px;
     margin-bottom: 30px;
     text-align: center;
-    width: 300px;
+    width: 100%;
   }
 
   .about-text {
