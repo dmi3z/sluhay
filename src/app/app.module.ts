@@ -37,6 +37,7 @@ import { InvitationCardComponent } from './modules/rotation/components/invitatio
 import { RequirementsCardComponent } from './modules/rotation/components/requirements-card/requirements-card.component';
 import { QuoteComponent } from './components/quote/quote.component';
 import { RewardAboutCardComponent } from './modules/reward/components/reward-about-card/reward-about-card.component';
+import { RewardDescriptionCardComponent } from './modules/reward/components/reward-description-card/reward-description-card.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { RewardAboutCardComponent } from './modules/reward/components/reward-abo
     RequirementsCardComponent,
     QuoteComponent,
     RewardAboutCardComponent,
+    RewardDescriptionCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+@import "../../../../../theme/mixins.scss";
+@import "../../../../../theme/colors.scss";
+@import "../../../../../theme/fonts.scss";
+
+.card {
+  @include flexMix(center, center);
+  width: 99vw;
+  height: 550px;
+  .block {
+    height: 100%;
+    @include flexMix(center, center);
+    &__left {
+      @include flexMix(flex-end, flex-start, column);
+      padding-right: 70px;
+    }
+    &__right {
+      height: 70%;
+      @include flexMix(space-between, flex-start, column);
+      padding-left: 70px;
+      top: 0;
+    }
+  }
+  background: $odd-background;
+}
+
+.description-text {
+  text-align: start;
+  line-height: 30px;
+  font-weight: bold;
+  width: 420px;
+  font-family: Arial, Helvetica, sans-serif;
+}
