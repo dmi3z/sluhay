@@ -34,8 +34,8 @@ import { ProgressPipe } from './pipes/progress.pipe';
 import { RotationComponent } from './modules/rotation/rotation.component';
 import { RewardComponent } from './modules/reward/reward.component';
 import { BannerStubComponent } from './components/banner-stub/banner-stub.component';
-import { FirstRotationCardComponent } from './modules/rotation/first-rotation-card/first-rotation-card.component';
-import { SecondRotationCardComponent } from './modules/rotation/second-rotation-card/second-rotation-card.component';
+import { FirstRotationCardComponent } from './modules/rotation/components/first-rotation-card/first-rotation-card.component';
+import { SecondRotationCardComponent } from './modules/rotation/components/second-rotation-card/second-rotation-card.component';
 import { QuoteComponent } from './components/quote/quote.component';
 
 @NgModule({

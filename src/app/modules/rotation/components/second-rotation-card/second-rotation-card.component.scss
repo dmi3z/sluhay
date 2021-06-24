@@ -1,6 +1,6 @@
-@import "../../../../theme/mixins.scss";
-@import "../../../../theme/colors.scss";
-@import "../../../../theme/fonts.scss";
+@import "../../../../../theme/mixins.scss";
+@import "../../../../../theme/colors.scss";
+@import "../../../../../theme/fonts.scss";
 .card {
   @include flexMix(center, center, column);
   width: 99vw;
@@ -52,7 +52,7 @@
     font-weight: bolder;
   }
   &__list {
-    list-style-image: url("../../../../assets/marker.png");
+    list-style-image: url("../../../../../assets/marker.png");
     padding: inherit;
     padding-left: 18px;
     li {

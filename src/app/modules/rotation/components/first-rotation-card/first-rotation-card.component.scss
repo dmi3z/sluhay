@@ -1,6 +1,6 @@
-@import "../../../../theme/mixins.scss";
-@import "../../../../theme/colors.scss";
-@import "../../../../theme/fonts.scss";
+@import "../../../../../theme/mixins.scss";
+@import "../../../../../theme/colors.scss";
+@import "../../../../../theme/fonts.scss";
 
 .card {
   @include flexMix(center, center, column);
@@ -28,7 +28,7 @@
       height: 100%;
     }
   }
-  background: url("../../../../assets/band-background.png") no-repeat;
+  background: url("../../../../../assets/band-background.png") no-repeat;
   background-position-y: bottom;
   background-size: auto;
   background-position-x: left;
@@ -115,7 +115,8 @@
         }
       }
     }
-    background: url("../../../../assets/band-background-mobile.png") no-repeat;
+    background: url("../../../../../assets/band-background-mobile.png")
+      no-repeat;
     background-position-y: bottom;
     background-size: 100% 70%;
     background-position-x: left;
