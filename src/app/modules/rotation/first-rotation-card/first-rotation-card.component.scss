@@ -88,7 +88,7 @@
 
 @media screen and (max-width: 767px) {
   .card {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     .block {
       &--top {
         height: auto;
@@ -102,7 +102,7 @@
       &__left {
         margin-top: 30px;
         padding-right: 0px;
-        width: 100%;
+        width: 95%;
         img {
           width: 650px;
         }
