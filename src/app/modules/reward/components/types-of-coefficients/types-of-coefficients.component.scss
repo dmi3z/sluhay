@@ -7,9 +7,42 @@
   margin-top: 90px;
   width: 99vw;
   &__item {
+    width: 970px;
+    &__image {
+      padding: 0px 30px;
+    }
     &--right-align {
+      @include flexMix(space-between, flex-start, row-reverse);
     }
     &--left-align {
+      @include flexMix(space-between, flex-start);
     }
+  }
+}
+
+.explanatory-info {
+  width: 670px;
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+  &__header {
+    color: red;
+  }
+  &__text {
+    line-height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+.agreement-wrapper {
+  @include flexMix(center);
+  width: 100%;
+  margin: 50px 0px;
+  &__quote {
+    font-size: 15px;
+    width: 680px;
   }
 }

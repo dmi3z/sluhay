@@ -1,6 +1,29 @@
 <div class="coefficients">
   <h1>Коэффициенты Вознаграждения</h1>
-  <div class="coefficients__item--left-align"></div>
-  <div class="coefficients__item--right-align"></div>
-  <div class="coefficients__item--left-align"></div>
+  <div
+    class="coefficients__item"
+    [ngClass]="
+      'coefficients__item--' + typeOfCoefficient.orientation + '-align'
+    "
+    *ngFor="let typeOfCoefficient of typesOfCoefficients"
+  >
+    <div class="coefficients__item__image">
+      <img [src]="typeOfCoefficient.img" />
+    </div>
+    <div
+      class="explanatory-info"
+      [ngClass]="'explanatory-info--' + typeOfCoefficient.orientation"
+    >
+      <h2 class="explanatory-info__header">{{ typeOfCoefficient.name }}</h2>
+      <p
+        class="explanatory-info__text"
+        [innerHTML]="typeOfCoefficient.description"
+      ></p>
+    </div>
+  </div>
+  <div class="agreement-wrapper">
+    <div class="agreement-wrapper__quote">
+      <app-quote [quote]="quoteText"></app-quote>
+    </div>
+  </div>
 </div>
