@@ -39,6 +39,7 @@ import { QuoteComponent } from './components/quote/quote.component';
 import { RewardAboutCardComponent } from './modules/reward/components/reward-about-card/reward-about-card.component';
 import { RewardDescriptionCardComponent } from './modules/reward/components/reward-description-card/reward-description-card.component';
 import { TypesOfCoefficientsComponent } from './modules/reward/components/types-of-coefficients/types-of-coefficients.component';
+import { CoefficientsCalculationComponent } from './modules/reward/components/coefficients-calculation/coefficients-calculation.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { TypesOfCoefficientsComponent } from './modules/reward/components/types-
     RewardAboutCardComponent,
     RewardDescriptionCardComponent,
     TypesOfCoefficientsComponent,
+    CoefficientsCalculationComponent,
   ],
   imports: [
     BrowserModule,
