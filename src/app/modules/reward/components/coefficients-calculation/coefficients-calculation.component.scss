@@ -10,6 +10,10 @@
     &__image {
       @include flexMix(flex-end, flex-start, column);
       padding-right: 50px;
+      img {
+        position: relative;
+        right: 30px;
+      }
     }
     &__description {
       @include flexMix(space-between, flex-start, column);
@@ -18,9 +22,15 @@
   }
   background: $odd-background;
 }
-.header-text {
+.header-text,
+.header-text-mobile {
   padding: 0 30px;
   width: 370px;
+}
+
+.header-text-mobile {
+  text-align: center;
+  display: none;
 }
 
 .description-info {
@@ -39,5 +49,70 @@
   }
   &__text {
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .calculation {
+    .body {
+      @include flexMix(center, center, column-reverse);
+      &__image {
+        padding-top: 20px;
+        @include flexMix(flex-end, center, column);
+        padding-right: 0px;
+        img {
+          right: 65px;
+        }
+      }
+      &__description {
+        @include flexMix(center, center, column);
+        padding: 20px 0px 0px 0px;
+      }
+    }
+  }
+  .header-text-mobile {
+    display: block;
+  }
+  .header-text {
+    display: none;
+  }
+
+  .description-info {
+    width: 300px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .calculation {
+    .body {
+      width: 300px;
+      @include flexMix(center, center, column-reverse);
+      &__image {
+        padding-top: 20px;
+        @include flexMix(flex-end, center, column);
+        padding-right: 0px;
+        img {
+          width: 200px;
+          right: 25px;
+        }
+      }
+      &__description {
+        @include flexMix(center, center, column);
+        padding: 20px 0px 0px 0px;
+      }
+    }
+  }
+  .header-text-mobile {
+    padding: 0px;
+    width: 300px;
+    display: block;
+  }
+  .header-text {
+    display: none;
+  }
+
+  .description-info {
+    text-align: center;
   }
 }

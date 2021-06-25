@@ -46,3 +46,37 @@
     width: 680px;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .coefficients {
+    text-align: center;
+    margin-top: 30px;
+    &__item {
+      width: auto;
+      &__image {
+        padding: 0px 0px;
+      }
+      &--right-align,
+      &--left-align {
+        @include flexMix(center, center, column);
+      }
+    }
+  }
+
+  .explanatory-info {
+    width: 80%;
+    &--left,
+    &--right {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .agreement-wrapper {
+    width: 300px;
+    &__quote {
+      width: 100%;
+    }
+  }
+}
