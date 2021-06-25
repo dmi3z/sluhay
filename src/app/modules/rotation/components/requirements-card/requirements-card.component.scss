@@ -29,7 +29,6 @@
 .mail-text {
   line-height: 30px;
   font-size: 15px;
-  font-weight: bold;
   width: 420px;
   margin: 30px 0px;
   font-family: Arial, Helvetica, sans-serif;
@@ -42,14 +41,13 @@
   text-align: start;
   line-height: 30px;
   font-size: 15px;
-  font-weight: bold;
   width: 420px;
   font-family: Arial, Helvetica, sans-serif;
   .red {
     color: red;
   }
   &__header {
-    font-weight: bolder;
+    font-weight: bold;
   }
   &__list {
     list-style-image: url("../../../../../assets/marker.png");
@@ -67,7 +65,6 @@
   &__list {
     line-height: 30px;
     font-size: 18px;
-    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     &__text {
       padding-left: 20px;
