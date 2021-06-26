@@ -24,7 +24,9 @@
         class="items__item"
         (click)="navigateToFragment(item.tag)"
       >
-        <img [src]="item.img" />
+        <div class="item-logo">
+          <img [src]="item.img" />
+        </div>
         <div class="info">
           <div class="info__header">
             SLUHAY<span class="red-text">{{ item.name }}</span>
