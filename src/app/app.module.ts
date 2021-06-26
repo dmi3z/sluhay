@@ -1,3 +1,4 @@
+import { MenuComponent } from './components/menu/menu.component';
 import { MainComponent } from './modules/main/main.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -79,6 +80,7 @@ import { CoefficientsCalculationComponent } from './modules/reward/components/co
     RewardDescriptionCardComponent,
     TypesOfCoefficientsComponent,
     CoefficientsCalculationComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

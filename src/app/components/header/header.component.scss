@@ -26,6 +26,10 @@
     }
   }
 
+  &__menu{
+    display: none;
+  }
+
   &_gradient {
     background: linear-gradient(to bottom, black, transparent);
     position: absolute;
@@ -46,8 +50,11 @@
 
 @media screen and (max-width: 1200px) {
   .header {
-    display: none;
-    &__item {
+    &__menu{
+      display: block;
+    }
+    &__fragments,
+    &__pages {
       display: none;
     }
   }

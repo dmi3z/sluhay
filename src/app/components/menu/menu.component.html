@@ -1,0 +1,10 @@
+<div class="menu">
+  <div class="menu__button" (click)="changeMenuStatus()">
+    <span class="menu__button__icon">&equiv;</span>
+    {{ menuText }}
+  </div>
+  <div class="menu__content" *ngIf="menuIsOpen">
+    <br />aasdasdasdas <br />asdasfsafas <br />aasdasdasdas <br />asdasfsafas
+  </div>
+  <div class="menu__dark-background" *ngIf="menuIsOpen"></div>
+</div>
