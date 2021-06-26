@@ -80,7 +80,7 @@ import { CoefficientsCalculationComponent } from './modules/reward/components/co
     RewardDescriptionCardComponent,
     TypesOfCoefficientsComponent,
     CoefficientsCalculationComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +89,11 @@ import { CoefficientsCalculationComponent } from './modules/reward/components/co
     RouterModule.forRoot([
       {
         path: '',
+        redirectTo: '/main',
+        pathMatch: 'full',
+      },
+      {
+        path: 'main',
         component: MainComponent,
       },
       {

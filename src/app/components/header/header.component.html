@@ -2,7 +2,7 @@
   <div class="header__fragments">
     <div
       class="header__fragments__item"
-      (click)="selectFragment(item.tag)"
+      (click)="navigateToFragment(item.tag)"
       *ngFor="let item of headerItems"
     >
       {{ item.name }}
@@ -17,6 +17,8 @@
       {{ page.name }}
     </div>
   </div>
-  <app-menu class="header_menu"></app-menu>
+  <app-menu
+    class="header__menu"
+    (selectFragment)="navigateToFragment($event)"
+  ></app-menu>
 </header>
-
