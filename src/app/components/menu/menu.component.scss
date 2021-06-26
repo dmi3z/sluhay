@@ -2,7 +2,6 @@
 
 .menu {
   width: 99vw;
-  z-index: 150;
   height: auto;
   position: absolute;
   top: 0px;
@@ -24,11 +23,11 @@
   }
 
   &__content {
-    @include flexMix(center);
+    @include flexMix(flex-start, center, column);
+    background: linear-gradient(to bottom, transparent, #2b345e, transparent);
     width: 100%;
     z-index: 200;
     color: white;
-    background-repeat: no-repeat;
   }
 
   &__dark-background {
@@ -39,5 +38,48 @@
     right: 0;
     z-index: 99;
     background-color: black;
+  }
+}
+
+.logo {
+  padding: 60px 0px;
+}
+
+.pages {
+  @include flexMix(flex-start, center, column);
+  .active-page {
+    color: red;
+  }
+  &__page {
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+}
+
+.items {
+  @include flexMix(flex-start, center, column);
+  width: 100%;
+  &__item:first-child {
+    margin-top: 20px;
+    border-top: 0.5px solid #ffffffb4;
+  }
+  &__item {
+    cursor: pointer;
+    width: 100%;
+    @include flexMix(flex-start, center);
+    padding: 20px 0px 20px 40px;
+    border-bottom: 0.5px solid #ffffffb4;
+    .info {
+      margin-left: 20px;
+      &__header {
+        font-size: 20px;
+      }
+      &__text {
+        font-size: 14px;
+      }
+      .red-text {
+        color: red;
+      }
+    }
   }
 }

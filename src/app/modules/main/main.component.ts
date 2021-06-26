@@ -1,15 +1,16 @@
+import { FragmentScrollingService } from '../../services/fragment-scrolling.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { map, take, switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from './../../services/data.service';
 import { SupportCompany } from 'src/app/interfaces/support.interface';
-import { Observable, forkJoin, Subject } from 'rxjs';
+import { Observable, forkJoin, Subject, Subscription } from 'rxjs';
 import { DTOArtistInfo } from './../../interfaces/artists.dto.interfaces';
 import { Genre } from './../../interfaces/genre.interface';
 import { SIDE } from 'src/app/contsants/side.enum';
 import { CONTENT_CARDS } from './../../contsants/content-cards.constants';
 import { ContentCard } from './../../interfaces/content-card.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SUPPORT_COMPANIES } from './constants/support-companies.constants';
 import { GENRES_LIST } from './constants/genres.constants';
 import { LoadingService } from 'src/app/services/loading.service';
@@ -17,10 +18,9 @@ import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
-
+export class MainComponent implements OnInit, OnDestroy {
   public contentCards: ContentCard[] = CONTENT_CARDS;
   public sides = SIDE;
   public genres: Genre[] = GENRES_LIST;
@@ -32,23 +32,36 @@ export class MainComponent implements OnInit {
   public isShowCompanySupportModal: boolean;
   public isShowSpasiboModal: boolean;
   public loadCounter$: Subject<number>;
+  public fragmentSubscription: Subscription;
 
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private loadingService: LoadingService) {}
+  constructor(
+    private dataService: DataService,
+    private fragmentScrollingService: FragmentScrollingService,
+    private loadingService: LoadingService
+  ) {}
 
   public ngOnInit(): void {
     this.loadCounter$ = this.loadingService.loadCounter$;
-    const allData$ = this.genres.slice(1)
+    const allData$ = this.genres
+      .slice(1)
       .map(({ id }) => this.getArtistsInfo(id));
-    forkJoin(allData$).pipe(map((data) => data.reduce((accum, item) => accum.concat(...item), [])), take(1))
+    forkJoin(allData$)
+      .pipe(
+        map((data) => data.reduce((accum, item) => accum.concat(...item), [])),
+        take(1)
+      )
       .subscribe((data) => {
         data.sort((a, b) => a.name.localeCompare(b.name));
         this.allBands = data;
         this.filteredBands = data;
       });
-
-    this.supportPersons = this.dataService.getArtistsIds(1384).pipe(switchMap((ids) => this.dataService.getArtistsInfo(ids)));
-
-    // this.activatedRoute.fragment.subscribe(fragment => this.scrollToFragment(fragment));
+    this.fragmentSubscription =
+      this.fragmentScrollingService.fragment$.subscribe((fragment) => {
+        this.scrollToFragment(fragment);
+      });
+    this.supportPersons = this.dataService
+      .getArtistsIds(1384)
+      .pipe(switchMap((ids) => this.dataService.getArtistsInfo(ids)));
   }
 
   public onGenreChange(genreId): void {
@@ -103,5 +116,8 @@ export class MainComponent implements OnInit {
     }
   }
 
-
+  public ngOnDestroy(): void {
+    this.fragmentSubscription.unsubscribe();
+    this.fragmentScrollingService.setFragment(null);
+  }
 }

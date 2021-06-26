@@ -1,10 +1,41 @@
 <div class="menu">
   <div class="menu__button" (click)="changeMenuStatus()">
     <span class="menu__button__icon">&equiv;</span>
-    {{ menuText }}
+    {{ menuBtnText }}
   </div>
   <div class="menu__content" *ngIf="menuIsOpen">
-    <br />aasdasdasdas <br />asdasfsafas <br />aasdasdasdas <br />asdasfsafas
+    <div class="logo">
+      <img src="../../../assets/logo_channel.png" />
+    </div>
+    <div class="pages">
+      <div
+        *ngFor="let page of menuPages"
+        class="pages__page"
+        routerLinkActive="active-page"
+        [routerLink]="page.url"
+        (click)="changeMenuStatus()"
+      >
+        {{ page.name }}
+      </div>
+    </div>
+    <div class="items">
+      <div
+        *ngFor="let item of menuItems"
+        class="items__item"
+        (click)="navigateToFragment(item.tag)"
+      >
+        <img [src]="item.img" />
+        <div class="info">
+          <div class="info__header">
+            SLUHAY<span class="red-text">{{ item.name }}</span>
+          </div>
+          <div class="info__text">
+            {{ item.description }}
+            <span class="red-text">{{ item.addDescription }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="menu__dark-background" *ngIf="menuIsOpen"></div>
 </div>
