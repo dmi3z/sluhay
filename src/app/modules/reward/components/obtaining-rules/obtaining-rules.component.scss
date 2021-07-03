@@ -1,0 +1,69 @@
+@import "../../../../../theme/mixins.scss";
+@import "../../../../../theme/colors.scss";
+@import "../../../../../theme/fonts.scss";
+
+.obtaining-rules {
+  @include flexMix(center, center);
+  width: 99vw;
+  margin: 60px 0px;
+  &__rules {
+    padding-right: 70px;
+    max-width: 400px;
+    .rules-header {
+      text-align: start;
+    }
+    .rules-list {
+      padding-inline-start: 15px;
+      line-height: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+
+      &__rule {
+        padding-left: 10px;
+        .red-link {
+          text-decoration: underline;
+          color: #ff0000;
+        }
+      }
+
+      &__rule::marker {
+        font-family: "Calibri";
+        @include fontStyle($color: #ff0000);
+        font-style: italic;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__image {
+    padding-left: 70px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .obtaining-rules {
+    @include flexMix(center, center, column);
+    margin: 20px 0px;
+    &__rules {
+      padding-right: 0px;
+
+      .rules-header {
+        text-align: center;
+      }
+    }
+
+    &__image {
+      padding-left: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .obtaining-rules {
+    &__rules {
+      max-width: 300px;
+    }
+    &__image {
+      width: 200px;
+    }
+  }
+}
