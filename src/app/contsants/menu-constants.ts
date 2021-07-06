@@ -4,6 +4,14 @@ import { MenuItem } from '../interfaces/menu-item.interface';
 export const MENU_ITEMS: MenuItem[] = [
   {
     id: 0,
+    name: '.BY',
+    tag: '',
+    img: '../../../assets/menu-sluhay-logo.png',
+    description: 'белорусская',
+    addDescription: '.музыка',
+  },
+  {
+    id: 1,
     name: '.LIVE',
     tag: 'live',
     img: '../../../assets/menu-live-logo.png',
@@ -11,7 +19,7 @@ export const MENU_ITEMS: MenuItem[] = [
     addDescription: '.лайвы',
   },
   {
-    id: 1,
+    id: 2,
     name: '.ROCK',
     tag: 'rock',
     img: '../../../assets/menu-rock-logo.png',
@@ -19,7 +27,7 @@ export const MENU_ITEMS: MenuItem[] = [
     addDescription: '.смысл',
   },
   {
-    id: 2,
+    id: 3,
     name: '.POP',
     tag: 'pop',
     img: '../../../assets/menu-pop-logo.png',
@@ -28,7 +36,15 @@ export const MENU_ITEMS: MenuItem[] = [
   },
 
   {
-    id: 3,
+    id: 4,
+    name: '.EDM',
+    tag: 'edm',
+    img: '../../../assets/menu-edm-logo.png',
+    description: 'электронная',
+    addDescription: '.музыка',
+  },
+  {
+    id: 5,
     name: '.RAP',
     tag: 'rap',
     img: '../../../assets/menu-rap-logo.png',
