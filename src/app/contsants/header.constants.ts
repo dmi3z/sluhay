@@ -29,21 +29,26 @@ export const HEADER_ITEMS: HeaderItem[] = [
   },
   {
     id: 5,
+    name: 'mova',
+    tag: 'mova',
+  },
+  {
+    id: 6,
     name: 'музыканты',
     tag: 'musicions',
   },
   {
-    id: 6,
+    id: 7,
     name: 'поддержка проекта',
     tag: 'donates',
   },
   {
-    id: 7,
+    id: 8,
     name: 'подписка',
     tag: 'subscriptions',
   },
   {
-    id: 8,
+    id: 9,
     name: 'компании',
     tag: 'companies',
   },

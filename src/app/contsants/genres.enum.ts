@@ -5,5 +5,6 @@ export enum GENRES {
   EDM = 'edm',
   ALL = 'all',
   LIVE = 'live',
-  CHANNEL = 'channel'
+  CHANNEL = 'channel',
+  MOVA = 'mova',
 }
