@@ -1,12 +1,13 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'appProgress'
+  name: 'appProgress',
 })
-
 export class ProgressPipe implements PipeTransform {
-  private readonly MAX_COUNT = 12;
+  private readonly MAX_COUNT = 14;
   transform(counter: number): string {
-    return Math.round(((this.MAX_COUNT - counter) / this.MAX_COUNT) * 100) + '%';
+    return (
+      Math.round(((this.MAX_COUNT - counter) / this.MAX_COUNT) * 100) + '%'
+    );
   }
 }
