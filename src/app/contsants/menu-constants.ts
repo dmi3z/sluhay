@@ -56,8 +56,8 @@ export const MENU_ITEMS: MenuItem[] = [
     name: '.MOVA',
     tag: 'mova',
     img: '../../../assets/menu-mova-logo.png',
-    description: 'белорусские',
-    addDescription: '.песни',
+    description: 'на белорусском',
+    addDescription: '.языке',
   },
 ];
 
