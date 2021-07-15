@@ -51,6 +51,14 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'мастера',
     addDescription: '.слова',
   },
+  {
+    id: 6,
+    name: '.MOVA',
+    tag: 'mova',
+    img: '../../../assets/menu-mova-logo.png',
+    description: 'на белорусском',
+    addDescription: '.языке',
+  },
 ];
 
 export const MENU_PAGES: HeaderPage[] = [
