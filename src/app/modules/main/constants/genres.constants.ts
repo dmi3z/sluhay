@@ -27,9 +27,4 @@ export const GENRES_LIST: Genre[] = [
     value: GENRES.RAP,
     text: 'Rap',
   },
-  {
-    id: 1381,
-    value: GENRES.MOVA,
-    text: 'Mova',
-  },
 ];
