@@ -1,4 +1,4 @@
-<div class="menu">
+<div class="menu" [style.overflowY]="menuIsOpen ? 'scroll' : 'hidden'">
   <div class="menu__button" (click)="changeMenuStatus()">
     <span class="menu__button__icon">&equiv;</span>
     {{ menuBtnText }}

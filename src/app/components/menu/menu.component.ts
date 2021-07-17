@@ -26,6 +26,7 @@ export class MenuComponent implements OnInit {
 
   public changeMenuStatus(): void {
     this.menuIsOpen = !this.menuIsOpen;
+    document.body.style.overflow = this.menuIsOpen ? 'hidden' : 'auto';
     this.selectButtonName();
   }
 
