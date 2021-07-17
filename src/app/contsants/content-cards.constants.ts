@@ -41,7 +41,7 @@ export const CONTENT_CARDS: ContentCard[] = [
   {
     genre: GENRES.MOVA,
     text: 'на белорусском. языке',
-    url: 'http://sluhay.by/live/Ch034pub/index.m3u8',
+    url: 'http://93.189.224.26/live/Ch034pub/index.m3u8',
     id: 10976,
   },
 ];
